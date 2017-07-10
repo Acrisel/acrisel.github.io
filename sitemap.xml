@@ -5,28 +5,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>http://acrisel.github.io/</loc>
-<lastmod>2017-07-10T07:18:34-00:00</lastmod>
+<lastmod>2017-07-10T15:54:21-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://acrisel.github.io/archives.html</loc>
-<lastmod>2017-07-10T07:18:34-00:00</lastmod>
+<lastmod>2017-07-10T15:54:21-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://acrisel.github.io/tags.html</loc>
-<lastmod>2017-07-10T07:18:34-00:00</lastmod>
+<lastmod>2017-07-10T15:54:21-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>http://acrisel.github.io/categories.html</loc>
-<lastmod>2017-07-10T07:18:34-00:00</lastmod>
+<lastmod>2017-07-10T15:54:21-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -60,7 +60,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://acrisel.github.io/tag/automation.html</loc>
+<loc>http://acrisel.github.io/tag/python.html</loc>
 <lastmod>2017-07-09T23:01:44-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
@@ -74,7 +74,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://acrisel.github.io/tag/conversion.html</loc>
+<loc>http://acrisel.github.io/tag/information-technology.html</loc>
 <lastmod>2017-07-09T23:01:44-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
@@ -88,14 +88,14 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>http://acrisel.github.io/tag/python.html</loc>
+<loc>http://acrisel.github.io/tag/automation.html</loc>
 <lastmod>2017-07-09T23:01:44-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://acrisel.github.io/tag/information-technology.html</loc>
+<loc>http://acrisel.github.io/tag/conversion.html</loc>
 <lastmod>2017-07-09T23:01:44-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
