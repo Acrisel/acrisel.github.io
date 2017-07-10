@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom"><title>Acrisel's Community Blog</title><link href="http://acrisel.github.io/" rel="alternate"></link><link href="http://acrisel.github.io/feeds/all.atom.xml" rel="self"></link><id>http://acrisel.github.io/</id><updated>2017-07-09T23:01:44-05:00</updated><entry><title>cobol-conversion-take-1</title><link href="http://acrisel.github.io/posts/2017/07/cobol-conversion-take-1/" rel="alternate"></link><published>2017-07-09T23:01:44-05:00</published><updated>2017-07-09T23:01:44-05:00</updated><author><name>Acrisel Team</name></author><id>tag:acrisel.github.io,2017-07-09:/posts/2017/07/cobol-conversion-take-1/</id><summary type="html">&lt;div class="section" id="thinking-about-cobol-conversion"&gt;
+&lt;h2&gt;Thinking about Cobol Conversion?&lt;/h2&gt;
+&lt;p&gt;Acrisel team had vast experience in Cobol conversion.  We desided to share some of this knowledge with our comunity.&lt;/p&gt;
+&lt;div class="section" id="introduction"&gt;
+&lt;h3&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;Cobol is a structural language with many years of maturity. It was built for business use, and it is used as that for a few decades …&lt;/p&gt;&lt;/div&gt;&lt;/div&gt;</summary><content type="html">&lt;div class="section" id="thinking-about-cobol-conversion"&gt;
+&lt;h2&gt;Thinking about Cobol Conversion?&lt;/h2&gt;
+&lt;p&gt;Acrisel team had vast experience in Cobol conversion.  We desided to share some of this knowledge with our comunity.&lt;/p&gt;
+&lt;div class="section" id="introduction"&gt;
+&lt;h3&gt;Introduction&lt;/h3&gt;
+&lt;p&gt;Cobol is a structural language with many years of maturity. It was built for business use, and it is used as that for a few decades now. So why to move away from it?
+Let's start with that Cobol is a great language with many features for data processing. It is used in many core business processes. So core and critical that companies afraid to touch it due to the risk of impairing their business. Cobol has a solid environment for development, test, and run since late 50's.&lt;/p&gt;
+&lt;p&gt;So really, why to convert? There is plenty of information with conflicting advice to either stay with or move out of Cobol. Rather try to weigh in on such discussion, here are a few drivers that lead companies to consider moving on.&lt;/p&gt;
+&lt;p&gt;In reality, stay or convert is a business investment with long term vision. As such, it needs to be incorporated into your company's long-term business goals and objectives.&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;Continue reading&lt;/em&gt;: &lt;a class="reference external" href="http://www.acrisel.com/cobol-conversion"&gt;Thinging on Cobol Conversion&lt;/a&gt;.&lt;/p&gt;
+&lt;p&gt;Give us your feedback: &lt;a class="reference external" href="mailto:support&amp;#64;acrisel.com"&gt;support&amp;#64;acrisel.com&lt;/a&gt;&lt;/p&gt;
+&lt;/div&gt;
+&lt;/div&gt;
+</content><category term="Information Technology"></category><category term="Automation"></category><category term="Cobol"></category><category term="Conversion"></category><category term="Python"></category></entry><entry><title></title><link href="http://acrisel.github.io/posts/2017/07/welcome-all/" rel="alternate"></link><published>2017-07-09T10:20:00-05:00</published><updated>2017-07-09T18:40:00-05:00</updated><author><name>The Acrisel Team</name></author><id>tag:acrisel.github.io,2017-07-09:/posts/2017/07/welcome-all/</id><summary type="html">&lt;p class="first last"&gt;Short version for index and feeds&lt;/p&gt;
+</summary><content type="html">&lt;div class="section" id="welcome-u-all"&gt;
+&lt;h2&gt;Welcome U'All&lt;/h2&gt;
+&lt;p&gt;Welcome to Acrilse community blog.&lt;/p&gt;
+&lt;p&gt;The Acrisel Team will keep the blog updated with latest expeircens in different domains of software engineering.&lt;/p&gt;
+&lt;p&gt;The Acrisel Team reserves the right to suprise us with posts from other areas of life that the team finds interesting.&lt;/p&gt;
+&lt;p&gt;You can contact us ar &lt;a class="reference external" href="mailto:support&amp;#64;acrisel.com"&gt;support&amp;#64;acrisel.com&lt;/a&gt;
+Visti our website: &lt;a class="reference external" href="http://www.acrisel.com"&gt;http://www.acrisel.com&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;Keep tuned.&lt;/p&gt;
+&lt;/div&gt;
+</content><category term="info"></category></entry></feed>
