@@ -4,154 +4,154 @@ xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitem
 xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
-<loc>http://acrisel.github.io/</loc>
-<lastmod>2017-08-09T15:18:50-00:00</lastmod>
+<loc>https://acrisel.github.io/</loc>
+<lastmod>2017-08-09T15:44:21-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://acrisel.github.io/archives.html</loc>
-<lastmod>2017-08-09T15:18:50-00:00</lastmod>
+<loc>https://acrisel.github.io/archives.html</loc>
+<lastmod>2017-08-09T15:44:21-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://acrisel.github.io/tags.html</loc>
-<lastmod>2017-08-09T15:18:50-00:00</lastmod>
+<loc>https://acrisel.github.io/tags.html</loc>
+<lastmod>2017-08-09T15:44:21-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://acrisel.github.io/categories.html</loc>
-<lastmod>2017-08-09T15:18:50-00:00</lastmod>
+<loc>https://acrisel.github.io/categories.html</loc>
+<lastmod>2017-08-09T15:44:21-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://acrisel.github.io/posts/2017/08/print-directory-tree/</loc>
+<loc>https://acrisel.github.io/posts/2017/08/print-directory-tree/</loc>
 <lastmod>2017-08-09T23:01:44-05:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://acrisel.github.io/posts/2017/07/cobol-conversion-take-1/</loc>
+<loc>https://acrisel.github.io/posts/2017/07/cobol-conversion-take-1/</loc>
 <lastmod>2017-07-09T23:01:44-05:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://acrisel.github.io/posts/2017/07/welcome-all/</loc>
+<loc>https://acrisel.github.io/posts/2017/07/welcome-all/</loc>
 <lastmod>2017-07-09T18:40:00-05:00</lastmod>
 <changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://acrisel.github.io/category/information.html</loc>
+<loc>https://acrisel.github.io/category/information.html</loc>
 <lastmod>2017-07-09T18:40:00-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://acrisel.github.io/category/08.html</loc>
+<loc>https://acrisel.github.io/category/08.html</loc>
 <lastmod>2017-08-09T23:01:44-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://acrisel.github.io/category/07.html</loc>
+<loc>https://acrisel.github.io/category/07.html</loc>
 <lastmod>2017-07-09T23:01:44-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://acrisel.github.io/tag/unix.html</loc>
+<loc>https://acrisel.github.io/tag/python.html</loc>
 <lastmod>2017-08-09T23:01:44-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://acrisel.github.io/tag/linux.html</loc>
+<loc>https://acrisel.github.io/tag/os.html</loc>
 <lastmod>2017-08-09T23:01:44-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://acrisel.github.io/tag/cobol.html</loc>
+<loc>https://acrisel.github.io/tag/utilities.html</loc>
+<lastmod>2017-08-09T23:01:44-05:51</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://acrisel.github.io/tag/automation.html</loc>
 <lastmod>2017-07-09T23:01:44-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://acrisel.github.io/tag/automation.html</loc>
+<loc>https://acrisel.github.io/tag/conversion.html</loc>
 <lastmod>2017-07-09T23:01:44-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://acrisel.github.io/tag/utilities.html</loc>
+<loc>https://acrisel.github.io/tag/unix.html</loc>
 <lastmod>2017-08-09T23:01:44-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://acrisel.github.io/tag/information-technology.html</loc>
-<lastmod>2017-07-09T23:01:44-05:51</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://acrisel.github.io/tag/python.html</loc>
-<lastmod>2017-08-09T23:01:44-05:51</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://acrisel.github.io/tag/os.html</loc>
-<lastmod>2017-08-09T23:01:44-05:51</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>http://acrisel.github.io/tag/info.html</loc>
+<loc>https://acrisel.github.io/tag/info.html</loc>
 <lastmod>2017-07-09T18:40:00-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://acrisel.github.io/tag/conversion.html</loc>
+<loc>https://acrisel.github.io/tag/information-technology.html</loc>
 <lastmod>2017-07-09T23:01:44-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://acrisel.github.io/author/acrisel-team.html</loc>
+<loc>https://acrisel.github.io/tag/linux.html</loc>
 <lastmod>2017-08-09T23:01:44-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
-<loc>http://acrisel.github.io/author/the-acrisel-team.html</loc>
+<loc>https://acrisel.github.io/tag/cobol.html</loc>
+<lastmod>2017-07-09T23:01:44-05:51</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://acrisel.github.io/author/acrisel-team.html</loc>
+<lastmod>2017-08-09T23:01:44-05:51</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://acrisel.github.io/author/the-acrisel-team.html</loc>
 <lastmod>2017-07-09T18:40:00-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
