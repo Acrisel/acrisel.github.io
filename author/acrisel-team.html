@@ -8,7 +8,7 @@
     <meta name="author" content="Acrisel Team">
 
     <!-- Le styles -->
-    <link rel="stylesheet" href="../theme/css/bootstrap.min.css" type="text/css" />
+    <link rel="stylesheet" href="http://acrisel.github.io/theme/css/bootstrap.min.css" type="text/css" />
     <style type="text/css">
       body {
         padding-top: 60px;
@@ -30,10 +30,10 @@
         font-size: 6pt;
      }
     </style>
-    <link href="../theme/css/bootstrap-responsive.min.css" rel="stylesheet">
-        <link href="../theme/css/font-awesome.css" rel="stylesheet">
+    <link href="http://acrisel.github.io/theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="http://acrisel.github.io/theme/css/font-awesome.css" rel="stylesheet">
 
-    <link href="../theme/css/pygments.css" rel="stylesheet">
+    <link href="http://acrisel.github.io/theme/css/pygments.css" rel="stylesheet">
 
     <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
     <!--[if lt IE 9]>
@@ -41,12 +41,12 @@
     <![endif]-->
 
     <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="../favicon.ico">
-    <link rel="apple-touch-icon" href="../theme/images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="../theme/images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="../theme/images/apple-touch-icon-114x114.png">
+    <link rel="shortcut icon" href="http://acrisel.github.io/favicon.ico">
+    <link rel="apple-touch-icon" href="http://acrisel.github.io/theme/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="http://acrisel.github.io/theme/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="http://acrisel.github.io/theme/images/apple-touch-icon-114x114.png">
 
-    <link href="../" type="application/atom+xml" rel="alternate" title="Acrisel's Community Blog ATOM Feed" />
+    <link href="http://acrisel.github.io/" type="application/atom+xml" rel="alternate" title="Acrisel's Community Blog ATOM Feed" />
 
   </head>
 
@@ -60,23 +60,28 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="../index.html">Acrisel's Community Blog </a>
+          <a class="brand" href="http://acrisel.github.io/index.html">Acrisel's Community Blog </a>
           <div class="nav-collapse">
             <ul class="nav">
                           <li class="divider-vertical"></li>
                   <li >
-                    <a href="../category/information.html">
+                    <a href="http://acrisel.github.io/category/information.html">
 						<i class="icon-folder-open icon-large"></i>information
 					</a>
                   </li>
                   <li >
-                    <a href="../category/07.html">
+                    <a href="http://acrisel.github.io/category/08.html">
+						<i class="icon-folder-open icon-large"></i>08
+					</a>
+                  </li>
+                  <li >
+                    <a href="http://acrisel.github.io/category/07.html">
 						<i class="icon-folder-open icon-large"></i>07
 					</a>
                   </li>
 
                           <ul class="nav pull-right">
-                                <li><a href="../archives.html"><i class="icon-th-list"></i>Archives</a></li>
+                                <li><a href="http://acrisel.github.io/archives.html"><i class="icon-th-list"></i>Archives</a></li>
                           </ul>
 
             </ul>
@@ -90,24 +95,69 @@
       <div class="row">
         <div class="span9" id="content">
         <div class="article">
-                <h1><a href="../posts/2017/07/cobol-conversion-take-1/">Cobol Conversion Take 1</a></h1>
+                <h1><a href="http://acrisel.github.io/posts/2017/08/print-directory-tree/">Print Directory Tree</a></h1>
+                <div class="well small"><footer class="post-info">
+<span class="label">Date</span>
+<abbr class="published" title="2017-08-09T23:01:44-05:00">
+        <i class="icon-calendar"></i>Wed 09 August 2017
+</abbr>
+<span class="label">By</span>
+<a href="http://acrisel.github.io/author/acrisel-team.html"><i class="icon-user"></i>Acrisel Team</a>
+<span class="label">Category</span>
+<a href="http://acrisel.github.io/category/08.html"><i class="icon-folder-open"></i>08</a>.
+
+
+<span class="label">Tags</span>
+	<a href="http://acrisel.github.io/tag/os.html"><i class="icon-tag"></i>OS</a>
+	<a href="http://acrisel.github.io/tag/utilities.html"><i class="icon-tag"></i>Utilities</a>
+	<a href="http://acrisel.github.io/tag/linux.html"><i class="icon-tag"></i>Linux</a>
+	<a href="http://acrisel.github.io/tag/unix.html"><i class="icon-tag"></i>Unix</a>
+	<a href="http://acrisel.github.io/tag/python.html"><i class="icon-tag"></i>Python</a>
+</footer><!-- /.post-info --></div>
+                <div class="summary"><div class="section" id="print-directory-tree">
+<h2>Print Directory Tree</h2>
+<div class="section" id="mimicking-linux-tree-utility">
+<h3>Mimicking Linux Tree Utility</h3>
+<div class="section" id="introduction">
+<h4>Introduction</h4>
+<p>Many blogs are showing how to print directory tree using Python.
+Drawing from those examples, we built our version.  The primary drivers were:</p>
+<blockquote>
+<ol class="arabic simple">
+<li>Compatability with Python3</li>
+<li>Print symbolic links</li>
+<li>Limit depth of tree</li>
+</ol>
+</blockquote>
+</div>
+<div class="section" id="function-code">
+<h4>Function Code</h4>
+<blockquote>
+<dl class="docutils">
+<dt>I will refrain from going over the …</dt></dl></blockquote></div></div></div>
+                        <a class="btn primary xsmall" href="http://acrisel.github.io/posts/2017/08/print-directory-tree/">more ...</a>
+                </div>
+        </div>
+        <hr />
+        <div class="article">
+                <h1><a href="http://acrisel.github.io/posts/2017/07/cobol-conversion-take-1/">Cobol Conversion Take 1</a></h1>
                 <div class="well small"><footer class="post-info">
 <span class="label">Date</span>
 <abbr class="published" title="2017-07-09T23:01:44-05:00">
         <i class="icon-calendar"></i>Sun 09 July 2017
 </abbr>
 <span class="label">By</span>
-<a href="../author/acrisel-team.html"><i class="icon-user"></i>Acrisel Team</a>
+<a href="http://acrisel.github.io/author/acrisel-team.html"><i class="icon-user"></i>Acrisel Team</a>
 <span class="label">Category</span>
-<a href="../category/07.html"><i class="icon-folder-open"></i>07</a>.
+<a href="http://acrisel.github.io/category/07.html"><i class="icon-folder-open"></i>07</a>.
 
 
 <span class="label">Tags</span>
-	<a href="../tag/information-technology.html"><i class="icon-tag"></i>Information Technology</a>
-	<a href="../tag/automation.html"><i class="icon-tag"></i>Automation</a>
-	<a href="../tag/cobol.html"><i class="icon-tag"></i>Cobol</a>
-	<a href="../tag/conversion.html"><i class="icon-tag"></i>Conversion</a>
-	<a href="../tag/python.html"><i class="icon-tag"></i>Python</a>
+	<a href="http://acrisel.github.io/tag/information-technology.html"><i class="icon-tag"></i>Information Technology</a>
+	<a href="http://acrisel.github.io/tag/automation.html"><i class="icon-tag"></i>Automation</a>
+	<a href="http://acrisel.github.io/tag/cobol.html"><i class="icon-tag"></i>Cobol</a>
+	<a href="http://acrisel.github.io/tag/conversion.html"><i class="icon-tag"></i>Conversion</a>
+	<a href="http://acrisel.github.io/tag/python.html"><i class="icon-tag"></i>Python</a>
 </footer><!-- /.post-info --></div>
                 <div class="summary"><div class="section" id="thinking-about-cobol-conversion">
 <h2>Thinking about Cobol Conversion?</h2>
@@ -115,7 +165,7 @@
 <div class="section" id="introduction">
 <h3>Introduction</h3>
 <p>Cobol is a structural language with many years of maturity. It was built for business use, and it is used as that for a few decades now. So why …</p></div></div>
-                        <a class="btn primary xsmall" href="../posts/2017/07/cobol-conversion-take-1/">more ...</a>
+                        <a class="btn primary xsmall" href="http://acrisel.github.io/posts/2017/07/cobol-conversion-take-1/">more ...</a>
                 </div>
         </div>
         <hr />
@@ -133,12 +183,17 @@
 
 <li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
 <li>
-<a href="../category/information.html">
+<a href="http://acrisel.github.io/category/information.html">
     <i class="icon-folder-open icon-large"></i>information
 </a>
 </li>
 <li>
-<a href="../category/07.html">
+<a href="http://acrisel.github.io/category/08.html">
+    <i class="icon-folder-open icon-large"></i>08
+</a>
+</li>
+<li>
+<a href="http://acrisel.github.io/category/07.html">
     <i class="icon-folder-open icon-large"></i>07
 </a>
 </li>
@@ -168,7 +223,7 @@
 
     <!-- Le javascript -->
     <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../theme/js/jquery-1.7.2.min.js"></script>
-    <script src="../theme/js/bootstrap.min.js"></script>
+    <script src="http://acrisel.github.io/theme/js/jquery-1.7.2.min.js"></script>
+    <script src="http://acrisel.github.io/theme/js/bootstrap.min.js"></script>
   </body>
 </html>
