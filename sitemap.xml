@@ -5,29 +5,36 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://acrisel.github.io/</loc>
-<lastmod>2017-08-09T15:44:21-00:00</lastmod>
+<lastmod>2017-08-13T14:48:02-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://acrisel.github.io/archives.html</loc>
-<lastmod>2017-08-09T15:44:21-00:00</lastmod>
+<lastmod>2017-08-13T14:48:02-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://acrisel.github.io/tags.html</loc>
-<lastmod>2017-08-09T15:44:21-00:00</lastmod>
+<lastmod>2017-08-13T14:48:02-00:00</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://acrisel.github.io/categories.html</loc>
-<lastmod>2017-08-09T15:44:21-00:00</lastmod>
+<lastmod>2017-08-13T14:48:02-00:00</lastmod>
 <changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://acrisel.github.io/posts/2017/08/ordered-class/</loc>
+<lastmod>2017-08-12T23:01:44-05:00</lastmod>
+<changefreq>monthly</changefreq>
 <priority>0.5</priority>
 </url>
 
@@ -61,7 +68,7 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 
 <url>
 <loc>https://acrisel.github.io/category/08.html</loc>
-<lastmod>2017-08-09T23:01:44-05:51</lastmod>
+<lastmod>2017-08-12T23:01:44-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -74,21 +81,21 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://acrisel.github.io/tag/python.html</loc>
-<lastmod>2017-08-09T23:01:44-05:51</lastmod>
+<loc>https://acrisel.github.io/tag/metadata.html</loc>
+<lastmod>2017-08-12T23:01:44-05:51</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://acrisel.github.io/tag/information-technology.html</loc>
+<lastmod>2017-07-09T23:01:44-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://acrisel.github.io/tag/os.html</loc>
-<lastmod>2017-08-09T23:01:44-05:51</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://acrisel.github.io/tag/utilities.html</loc>
 <lastmod>2017-08-09T23:01:44-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
@@ -102,15 +109,8 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://acrisel.github.io/tag/conversion.html</loc>
-<lastmod>2017-07-09T23:01:44-05:51</lastmod>
-<changefreq>daily</changefreq>
-<priority>0.5</priority>
-</url>
-
-<url>
-<loc>https://acrisel.github.io/tag/unix.html</loc>
-<lastmod>2017-08-09T23:01:44-05:51</lastmod>
+<loc>https://acrisel.github.io/tag/tip.html</loc>
+<lastmod>2017-08-12T23:01:44-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
@@ -123,7 +123,28 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://acrisel.github.io/tag/information-technology.html</loc>
+<loc>https://acrisel.github.io/tag/conversion.html</loc>
+<lastmod>2017-07-09T23:01:44-05:51</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://acrisel.github.io/tag/utilities.html</loc>
+<lastmod>2017-08-09T23:01:44-05:51</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://acrisel.github.io/tag/python.html</loc>
+<lastmod>2017-08-12T23:01:44-05:51</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://acrisel.github.io/tag/cobol.html</loc>
 <lastmod>2017-07-09T23:01:44-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
@@ -137,15 +158,29 @@ xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 </url>
 
 <url>
-<loc>https://acrisel.github.io/tag/cobol.html</loc>
-<lastmod>2017-07-09T23:01:44-05:51</lastmod>
+<loc>https://acrisel.github.io/tag/trick.html</loc>
+<lastmod>2017-08-12T23:01:44-05:51</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://acrisel.github.io/tag/class.html</loc>
+<lastmod>2017-08-12T23:01:44-05:51</lastmod>
+<changefreq>daily</changefreq>
+<priority>0.5</priority>
+</url>
+
+<url>
+<loc>https://acrisel.github.io/tag/unix.html</loc>
+<lastmod>2017-08-09T23:01:44-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
 
 <url>
 <loc>https://acrisel.github.io/author/acrisel-team.html</loc>
-<lastmod>2017-08-09T23:01:44-05:51</lastmod>
+<lastmod>2017-08-12T23:01:44-05:51</lastmod>
 <changefreq>daily</changefreq>
 <priority>0.5</priority>
 </url>
