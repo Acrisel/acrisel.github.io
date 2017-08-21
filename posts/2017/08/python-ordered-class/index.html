@@ -3,7 +3,7 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Python Ordered Class</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="author" content="Acrisel Team">
@@ -65,12 +65,12 @@
           <div class="nav-collapse">
             <ul class="nav">
                           <li class="divider-vertical"></li>
-                  <li class="active">
+                  <li >
                     <a href="../../../../category/information.html">
 						<i class="icon-folder-open icon-large"></i>information
 					</a>
                   </li>
-                  <li >
+                  <li class="active">
                     <a href="../../../../category/08.html">
 						<i class="icon-folder-open icon-large"></i>08
 					</a>
@@ -101,8 +101,8 @@
                         <h1>
                                 <a href=""
                                         rel="bookmark"
-                                        title="Permalink to ">
-                                        
+                                        title="Permalink to Python Ordered Class">
+                                        Python Ordered Class
                                 </a>
                         </h1>
                 </header>
@@ -110,26 +110,110 @@
                 <div class="well">
 <footer class="post-info">
 <span class="label">Date</span>
-<abbr class="published" title="2017-07-09T10:20:00-05:00">
-        <i class="icon-calendar"></i>Sun 09 July 2017
+<abbr class="published" title="2017-08-12T23:01:44-05:00">
+        <i class="icon-calendar"></i>Sat 12 August 2017
 </abbr>
 <span class="label">By</span>
-<a href="../../../../author/the-acrisel-team.html"><i class="icon-user"></i>The Acrisel Team</a>
+<a href="../../../../author/acrisel-team.html"><i class="icon-user"></i>Acrisel Team</a>
 <span class="label">Category</span>
-<a href="../../../../category/information.html"><i class="icon-folder-open"></i>information</a>.
+<a href="../../../../category/08.html"><i class="icon-folder-open"></i>08</a>.
 
 
 <span class="label">Tags</span>
-	<a href="../../../../tag/info.html"><i class="icon-tag"></i>info</a>
+	<a href="../../../../tag/python.html"><i class="icon-tag"></i>Python</a>
+	<a href="../../../../tag/metadata.html"><i class="icon-tag"></i>Metadata</a>
+	<a href="../../../../tag/class.html"><i class="icon-tag"></i>Class</a>
+	<a href="../../../../tag/ordered.html"><i class="icon-tag"></i>Ordered</a>
+	<a href="../../../../tag/trick.html"><i class="icon-tag"></i>Trick</a>
+	<a href="../../../../tag/tip.html"><i class="icon-tag"></i>Tip</a>
 </footer><!-- /.post-info -->                </div>
-                <div class="section" id="welcome-u-all">
-<h2>Welcome U'All</h2>
-<p>Welcome to Acrilse community blog.</p>
-<p>The Acrisel Team will keep the blog updated with latest expeircens in different domains of software engineering.</p>
-<p>The Acrisel Team reserves the right to suprise us with posts from other areas of life that the team finds interesting.</p>
-<p>You can contact us ar <a class="reference external" href="mailto:support&#64;acrisel.com">support&#64;acrisel.com</a>
-Visti our website: <a class="reference external" href="http://www.acrisel.com">http://www.acrisel.com</a></p>
-<p>Keep tuned.</p>
+                <div class="section" id="python-ordered-class">
+<h2>Python Ordered Class</h2>
+<div class="section" id="maintain-ordered-of-fields-in-class">
+<h3>Maintain Ordered of Fields in Class</h3>
+<div class="section" id="introduction">
+<h4>Introduction</h4>
+<p>We saw many questions on the WEB regarding having Python class maintain order of its fields.  Reason being that __dict__ is dict, therefore, class doesn't register the order of the fields presented to it.</p>
+<p>We decided to share our version of such a class.</p>
+<p>We use OrderedClass were we need to maintain record like structure.  Such that when we package the record, it always packages the fields in the same order.</p>
+<p>It is also useful when comparing fields between objects.  Having fields being printed out in the same order is very useful.</p>
+<p>Keep in mind that without using OrderedDict, object __dict__ will print in order.  However, Python does not guarantee that order.  When using OrderedDict instead, order is guaranteed.</p>
+</div>
+<div class="section" id="orderedclass">
+<h4>OrderedClass</h4>
+<p>Using metaclass features of Python we can simply override __prepare__ returning OrderedDict object.</p>
+<blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
+
+<span class="k">class</span> <span class="nc">OrderedClassMeta</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span>
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span> <span class="nf">__prepare__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
+        <span class="k">return</span> <span class="n">OrderedDict</span><span class="p">()</span>
+
+<span class="k">class</span> <span class="nc">OrderedClass</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">OrderedClassMeta</span><span class="p">):</span>
+    <span class="k">pass</span>
+</pre></div>
+</td></tr></table></blockquote>
+</div>
+<div class="section" id="example-use">
+<h4>Example use</h4>
+<p>To use, we just inherent from OrderedClass instead of object.</p>
+<blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">(</span><span class="n">OrderedClass</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="o">=</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="o">=</span><span class="mi">2</span>
+
+<span class="k">class</span> <span class="nc">B</span><span class="p">(</span><span class="n">OrderedClass</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="o">=</span><span class="mi">2</span>
+</pre></div>
+</td></tr></table></blockquote>
+</div>
+<div class="section" id="examine-output">
+<h4>Examine Output</h4>
+<p>Printing the dictionaries of the above examples.</p>
+<blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="n">A</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+<span class="n">b</span><span class="o">=</span><span class="n">B</span><span class="p">()</span>
+<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+</pre></div>
+</td></tr></table><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+</pre></div>
+</td></tr></table></blockquote>
+</div>
+<div class="section" id="references">
+<h4>References</h4>
+<p>Python <a class="reference external" href="http://legacy.python.org/dev/peps/pep-0520/">PEP 520</a></p>
+<div class="line-block">
+<div class="line">Give us your feedback: <a class="reference external" href="mailto:support&#64;acrisel.com">support&#64;acrisel.com</a></div>
+<div class="line">Visit us at our <a class="reference external" href="http://www.acrisel.com">home</a></div>
+</div>
+</div>
+</div>
 </div>
 
                 </div><!-- /.entry-content -->
@@ -190,7 +274,7 @@ Visti our website: <a class="reference external" href="http://www.acrisel.com">h
 				>Post via email</button>
 
 		<!--
-			<a href="../../../../feeds/comment.welcome-all.atom.xml">
+			<a href="../../../../feeds/comment.python-ordered-class.atom.xml">
 				Comment Atom Feed
 			</a>
         -->
@@ -217,7 +301,7 @@ Visti our website: <a class="reference external" href="http://www.acrisel.com">h
 				function( event )
 				{
 					event.preventDefault();
-					$(location).attr('href', CommentSystem.getMailtoLink("welcome-all"));
+					$(location).attr('href', CommentSystem.getMailtoLink("python-ordered-class"));
 				}
 			);
 		});

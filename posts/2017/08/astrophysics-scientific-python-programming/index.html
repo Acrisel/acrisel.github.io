@@ -1,0 +1,667 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Astrophysics Research Python Programming</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Acrisel Team">
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="../../../../theme/css/bootstrap.min.css" type="text/css" />
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+      .tag-1 {
+        font-size: 13pt;
+      }
+      .tag-2 {
+        font-size: 10pt;
+      }
+      .tag-2 {
+        font-size: 8pt;
+      }
+      .tag-4 {
+        font-size: 6pt;
+     }
+    </style>
+    <link href="../../../../theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="../../../../theme/css/font-awesome.css" rel="stylesheet">
+
+    <link href="../../../../theme/css/pygments.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="apple-touch-icon" href="../../../../theme/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../../../../theme/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../../../../theme/images/apple-touch-icon-114x114.png">
+
+    <link href="../../../../" type="application/atom+xml" rel="alternate" title="Acrisel's Community Blog ATOM Feed" />
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="../../../../index.html">Acrisel's Community Blog </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+                          <li class="divider-vertical"></li>
+                  <li >
+                    <a href="../../../../category/information.html">
+						<i class="icon-folder-open icon-large"></i>information
+					</a>
+                  </li>
+                  <li class="active">
+                    <a href="../../../../category/08.html">
+						<i class="icon-folder-open icon-large"></i>08
+					</a>
+                  </li>
+                  <li >
+                    <a href="../../../../category/07.html">
+						<i class="icon-folder-open icon-large"></i>07
+					</a>
+                  </li>
+
+                          <ul class="nav pull-right">
+                                <li><a href="../../../../archives.html"><i class="icon-th-list"></i>Archives</a></li>
+                          </ul>
+
+            </ul>
+            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="span9" id="content">
+<section id="content">
+        <article>
+                <header>
+                        <h1>
+                                <a href=""
+                                        rel="bookmark"
+                                        title="Permalink to Astrophysics Research Python Programming">
+                                        Astrophysics Research Python Programming
+                                </a>
+                        </h1>
+                </header>
+                <div class="entry-content">
+                <div class="well">
+<footer class="post-info">
+<span class="label">Date</span>
+<abbr class="published" title="2017-08-20T09:01:44-05:00">
+        <i class="icon-calendar"></i>Sun 20 August 2017
+</abbr>
+<span class="label">By</span>
+<a href="../../../../author/acrisel-team.html"><i class="icon-user"></i>Acrisel Team</a>
+<span class="label">Category</span>
+<a href="../../../../category/08.html"><i class="icon-folder-open"></i>08</a>.
+
+
+<span class="label">Tags</span>
+	<a href="../../../../tag/science.html"><i class="icon-tag"></i>Science</a>
+	<a href="../../../../tag/automation.html"><i class="icon-tag"></i>Automation</a>
+	<a href="../../../../tag/academia.html"><i class="icon-tag"></i>Academia</a>
+	<a href="../../../../tag/astrophysics.html"><i class="icon-tag"></i>Astrophysics</a>
+	<a href="../../../../tag/research.html"><i class="icon-tag"></i>Research</a>
+	<a href="../../../../tag/python.html"><i class="icon-tag"></i>Python</a>
+</footer><!-- /.post-info -->                </div>
+                <div class="section" id="astrophysics-research-and-python-programming">
+<h2>Astrophysics Research and Python Programming</h2>
+<div class="section" id="the-productive-research">
+<h3>The Productive Research</h3>
+<div class="section" id="introduction">
+<h4>Introduction</h4>
+<p>Recently I helped a group of astrophysicists convert a set of IDL programs to Python. This set was to classify stars by analyzing ROTSE-I and ROTSE-III data. In this insert I would share the experience of moving IDL code to python. The insert is only attempt to cover interesting aspects that we encountered. At the same time, it serves as an encouragement to perform such migration. Python is a powerful tool. As a software architect I recognize the readability of Python programs, the vast libraries that one can tap on, and the large community that continues enrich its capabilities (scientific, WEB, network, you name it, its there).</p>
+<p>In fact, Python is being used for Data Analytics and Machine Learning; just google it around you will see many courses in the realm. So basically, with <a class="reference external" href="https://docs.scipy.org/doc/numpy/index.html">scipy</a>, <a class="reference external" href="http://www.numpy.org/">numpy</a>, <a class="reference external" href="http://pandas.pydata.org/">pandas</a>, <a class="reference external" href="https://matplotlib.org/">matplotlib</a>, and more, one can accomplish everything done with IDL and more.</p>
+</div>
+<div class="section" id="from-idl-to-python">
+<h4>From IDL to Python</h4>
+<p>IDL is a &quot;scientific programming language used across disciplines to extract meaningful visualizations from complex numerical data. With IDL you can interpret your data, expedite discoveries, and deliver powerful applications to market.&quot; It uses plenty vector and matrix computation. So we will have a lot of that with numpy computing techniques.</p>
+<div class="section" id="loading-fits-and-match">
+<h5>Loading FITS and MATCH</h5>
+<p>The first we have to be able to read the ROTSE-I and ROTSE-III data files.  There were three types of files.</p>
+<blockquote>
+<ol class="arabic simple">
+<li>.dat: MATCH structure</li>
+<li>.datc: compressed MATCH structure</li>
+<li>.fit: FITS structure</li>
+</ol>
+</blockquote>
+<p>Luckily, all these structures are readable natively by python packages. The following code insert shows how to read MATCH and FITS structured files.</p>
+<blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy.io</span> <span class="kn">import</span> <span class="n">readsav</span>
+<span class="kn">import</span> <span class="nn">pyfits</span>
+
+<span class="k">def</span> <span class="nf">read_fits_file</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span> <span class="n">fits_index</span><span class="o">=</span><span class="mi">1</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">hdus</span> <span class="o">=</span> <span class="n">pyfits</span><span class="o">.</span><span class="n">open</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span> <span class="n">memmap</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+        <span class="n">hdus_ext</span><span class="o">=</span><span class="n">hdus</span><span class="p">[</span><span class="n">fits_index</span><span class="p">]</span>
+        <span class="n">data</span><span class="o">=</span><span class="n">hdus_ext</span><span class="o">.</span><span class="n">data</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;cannot read fits data from file: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">file</span><span class="p">,))</span> <span class="kn">from</span> <span class="nn">e</span>
+    <span class="k">return</span> <span class="n">data</span>
+
+
+<span class="k">def</span> <span class="nf">read_match_file</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span> <span class="n">data</span><span class="o">=</span><span class="n">readsav</span><span class="p">(</span><span class="nb">file</span><span class="p">)[</span><span class="s1">&#39;match&#39;</span><span class="p">]</span>
+    <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;cannot read match data from file: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">file</span><span class="p">,))</span> <span class="kn">from</span> <span class="nn">e</span>
+    <span class="k">return</span> <span class="n">data</span>
+</pre></div>
+</td></tr></table></blockquote>
+<p>The above code uses two packages <a class="reference external" href="https://docs.scipy.org/doc/scipy-0.19.1/reference/io.html">scipy.io</a> and <a class="reference external" href="https://pythonhosted.org/pyfits/">pyfits</a>, which provides the actual loading of the structures. Note that <em>readsav</em> reads both .dat and .datc files.</p>
+<p>The type of the resulting data is of type <a class="reference external" href="recarray__">numpy.recarry</a>.  Elements of recarray can be accessed via name either by the '.' or '[]' notation.</p>
+<p>It is easy to have a general purpose reader by having a routing function as follows:</p>
+<blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_data_file</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span> <span class="n">fits_index</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">tmpdir</span><span class="o">=</span><span class="s1">&#39;/tmp&#39;</span><span class="p">):</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="nb">file</span><span class="p">):</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;file not found: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">file</span><span class="p">,))</span>
+
+    <span class="n">file_ext</span><span class="o">=</span><span class="nb">file</span><span class="o">.</span><span class="n">rpartition</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">file_ext</span><span class="o">==</span><span class="s1">&#39;fit&#39;</span><span class="p">:</span>
+        <span class="n">data</span><span class="o">=</span><span class="n">read_fits_file</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span> <span class="n">fits_index</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span> <span class="c1"># assume MATCH</span>
+        <span class="n">data</span><span class="o">=</span><span class="n">read_match_file</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">data</span>
+</pre></div>
+</td></tr></table></blockquote>
+<p>Obviously, this is good only if the next processing steps takes into account differences between the two structures. For example, MATCH structure have a STAT field that is not part of FITS structute.</p>
+<blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span> <span class="n">stat</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="s1">&#39;STAT&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="k">except</span><span class="p">:</span> <span class="n">stat</span><span class="o">=</span><span class="bp">None</span> <span class="c1"># assume not a MATCH file</span>
+</pre></div>
+</td></tr></table></blockquote>
+</div>
+<div class="section" id="where-statement">
+<h5>Where statement</h5>
+<p>IDL programs take advantage of IDL's <em>where_</em> statement. It will look something like follows:</p>
+<blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">select_indexes</span> <span class="o">=</span> <span class="n">where</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">flags</span><span class="p">[</span><span class="o">*</span><span class="p">,</span><span class="n">ptr</span><span class="p">]</span> <span class="n">gt</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="err">$</span>
+    <span class="n">check_flags</span><span class="p">(</span><span class="n">ref_vflag</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">flags</span><span class="p">[</span><span class="o">*</span><span class="p">,</span><span class="n">ptr</span><span class="p">],</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;STYPE&#39;</span><span class="p">)</span> <span class="n">eq</span> <span class="mi">0</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></blockquote>
+<p>The above statement is pretty loaded in functionality.  In essence, the expected result are indexes into the vector data.values[<em>,k] that adheres to two conditions: the need to be greater than -1; and the result for the function *check_value</em> to be zero.</p>
+<blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="kn">as</span> <span class="nn">np</span>
+
+<span class="c1"># assum data is a MATCH or FITS data structure</span>
+<span class="c1"># and that check_flag function is defined for ref_flag and</span>
+<span class="n">flags</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="s1">&#39;FLAGS&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">check_flags_v</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="k">lambda</span> <span class="n">flag</span><span class="p">:</span> <span class="n">check_flag</span><span class="p">(</span><span class="n">ref_flag</span><span class="p">,</span> <span class="n">flag</span><span class="p">)</span> <span class="o">==</span><span class="mi">0</span><span class="p">)</span>
+<span class="n">cond</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span> <span class="p">(</span><span class="n">flags</span><span class="p">[</span><span class="n">ptr</span><span class="p">,:]</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
+                             <span class="n">check_flags_v</span><span class="p">(</span><span class="n">flags</span><span class="p">[</span><span class="n">ptr</span><span class="p">,:]),</span> <span class="p">),</span> <span class="p">)</span>
+<span class="n">select_indexes</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">where</span><span class="p">(</span><span class="n">cond</span><span class="p">);</span> <span class="n">select_indexes</span><span class="o">=</span><span class="n">select_indexes</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</td></tr></table></blockquote>
+<dl class="docutils">
+<dt>To match IDL with Python, we are using four distinct numpy functions.</dt>
+<dd><ol class="first last arabic simple">
+<li><em>vectorize</em> transforms a vector by applying a function on its elements.</li>
+<li><em>logical_and</em> and <em>reduce</em>: applys logical test to vector element transforming it to boolean vector.</li>
+<li><em>where</em>: return indices of those element set to True.</li>
+</ol>
+</dd>
+</dl>
+<p>An important note is that IDL matrix indices are in opposite order to that of numpy.</p>
+<p>From here on we will assume <em>np</em> stands for numpy imported as np.</p>
+<p>Just to clarify, numpy performs operation on arrays. For example, assuming <em>merr</em> and <em>msys</em> are arrays of the same size, the following will produce a new array which each element is the square root of the squared sum of related elements. Obviously, a more sophisticated computation can be deployed.</p>
+<blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">merr</span><span class="o">**</span><span class="mf">2.0</span> <span class="o">+</span> <span class="n">msys</span><span class="o">**</span><span class="mf">2.0</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></blockquote>
+</div>
+<div class="section" id="hierarchical-record-array-initialization">
+<h5>Hierarchical record array initialization</h5>
+<p>IDL's <em>create_struct_</em> is being used to create records with fields accessible by name.
+It's parallel in numpy realm is <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.recarray.html">recarray</a>.</p>
+<p>The following code set shows how to create recarray structure with default values. Starting with the definition of the records' fields, field_map.  it is built as a list of tuple, each describe a name a field, a type, and a default value.</p>
+<blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">field_map</span><span class="o">=</span><span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;distance&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;posangle&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;phot&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;photerror&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">),]</span>
+</pre></div>
+</td></tr></table></blockquote>
+<p>Next, base on the above mapping, <em>create_structured_vector</em> would create the records' data type and a vector[size] with elements of the desired data type.</p>
+<blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">create_structured_vector</span><span class="p">(</span><span class="n">size</span><span class="p">,</span> <span class="n">field_map</span><span class="p">,</span> <span class="n">copy</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="n">dts</span><span class="o">=</span><span class="nb">list</span><span class="p">()</span>
+    <span class="k">for</span> <span class="n">name</span><span class="p">,</span> <span class="n">type_</span><span class="p">,</span> <span class="n">_</span> <span class="ow">in</span> <span class="n">field_map</span><span class="p">:</span>
+        <span class="n">dts</span><span class="o">.</span><span class="n">append</span><span class="p">(</span> <span class="p">(</span><span class="n">name</span><span class="p">,</span> <span class="n">type_</span><span class="p">,)</span> <span class="p">)</span>
+    <span class="n">dtype</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">dtype</span><span class="p">(</span><span class="n">dts</span><span class="p">)</span>
+
+    <span class="n">values</span><span class="o">=</span><span class="p">[</span><span class="nb">tuple</span><span class="p">([</span><span class="n">value</span> <span class="k">if</span> <span class="ow">not</span> <span class="n">copy</span> <span class="k">else</span> <span class="n">np</span><span class="o">.</span><span class="n">copy</span><span class="p">(</span><span class="n">value</span><span class="p">)</span>
+                   <span class="k">for</span> <span class="n">_</span><span class="p">,</span> <span class="n">_</span><span class="p">,</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">field_map</span><span class="p">])</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">size</span><span class="p">)]</span>
+    <span class="n">array</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">rec</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">values</span><span class="p">,</span> <span class="n">dtype</span><span class="o">=</span><span class="n">dtype</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">array</span><span class="p">,</span> <span class="n">dtype</span>
+</pre></div>
+</td></tr></table></blockquote>
+<p>The copy option of <em>create_structured_vector</em>, if set, tells it to copy the default values. This is useful in case the default value is a structure by itself.</p>
+<p>Note that the function returns a tuple of the generated array and the created type. This is useful in case further association of this data type is required.</p>
+<p>This method could be extended to handle any array shape, not just vectors.</p>
+</div>
+<div class="section" id="plotting">
+<h5>Plotting</h5>
+<p>IDL's plot capability can be achieved using <em>matplotlib</em> and <em>pandas's</em> dataframe.plot. These tools are rich with features and easy to use.</p>
+<p>The original IDL code we were porting was built creating postscript documents. Using matplotlib we switched to PDF.</p>
+<p>Here is an example how to print few drawing per page. We start with importing and setting matpolotlib for PDF plotting.</p>
+<blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;PDF&#39;</span><span class="p">)</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib.backends.backend_pdf</span> <span class="kn">import</span> <span class="n">PdfPages</span>
+</pre></div>
+</td></tr></table></blockquote>
+<p>Next, we define subplot on a page organized by 3 rows of 2 figure each.
+Assuming that data is a list of tuples (title, values), we</p>
+<blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">pdf</span><span class="o">=</span><span class="n">PdfPages</span><span class="p">(</span><span class="s1">&#39;pdffile.pdf&#39;</span><span class="p">)</span>
+
+<span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
+
+    <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="mi">6</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span> <span class="c1"># first in a page</span>
+        <span class="n">fig</span><span class="p">,</span> <span class="n">axarr</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">11</span><span class="p">,</span> <span class="mf">8.5</span><span class="p">))</span>
+
+    <span class="c1"># data = [(title, x-values, y-values), ...]</span>
+    <span class="n">k</span><span class="o">=</span><span class="n">i</span><span class="o">%</span><span class="mi">6</span><span class="p">;</span>
+    <span class="n">fig</span><span class="o">=</span><span class="n">axarr</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">k</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="n">k</span><span class="o">-</span><span class="nb">int</span><span class="p">(</span><span class="n">k</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="p">]</span>
+    <span class="n">title</span><span class="p">,</span> <span class="n">x_values</span><span class="p">,</span> <span class="n">y_values</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">y_values</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="mi">6</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span> <span class="c1"># last in a page</span>
+        <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">w_pad</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">h_pad</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
+        <span class="n">pdf</span><span class="o">.</span><span class="n">savefig</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="n">pdf</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></blockquote>
+</div>
+<div class="section" id="moment">
+<h5>Moment</h5>
+<p><em>moment</em> is an IDL function that provides in a single call 4 statistical calculations. <em>moment</em> returns a four-element vector containing the mean, variance, skewness, and kurtosis of the input vector.</p>
+<p>Similar functionality can be accomplish using numpy and scipy.</p>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6
+7
+8
+9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+
+<span class="k">def</span> <span class="nf">moment</span><span class="p">(</span><span class="n">value_vec</span><span class="p">)</span>
+    <span class="n">mean</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">value_vec</span><span class="p">)</span>
+    <span class="n">sdev</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sqrt</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">var</span><span class="p">(</span><span class="n">value_vec</span><span class="p">))</span>
+    <span class="n">skew</span><span class="o">=</span><span class="n">stats</span><span class="o">.</span><span class="n">skew</span><span class="p">(</span><span class="n">value_vec</span><span class="p">)</span>
+    <span class="n">vkurt</span><span class="o">=</span><span class="n">stats</span><span class="o">.</span><span class="n">kurtosis</span><span class="p">(</span><span class="n">value_vec</span><span class="p">)</span>
+
+    <span class="k">return</span> <span class="n">mean</span><span class="p">,</span> <span class="n">sdev</span><span class="p">,</span> <span class="n">skew</span><span class="p">,</span> <span class="n">vkurt</span>
+</pre></div>
+</td></tr></table><p>scipy's <em>stats_</em> has many other shortcut computations that are worth a while to look at. In reality, it is rare that one needs all four computational elements. Therefore, it is better to engage with the specific functions as needed instead of using moment().</p>
+</div>
+</div>
+<div class="section" id="store-and-recover">
+<h4>Store and Recover</h4>
+<p>It can be quite annoying to debug the last step in a multi-steps analytic were each step is a computation taking a long time. Well, once you pass the first step, debugging each consequent step can be annoying.</p>
+<p>What you want to do is to keep state of the multi-step process such that data would be stored after each completed step. That will allow you to jump into the step being debugged immediately.</p>
+<p>A simple mechanism to do that is to store the dataset at the end of each step. Before the step starts, the program can check if a result is stored for that step. If so, it recovers and skips the step.</p>
+<p>There needs to be a few flags for a program that does that. One --recoverable to enable the mechanism to store datasets. --recover to enable loading previously stored recovery datasets. Also, --recdir to set location for recovery datasets (obviously naming is merely a suggestion).</p>
+<blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">step_1_var_rec</span><span class="o">=</span><span class="bp">None</span><span class="p">;</span> <span class="n">step_var_1</span><span class="o">=</span><span class="bp">None</span>
+<span class="k">if</span> <span class="n">recoverable</span><span class="p">:</span>
+    <span class="n">step_1_var_rec</span><span class="o">=</span><span class="n">Recovery</span><span class="p">(</span><span class="s1">&#39;step_var_1&#39;</span><span class="p">,</span> <span class="n">match_file</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">recover</span><span class="p">:</span>
+        <span class="n">step_var_1</span><span class="o">=</span><span class="n">step_1_var_rec</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
+</pre></div>
+</td></tr></table><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="n">step_1_var_rec</span> <span class="ow">and</span> <span class="n">step_var_1</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+    <span class="n">step_1_var_rec</span><span class="o">.</span><span class="n">store</span><span class="p">(</span><span class="n">step_var_1</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></blockquote>
+<p>The code for <em>Recovery</em> shown here is a bit elaborated. Its sophistication arises from that it automates recovery based on time comparison of a source file (<em>assoc_path</em>) and the recoverable storage. This is done in the load function.</p>
+<blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Recovery</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">assoc_path</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">assoc_path</span><span class="o">=</span><span class="n">assoc_path</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="o">=</span><span class="n">name</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">obj_file</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_obj_file</span><span class="p">(</span><span class="n">location</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">get_obj_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+        <span class="n">result</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">assoc_path</span><span class="o">+</span><span class="s1">&#39;.</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+        <span class="k">if</span> <span class="n">location</span><span class="p">:</span>
+            <span class="n">name</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
+            <span class="n">result</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">location</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">result</span>
+
+    <span class="k">def</span> <span class="nf">load</span><span class="p">(</span><span class="bp">self</span><span class="p">,):</span>
+        <span class="n">obj</span><span class="o">=</span><span class="bp">None</span>
+        <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">match_file</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">obj_file</span><span class="p">):</span>
+                <span class="n">obj_file_m_time</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getmtime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">obj_file</span><span class="p">)</span>
+                <span class="n">assoc_path_m_time</span><span class="o">=</span><span class="mi">0</span>
+                <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">assoc_path</span><span class="p">)</span> <span class="ow">or</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isdir</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">assoc_path</span><span class="p">):</span>
+                    <span class="n">assoc_path_m_time</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getmtime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">assoc_path</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">assoc_path_m_time</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">obj_file_m_time</span> <span class="o">&gt;=</span> <span class="n">assoc_path_m_time</span><span class="p">:</span>
+                    <span class="c1"># not a new file, read goodobj from file</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Recovering </span><span class="si">%s</span><span class="s2"> from </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj_file</span><span class="p">))</span>
+                    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">obj_file</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                        <span class="n">obj</span><span class="o">=</span><span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">obj</span>
+
+    <span class="k">def</span> <span class="nf">store</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Storing </span><span class="si">%s</span><span class="s2"> into </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj_file</span><span class="p">))</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">obj_file</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+            <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></blockquote>
+</div>
+<div class="section" id="interesting-astrophysics-packages">
+<h4>Interesting astrophysics packages</h4>
+<p>Through the work, we ran into two Python packages for astronomy.</p>
+<p><a class="reference external" href="http://www.astropy.org/">Astropy</a>: &quot;A Community Python Library for Astronomy.&quot;</p>
+<p><a class="reference external" href="http://www.hs.uni-hamburg.de/DE/Ins/Per/Czesla/PyA/PyA/index.html">PyAstronomy</a>: &quot;A collection of astronomy related packages.&quot;</p>
+<p>These packages contain plenty of easy to use functionality. However, be cautious when using in high volume processing. Not all computations may meet your need for performance. For example, we had to rewrite IDL's <em>SIXTY_</em> instead of using an already made solution in these libraries. Only a scaled down version meet our performance needs.</p>
+</div>
+<div class="section" id="references">
+<h4>References</h4>
+<p><a class="reference external" href="http://www.johnny-lin.com/cdat_tips/tips_array/idl2num.html">IDL to Numeric/numarray Mapping</a></p>
+<p><a class="reference external" href="http://mathesaurus.sourceforge.net/idl-numpy.html">NumPy for IDL users</a></p>
+<p><a class="reference external" href="http://blog.rtwilson.com/ten-little-idl-programs-in-python/">Ten Little IDL programs in Python</a></p>
+<p><a class="reference external" href="https://idlastro.gsfc.nasa.gov/">The IDL Astronomy User's Library</a></p>
+<p><a class="reference external" href="http://www.harrisgeospatial.com/ProductsandTechnology/Software/IDL.aspx">HARRIS's IDL</a></p>
+<p>Give us your feedback: <a class="reference external" href="mailto:support&#64;acrisel.com">support&#64;acrisel.com</a></p>
+</div>
+</div>
+</div>
+
+                </div><!-- /.entry-content -->
+                	<style>
+#pcs-comment-form input,
+#pcs-comment-form textarea {
+	width: 100%;
+}
+#pcs-comment-form-display-replyto {
+	border: solid 1px black;
+	padding: 2px;
+}
+#pcs-comment-form-display-replyto p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+#pcs-comments ul {
+	list-style: none;
+}
+#pcs-comments .comment-left {
+	display: table-cell;
+	padding-right: 10px;
+}
+#pcs-comments .comment-body {
+	display: table-cell;
+	vertical-align: top;
+	width: 100%;
+}
+</style>
+
+	<section id="pcs-comments">
+	<header>
+		<h2>Comments</h2>
+		<hr/>
+	</header>
+		<p>There are no comments yet.</p>
+	<section>
+	<form id="pcs-comment-form" action="#">
+		<legend>Add a Comment</legend>
+		<input type="hidden" id="pcs-comment-form-input-replyto">
+		<fieldset>
+			<label for="pcs-comment-form-input-name">Name</label>
+			<input  id="pcs-comment-form-input-name" type="text" placeholder="Enter your name or nickname" />
+		</fieldset>
+		<fieldset>
+			<label for="pcs-comment-form-input-website">Website</label>
+			<input  id="pcs-comment-form-input-website" type="text" placeholder="Enter your website (optional)" />
+		</fieldset>
+		<fieldset>
+			<label   for="pcs-comment-form-input-textarea">Your Comment</label>
+			<textarea id="pcs-comment-form-input-textarea" rows="5" style="resize:vertical;" placeholder="Your comment"></textarea>
+			<p>You can use the <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> syntax to format your comment.</p>
+			<div style="display: none; " id="pcs-comment-form-display-replyto"></div>
+		</fieldset>
+
+		<button type="submit"
+				id="pcs-comment-form-button-submit"
+				>Post via email</button>
+
+		<!--
+			<a href="../../../../feeds/comment.astrophysics-scientific-python-programming.atom.xml">
+				Comment Atom Feed
+			</a>
+        -->
+	</form>
+</section>
+
+</section>
+
+			<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="../../../../theme/js/comments.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			CommentSystem.email_user   = "support";
+			CommentSystem.email_domain = "acrisel.com";
+			CommentSystem.display_replyto_html = function(comment_content, article_slug, author) {
+				return ''
+					+ '<button style="float:right;" onclick="CommentSystem.cancelReply(); return false;" title="Cancel the reply">'
+					+ 	'×'
+					+ '</button>'
+					+ '<p>This comment will be posted as a reply to \'<a title="'+comment_content+'" href="#comment-'+article_slug+'">'+author+'</a>\'</p>';
+			};
+
+			$('#pcs-comment-form').on("submit",
+				function( event )
+				{
+					event.preventDefault();
+					$(location).attr('href', CommentSystem.getMailtoLink("astrophysics-scientific-python-programming"));
+				}
+			);
+		});
+	</script>
+
+
+        </article>
+</section>
+        </div><!--/span-->
+
+                <div class="span3 well sidebar-nav" id="sidebar">
+<ul class="nav nav-list">
+<li class="nav-header"><h4><i class="icon-external-link"></i>blogroll</h4></li>
+    <li><a href="http://www.acrisel.com/"><i class="icon-external-link"></i>Acrisel</a></li>
+    <li><a href="http://www.github.com/acrisel"><i class="icon-external-link"></i>Acrisel Open Source</a></li>
+    <li><a href="http://getpelican.com/"><i class="icon-external-link"></i>Pelican</a></li>
+    <li><a href="http://python.org/"><i class="icon-external-link"></i>Python.org</a></li>
+    <li><a href="http://jinja.pocoo.org/"><i class="icon-external-link"></i>Jinja2</a></li>
+
+<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
+<li>
+<a href="../../../../category/information.html">
+    <i class="icon-folder-open icon-large"></i>information
+</a>
+</li>
+<li>
+<a href="../../../../category/08.html">
+    <i class="icon-folder-open icon-large"></i>08
+</a>
+</li>
+<li>
+<a href="../../../../category/07.html">
+    <i class="icon-folder-open icon-large"></i>07
+</a>
+</li>
+
+<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
+
+
+</ul>        </div><!--/.well -->
+
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <address id="about">
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican <i class="icon-external-link"></i></a>,
+                                which takes great advantage of <a href="http://python.org">Python <i class="icon-external-link"></i></a>.
+        </address><!-- /#about -->
+
+        <p>The theme is from <a href="http://twitter.github.com/bootstrap/">Bootstrap from Twitter <i class="icon-external-link"></i></a>,
+                   and <a href="http://fortawesome.github.com/Font-Awesome/">Font-Awesome <i class="icon-external-link"></i></a>, thanks!</p>
+
+        <p>Copyright ©  <a href="http://www.acrisel.com/">Acrisel <i class="icon-external-link"></i></a></p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+
+
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../../../theme/js/jquery-1.7.2.min.js"></script>
+    <script src="../../../../theme/js/bootstrap.min.js"></script>
+  </body>
+</html>
