@@ -1,0 +1,396 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>SSH Made Easy Using Python Subprocess</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="author" content="Acrisel Team">
+
+    <!-- Le styles -->
+    <link rel="stylesheet" href="../../../../theme/css/bootstrap.min.css" type="text/css" />
+    <style type="text/css">
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+      }
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+      .tag-1 {
+        font-size: 13pt;
+      }
+      .tag-2 {
+        font-size: 10pt;
+      }
+      .tag-2 {
+        font-size: 8pt;
+      }
+      .tag-4 {
+        font-size: 6pt;
+     }
+    </style>
+    <link href="../../../../theme/css/bootstrap-responsive.min.css" rel="stylesheet">
+        <link href="../../../../theme/css/font-awesome.css" rel="stylesheet">
+
+    <link href="../../../../theme/css/pygments.css" rel="stylesheet">
+
+    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
+    <!--[if lt IE 9]>
+      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+
+    <!-- Le fav and touch icons -->
+    <link rel="shortcut icon" href="../../../../favicon.ico">
+    <link rel="apple-touch-icon" href="../../../../theme/images/apple-touch-icon.png">
+    <link rel="apple-touch-icon" sizes="72x72" href="../../../../theme/images/apple-touch-icon-72x72.png">
+    <link rel="apple-touch-icon" sizes="114x114" href="../../../../theme/images/apple-touch-icon-114x114.png">
+
+    <link href="../../../../" type="application/atom+xml" rel="alternate" title="Acrisel's Community Blog ATOM Feed" />
+
+  </head>
+
+  <body>
+
+    <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+        <div class="container-fluid">
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+          <a class="brand" href="../../../../index.html">Acrisel's Community Blog </a>
+          <div class="nav-collapse">
+            <ul class="nav">
+                          <li class="divider-vertical"></li>
+                  <li >
+                    <a href="../../../../category/information.html">
+						<i class="icon-folder-open icon-large"></i>information
+					</a>
+                  </li>
+                  <li class="active">
+                    <a href="../../../../category/08.html">
+						<i class="icon-folder-open icon-large"></i>08
+					</a>
+                  </li>
+                  <li >
+                    <a href="../../../../category/07.html">
+						<i class="icon-folder-open icon-large"></i>07
+					</a>
+                  </li>
+
+                          <ul class="nav pull-right">
+                                <li><a href="../../../../archives.html"><i class="icon-th-list"></i>Archives</a></li>
+                          </ul>
+
+            </ul>
+            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
+          </div><!--/.nav-collapse -->
+        </div>
+      </div>
+    </div>
+
+    <div class="container-fluid">
+      <div class="row">
+        <div class="span9" id="content">
+<section id="content">
+        <article>
+                <header>
+                        <h1>
+                                <a href=""
+                                        rel="bookmark"
+                                        title="Permalink to SSH Made Easy Using Python Subprocess">
+                                        SSH Made Easy Using Python Subprocess
+                                </a>
+                        </h1>
+                </header>
+                <div class="entry-content">
+                <div class="well">
+<footer class="post-info">
+<span class="label">Date</span>
+<abbr class="published" title="2017-08-22T23:12:44-05:00">
+        <i class="icon-calendar"></i>Tue 22 August 2017
+</abbr>
+<span class="label">By</span>
+<a href="../../../../author/acrisel-team.html"><i class="icon-user"></i>Acrisel Team</a>
+<span class="label">Category</span>
+<a href="../../../../category/08.html"><i class="icon-folder-open"></i>08</a>.
+
+
+<span class="label">Tags</span>
+	<a href="../../../../tag/python.html"><i class="icon-tag"></i>Python</a>
+	<a href="../../../../tag/ssh.html"><i class="icon-tag"></i>SSH</a>
+	<a href="../../../../tag/subprocess.html"><i class="icon-tag"></i>subprocess</a>
+	<a href="../../../../tag/distributed.html"><i class="icon-tag"></i>distributed</a>
+	<a href="../../../../tag/cluster.html"><i class="icon-tag"></i>cluster</a>
+</footer><!-- /.post-info -->                </div>
+                <div class="section" id="ssh-made-easy-using-python">
+<h2>SSH Made Easy using Python</h2>
+<div class="section" id="subprocess-module">
+<h3>Subprocess Module</h3>
+<div class="section" id="synopsis">
+<h4>Synopsis</h4>
+<p>Python's subprocess module makes it easy to invoke external commands on localhost.  It can also use SSH to invoke commands on remote hosts.</p>
+</div>
+<div class="section" id="how-simple">
+<h4>How simple?</h4>
+<p>The short answer is, very simple!</p>
+<p>The longer answer is, subprocess.run, as follows:</p>
+<blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;ssh&quot;</span><span class="p">,</span> <span class="s2">&quot;some-host@some-user&quot;</span><span class="p">,</span> <span class="s2">&quot;some-command&quot;</span><span class="p">],</span>
+                        <span class="n">shell</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                        <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+                        <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+                        <span class="n">check</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></blockquote>
+</div>
+<div class="section" id="prerequisites">
+<h4>Prerequisites</h4>
+<p>For subprocess ssh-run to work, ssh configuration needs to be in place. This means that:</p>
+<blockquote>
+<ol class="arabic">
+<li><p class="first">ssh-keygen on originating machine</p>
+</li>
+<li><p class="first">ssh-copy-id to the target machine into the target account's .ssh/authorized_keys</p>
+</li>
+<li><p class="first">optional: create .ssh/config for easier ssh call</p>
+</li>
+<li><p class="first">optional: use <em>command</em> in target .ssh/authorized_keys to allow proper setup, if needed.</p>
+<blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="p">:</span>
+
+<span class="n">command</span> <span class="s2">&quot;if [[ </span><span class="se">\&quot;</span><span class="s2">x${SSH_ORIGINAL_COMMAND}x</span><span class="se">\&quot;</span><span class="s2"> != </span><span class="se">\&quot;</span><span class="s2">xx</span><span class="se">\&quot;</span><span class="s2"> ]]; then source ~/.bash; eval </span><span class="se">\&quot;</span><span class="s2">${SSH_ORIGINAL_COMMAND}</span><span class="se">\&quot;</span><span class="s2">; else /bin/bash --login; fi;&quot;</span> <span class="o">&lt;</span><span class="n">ssh_key</span><span class="o">&gt;</span>
+</pre></div>
+</td></tr></table></blockquote>
+</li>
+</ol>
+</blockquote>
+</div>
+<div class="section" id="wrapper">
+<h4>Wrapper</h4>
+<blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sshcmd</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+    <span class="sd">&#39;&#39;&#39; Runs ssh command via subprocess.  Assuming .ssh/config is configured.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        host: target host to send the command to</span>
+<span class="sd">        command: command to run on the host</span>
+<span class="sd">        user: (optional) user to use to login to host</span>
+<span class="sd">        check: (optional) pass to *subprocess.run*; if set, checks return code</span>
+<span class="sd">            and raises subprocess.CalledProcessError, if none-zero result</span>
+
+<span class="sd">    Returns:</span>
+<span class="sd">        subprocess.CompletedProcess object</span>
+<span class="sd">    &#39;&#39;&#39;</span>
+
+    <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">host</span> <span class="k">if</span> <span class="n">user</span> <span class="ow">is</span> <span class="bp">None</span> <span class="k">else</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">@</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">host</span><span class="p">)</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;ssh&quot;</span><span class="p">,</span> <span class="n">where</span><span class="p">,</span> <span class="n">command</span><span class="p">],</span>
+                           <span class="n">shell</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                           <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+                           <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
+                           <span class="n">check</span><span class="o">=</span><span class="n">check</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">result</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+    <span class="c1"># will work on if you have a host named ubly with ssh configuration</span>
+    <span class="n">out</span> <span class="o">=</span> <span class="n">sshcmd</span><span class="p">(</span><span class="s2">&quot;ubly&quot;</span><span class="p">,</span> <span class="s2">&quot;ls -l&quot;</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span><span class="o">.</span><span class="n">stdout</span><span class="o">.</span><span class="n">decode</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></blockquote>
+<p>Note the following:</p>
+<blockquote>
+<ol class="arabic simple">
+<li><em>check=True</em> would cause subprocess.run to through <em>subprocess.CalledProcessError</em>, if ssh exits with error code (greater than 0).</li>
+<li>sshcmd returns <em>subprocess.CompletedProcess</em>; which gives full access to <em>PIPEs</em> and <em>return-code</em>.</li>
+<li>stdout and stderr attributes are of binary form. Therefore result needs to be <em>decoded()</em>.</li>
+</ol>
+</blockquote>
+</div>
+</div>
+</div>
+
+                </div><!-- /.entry-content -->
+                	<style>
+#pcs-comment-form input,
+#pcs-comment-form textarea {
+	width: 100%;
+}
+#pcs-comment-form-display-replyto {
+	border: solid 1px black;
+	padding: 2px;
+}
+#pcs-comment-form-display-replyto p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+#pcs-comments ul {
+	list-style: none;
+}
+#pcs-comments .comment-left {
+	display: table-cell;
+	padding-right: 10px;
+}
+#pcs-comments .comment-body {
+	display: table-cell;
+	vertical-align: top;
+	width: 100%;
+}
+</style>
+
+	<section id="pcs-comments">
+	<header>
+		<h2>Comments</h2>
+		<hr/>
+	</header>
+		<p>There are no comments yet.</p>
+	<section>
+	<form id="pcs-comment-form" action="#">
+		<legend>Add a Comment</legend>
+		<input type="hidden" id="pcs-comment-form-input-replyto">
+		<fieldset>
+			<label for="pcs-comment-form-input-name">Name</label>
+			<input  id="pcs-comment-form-input-name" type="text" placeholder="Enter your name or nickname" />
+		</fieldset>
+		<fieldset>
+			<label for="pcs-comment-form-input-website">Website</label>
+			<input  id="pcs-comment-form-input-website" type="text" placeholder="Enter your website (optional)" />
+		</fieldset>
+		<fieldset>
+			<label   for="pcs-comment-form-input-textarea">Your Comment</label>
+			<textarea id="pcs-comment-form-input-textarea" rows="5" style="resize:vertical;" placeholder="Your comment"></textarea>
+			<p>You can use the <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> syntax to format your comment.</p>
+			<div style="display: none; " id="pcs-comment-form-display-replyto"></div>
+		</fieldset>
+
+		<button type="submit"
+				id="pcs-comment-form-button-submit"
+				>Post via email</button>
+
+		<!--
+			<a href="../../../../feeds/comment.ssh-made-easy-using-python.atom.xml">
+				Comment Atom Feed
+			</a>
+        -->
+	</form>
+</section>
+
+</section>
+
+			<script type="text/javascript" src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+	<script type="text/javascript" src="../../../../theme/js/comments.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			CommentSystem.email_user   = "support";
+			CommentSystem.email_domain = "acrisel.com";
+			CommentSystem.display_replyto_html = function(comment_content, article_slug, author) {
+				return ''
+					+ '<button style="float:right;" onclick="CommentSystem.cancelReply(); return false;" title="Cancel the reply">'
+					+ 	'×'
+					+ '</button>'
+					+ '<p>This comment will be posted as a reply to \'<a title="'+comment_content+'" href="#comment-'+article_slug+'">'+author+'</a>\'</p>';
+			};
+
+			$('#pcs-comment-form').on("submit",
+				function( event )
+				{
+					event.preventDefault();
+					$(location).attr('href', CommentSystem.getMailtoLink("ssh-made-easy-using-python"));
+				}
+			);
+		});
+	</script>
+
+
+        </article>
+</section>
+        </div><!--/span-->
+
+                <div class="span3 well sidebar-nav" id="sidebar">
+<ul class="nav nav-list">
+<li class="nav-header"><h4><i class="icon-external-link"></i>blogroll</h4></li>
+    <li><a href="http://www.acrisel.com/"><i class="icon-external-link"></i>Acrisel</a></li>
+    <li><a href="http://www.github.com/acrisel"><i class="icon-external-link"></i>Acrisel Open Source</a></li>
+    <li><a href="http://getpelican.com/"><i class="icon-external-link"></i>Pelican</a></li>
+    <li><a href="http://python.org/"><i class="icon-external-link"></i>Python.org</a></li>
+    <li><a href="http://jinja.pocoo.org/"><i class="icon-external-link"></i>Jinja2</a></li>
+
+<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
+<li>
+<a href="../../../../category/information.html">
+    <i class="icon-folder-open icon-large"></i>information
+</a>
+</li>
+<li>
+<a href="../../../../category/08.html">
+    <i class="icon-folder-open icon-large"></i>08
+</a>
+</li>
+<li>
+<a href="../../../../category/07.html">
+    <i class="icon-folder-open icon-large"></i>07
+</a>
+</li>
+
+<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
+
+
+</ul>        </div><!--/.well -->
+
+      </div><!--/row-->
+
+      <hr>
+
+      <footer>
+        <address id="about">
+                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican <i class="icon-external-link"></i></a>,
+                                which takes great advantage of <a href="http://python.org">Python <i class="icon-external-link"></i></a>.
+        </address><!-- /#about -->
+
+        <p>The theme is from <a href="http://twitter.github.com/bootstrap/">Bootstrap from Twitter <i class="icon-external-link"></i></a>,
+                   and <a href="http://fortawesome.github.com/Font-Awesome/">Font-Awesome <i class="icon-external-link"></i></a>, thanks!</p>
+
+        <p>Copyright ©  <a href="http://www.acrisel.com/">Acrisel <i class="icon-external-link"></i></a></p>
+      </footer>
+
+    </div><!--/.fluid-container-->
+
+
+
+    <!-- Le javascript -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="../../../../theme/js/jquery-1.7.2.min.js"></script>
+    <script src="../../../../theme/js/bootstrap.min.js"></script>
+  </body>
+</html>
