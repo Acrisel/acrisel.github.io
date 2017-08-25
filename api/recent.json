@@ -1,0 +1,21 @@
+{
+  "recent": [
+          { "url": "../posts/2017/08/ssh-made-easy-using-python/",
+            "title": "SSH Made Easy Using Python Subprocess"
+          } ,
+          { "url": "../posts/2017/08/astrophysics-scientific-python-programming/",
+            "title": "Astrophysics Research Python Programming"
+          } ,
+          { "url": "../posts/2017/08/python-ordered-class/",
+            "title": "Python Ordered Class"
+          } ,
+          { "url": "../posts/2017/08/python-print-directory-tree/",
+            "title": "Python Print Directory Tree"
+          } ,
+          { "url": "../posts/2017/07/cobol-conversion-take-1/",
+            "title": "Cobol Conversion Take 1"
+          } ,
+          { "url": "../posts/2017/07/welcome-all/",
+            "title": ""
+          }   ]
+}
