@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Python Ordered Class - Acrisel's Community Blog</title>
+    <title>Pelican Selective Display Content - Acrisel's Community Blog</title>
     <!-- Using the latest rendering mode for IE -->
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
@@ -10,25 +10,23 @@
 
     <link href="../../../../favicon.ico" rel="icon">
 
-<link rel="canonical" href="../../../../posts/2017/08/python-ordered-class/">
+<link rel="canonical" href="../../../../posts/2017/08/pelican-selective-display-content/">
 
         <meta name="author" content="Acrisel Team" />
-        <meta name="keywords" content="Python,Metadata,Class,Ordered,Trick,Tip" />
-        <meta name="description" content="Maintain Ordered of Fields in Class Introduction We saw many questions on the WEB regarding having Python class maintain order of its fields. Reason being that __dict__ is dict, therefore, class doesn&#39;t register the order of the fields presented to it. We decided to share our version of such a …" />
+        <meta name="keywords" content="Python,Pelican,templates,comments" />
+        <meta name="description" content="How to selectively display comments Synopsis This post will cover how to control templates from articles. In specific, how to enable or disable comments block in posts. Motivation We are using Pelican static website framework with Pelican Comment System. However, we wanted to disable for some of the articles the …" />
 
         <meta property="og:site_name" content="Acrisel's Community Blog" />
         <meta property="og:type" content="article"/>
-        <meta property="og:title" content="Python Ordered Class"/>
-        <meta property="og:url" content="../../../../posts/2017/08/python-ordered-class/"/>
-        <meta property="og:description" content="Maintain Ordered of Fields in Class Introduction We saw many questions on the WEB regarding having Python class maintain order of its fields. Reason being that __dict__ is dict, therefore, class doesn&#39;t register the order of the fields presented to it. We decided to share our version of such a …"/>
-        <meta property="article:published_time" content="2017-08-12" />
+        <meta property="og:title" content="Pelican Selective Display Content"/>
+        <meta property="og:url" content="../../../../posts/2017/08/pelican-selective-display-content/"/>
+        <meta property="og:description" content="How to selectively display comments Synopsis This post will cover how to control templates from articles. In specific, how to enable or disable comments block in posts. Motivation We are using Pelican static website framework with Pelican Comment System. However, we wanted to disable for some of the articles the …"/>
+        <meta property="article:published_time" content="2017-08-27" />
             <meta property="article:section" content="08" />
             <meta property="article:tag" content="Python" />
-            <meta property="article:tag" content="Metadata" />
-            <meta property="article:tag" content="Class" />
-            <meta property="article:tag" content="Ordered" />
-            <meta property="article:tag" content="Trick" />
-            <meta property="article:tag" content="Tip" />
+            <meta property="article:tag" content="Pelican" />
+            <meta property="article:tag" content="templates" />
+            <meta property="article:tag" content="comments" />
             <meta property="article:author" content="Acrisel Team" />
 
 
@@ -91,10 +89,10 @@ Acrisel's Community Blog            </a>
         <article>
             <header class="page-header">
                 <h1>
-                    <a href="../../../../posts/2017/08/python-ordered-class/"
+                    <a href="../../../../posts/2017/08/pelican-selective-display-content/"
                        rel="bookmark"
-                       title="Permalink to Python Ordered Class">
-                        Python Ordered Class
+                       title="Permalink to Pelican Selective Display Content">
+                        Pelican Selective Display Content
                     </a>
                 </h1>
             </header>
@@ -104,7 +102,7 @@ Acrisel's Community Blog            </a>
 <footer class="post-info">
     <span class="label label-default">Date</span>
     <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2017-08-12T23:01:44-05:00"> Sat 12 August 2017</time>
+        <i class="fa fa-calendar"></i><time datetime="2017-08-27T17:12:44-05:00"> Sun 27 August 2017</time>
     </span>
 
 
@@ -114,31 +112,45 @@ Acrisel's Community Blog            </a>
 <span class="label label-default">Tags</span>
 	<a href="../../../../tag/python.html">Python</a>
         /
-	<a href="../../../../tag/metadata.html">Metadata</a>
+	<a href="../../../../tag/pelican.html">Pelican</a>
         /
-	<a href="../../../../tag/class.html">Class</a>
+	<a href="../../../../tag/templates.html">templates</a>
         /
-	<a href="../../../../tag/ordered.html">Ordered</a>
-        /
-	<a href="../../../../tag/trick.html">Trick</a>
-        /
-	<a href="../../../../tag/tip.html">Tip</a>
+	<a href="../../../../tag/comments.html">comments</a>
     
 </footer><!-- /.post-info -->                    </div>
                 </div>
-                <div class="section" id="maintain-ordered-of-fields-in-class">
-<h2>Maintain Ordered of Fields in Class</h2>
-<div class="section" id="introduction">
-<h3>Introduction</h3>
-<p>We saw many questions on the WEB regarding having Python class maintain order of its fields.  Reason being that __dict__ is dict, therefore, class doesn't register the order of the fields presented to it.</p>
-<p>We decided to share our version of such a class.</p>
-<p>We use OrderedClass were we need to maintain record like structure.  Such that when we package the record, it always packages the fields in the same order.</p>
-<p>It is also useful when comparing fields between objects.  Having fields being printed out in the same order is very useful.</p>
-<p>Keep in mind that without using OrderedDict, object __dict__ will print in order.  However, Python does not guarantee that order.  When using OrderedDict instead, order is guaranteed.</p>
+                <div class="section" id="how-to-selectively-display-comments">
+<h2>How to selectively display comments</h2>
+<div class="section" id="synopsis">
+<h3>Synopsis</h3>
+<p>This post will cover how to control templates from articles. In specific, how to enable or disable comments block in posts.</p>
 </div>
-<div class="section" id="orderedclass">
-<h3>OrderedClass</h3>
-<p>Using metaclass features of Python we can simply override __prepare__ returning OrderedDict object.</p>
+<div class="section" id="motivation">
+<h3>Motivation</h3>
+<p>We are using Pelican static website framework with <a class="reference external" href="https://pypi.python.org/pypi/pelican-comment-system">Pelican Comment System</a>. However, we wanted to disable for some of the articles the ability to show comments.</p>
+</div>
+<div class="section" id="how-to">
+<h3>How to</h3>
+<p>There were three elements that needed to control commnets:</p>
+<ol class="arabic">
+<li><p class="first">Add <em>DEFAULT_METADATA</em> item named <em>showcomments</em> to <em>pelicanconf.py</em> :</p>
+<blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">DEFAULT_METADATA</span> <span class="o">=</span> <span class="p">{</span><span class="s1">&#39;showcomments&#39;</span> <span class="p">:</span> <span class="s1">&#39;yes&#39;</span><span class="p">,}</span>
+</pre></div>
+</td></tr></table></blockquote>
+</li>
+<li><p class="first">Add a condition to show comments block in theme's article.html:</p>
+<blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span><span class="o">%</span> <span class="k">if</span> <span class="n">article</span><span class="o">.</span><span class="n">showcomments</span> <span class="o">==</span> <span class="s2">&quot;yes&quot;</span> <span class="o">%</span><span class="p">}</span>
+    <span class="p">{{</span> <span class="n">pcs</span><span class="o">.</span><span class="n">comments_quickstart</span><span class="p">(</span><span class="s2">&quot;support&quot;</span><span class="p">,</span> <span class="s2">&quot;acrisel.com&quot;</span><span class="p">)</span> <span class="p">}}</span>
+<span class="p">{</span><span class="o">%</span> <span class="n">endif</span> <span class="o">%</span><span class="p">}</span>
+</pre></div>
+</td></tr></table></blockquote>
+</li>
+<li><p class="first">Add <em>:showcomments: no</em> metadata to disable comments block in any article.</p>
 <blockquote>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2
@@ -146,69 +158,30 @@ Acrisel's Community Blog            </a>
 4
 5
 6
-7
-8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">collections</span> <span class="kn">import</span> <span class="n">OrderedDict</span>
-
-<span class="k">class</span> <span class="nc">OrderedClassMeta</span><span class="p">(</span><span class="nb">type</span><span class="p">):</span>
-    <span class="nd">@classmethod</span>
-    <span class="k">def</span> <span class="nf">__prepare__</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">bases</span><span class="p">,</span> <span class="o">**</span><span class="n">kwds</span><span class="p">):</span>
-        <span class="k">return</span> <span class="n">OrderedDict</span><span class="p">()</span>
-
-<span class="k">class</span> <span class="nc">OrderedClass</span><span class="p">(</span><span class="n">metaclass</span><span class="o">=</span><span class="n">OrderedClassMeta</span><span class="p">):</span>
-    <span class="k">pass</span>
+7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">:</span><span class="n">date</span><span class="p">:</span> <span class="mi">2017</span><span class="o">-</span><span class="mo">07</span><span class="o">-</span><span class="mi">09</span> <span class="mi">10</span><span class="p">:</span><span class="mi">20</span>
+<span class="p">:</span><span class="n">modified</span><span class="p">:</span> <span class="mi">2017</span><span class="o">-</span><span class="mo">07</span><span class="o">-</span><span class="mi">09</span> <span class="mi">18</span><span class="p">:</span><span class="mi">40</span>
+<span class="p">:</span><span class="n">category</span><span class="p">:</span> <span class="n">example</span>
+<span class="p">:</span><span class="n">slug</span><span class="p">:</span> <span class="n">pelican</span><span class="o">-</span><span class="n">selective</span><span class="o">-</span><span class="n">display</span><span class="o">-</span><span class="n">content</span>
+<span class="p">:</span><span class="n">showcomments</span><span class="p">:</span> <span class="n">no</span>
+<span class="p">:</span><span class="n">authors</span><span class="p">:</span> <span class="n">The</span> <span class="n">Acrisel</span> <span class="n">Team</span>
+<span class="p">:</span><span class="n">summary</span><span class="p">:</span> <span class="n">pelican</span> <span class="n">selective</span> <span class="n">display</span> <span class="n">content</span>
 </pre></div>
 </td></tr></table></blockquote>
+</li>
+</ol>
+<p>That's it, done.</p>
 </div>
-<div class="section" id="example-use">
-<h3>Example use</h3>
-<p>To use, we just inherent from OrderedClass instead of object.</p>
-<blockquote>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4
-5
-6
-7
-8
-9</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">A</span><span class="p">(</span><span class="n">OrderedClass</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="o">=</span><span class="mi">1</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="o">=</span><span class="mi">2</span>
-
-<span class="k">class</span> <span class="nc">B</span><span class="p">(</span><span class="n">OrderedClass</span><span class="p">):</span>
-    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">a</span><span class="o">=</span><span class="mi">1</span>
-        <span class="bp">self</span><span class="o">.</span><span class="n">b</span><span class="o">=</span><span class="mi">2</span>
-</pre></div>
-</td></tr></table></blockquote>
-</div>
-<div class="section" id="examine-output">
-<h3>Examine Output</h3>
-<p>Printing the dictionaries of the above examples.</p>
-<blockquote>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3
-4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">a</span><span class="o">=</span><span class="n">A</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">a</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
-<span class="n">b</span><span class="o">=</span><span class="n">B</span><span class="p">()</span>
-<span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
-</pre></div>
-</td></tr></table><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
-<span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
-</pre></div>
-</td></tr></table></blockquote>
+<div class="section" id="conclusion">
+<h3>Conclusion</h3>
+<p>We showed here a method to dynamically control the display of comments block.  This method can be used for other content elements. Others metadata tags can be added to bother <em>DEFAULT_METADATA</em> and articles.</p>
 </div>
 <div class="section" id="references">
 <h3>References</h3>
-<p>Python <a class="reference external" href="http://legacy.python.org/dev/peps/pep-0520/">PEP 520</a></p>
+<blockquote>
 <div class="line-block">
-<div class="line">Give us your feedback: <a class="reference external" href="mailto:support&#64;acrisel.com">support&#64;acrisel.com</a></div>
-<div class="line">Visit us at our <a class="reference external" href="http://www.acrisel.com">home</a></div>
+<div class="line"><a class="reference external" href="https://pypi.python.org/pypi/pelican-comment-system">Pelican Comment System</a> by Bernhard Scheirle</div>
 </div>
+</blockquote>
 </div>
 </div>
 
@@ -217,10 +190,10 @@ Acrisel's Community Blog            </a>
 <section class="well" id="related-posts">
     <h4>Other Posts:</h4>
     <ul>
+        <li><a href="../../../../posts/2017/08/astrophysics-scientific-python-programming/">Astrophysics Research Python Programming</a></li>
+        <li><a href="../../../../posts/2017/08/python-ordered-class/">Python Ordered Class</a></li>
         <li><a href="../../../../posts/2017/07/cobol-conversion-take-1/">Cobol Conversion Take 1</a></li>
         <li><a href="../../../../posts/2017/08/ssh-made-easy-using-python/">SSH Made Easy Using Python Subprocess</a></li>
-        <li><a href="../../../../posts/2017/08/astrophysics-scientific-python-programming/">Astrophysics Research Python Programming</a></li>
-        <li><a href="../../../../posts/2017/08/pelican-post-template-controls/">Pelican Post Template Controls</a></li>
         <li><a href="../../../../posts/2017/08/python-print-directory-tree/">Python Print Directory Tree</a></li>
     </ul>
 </section>
@@ -281,7 +254,7 @@ Acrisel's Community Blog            </a>
 				>Post via email</button>
 
 		<!--
-			<a href="../../../../feeds/comment.python-ordered-class.atom.xml">
+			<a href="../../../../feeds/comment.pelican-selective-display-content.atom.xml">
 				Comment Atom Feed
 			</a>
         -->
@@ -308,7 +281,7 @@ Acrisel's Community Blog            </a>
 				function( event )
 				{
 					event.preventDefault();
-					$(location).attr('href', CommentSystem.getMailtoLink("python-ordered-class"));
+					$(location).attr('href', CommentSystem.getMailtoLink("pelican-selective-display-content"));
 				}
 			);
 		});
