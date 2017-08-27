@@ -1,147 +1,146 @@
-
 <!DOCTYPE html>
-<html lang="en">
-  <head>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Astrophysics Research Python Programming - Acrisel's Community Blog</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="utf-8">
-    <title>Astrophysics Research Python Programming</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
-    <meta name="author" content="Acrisel Team">
 
-    <!-- Le styles -->
-    <link rel="stylesheet" href="../../../../theme/css/bootstrap.min.css" type="text/css" />
-    <style type="text/css">
-      body {
-        padding-top: 60px;
-        padding-bottom: 40px;
-      }
-      .sidebar-nav {
-        padding: 9px 0;
-      }
-      .tag-1 {
-        font-size: 13pt;
-      }
-      .tag-2 {
-        font-size: 10pt;
-      }
-      .tag-2 {
-        font-size: 8pt;
-      }
-      .tag-4 {
-        font-size: 6pt;
-     }
-    </style>
-    <link href="../../../../theme/css/bootstrap-responsive.min.css" rel="stylesheet">
-        <link href="../../../../theme/css/font-awesome.css" rel="stylesheet">
 
-    <link href="../../../../theme/css/pygments.css" rel="stylesheet">
+    <link href="../../../../favicon.ico" rel="icon">
 
-    <!-- Le HTML5 shim, for IE6-8 support of HTML5 elements -->
-    <!--[if lt IE 9]>
-      <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
-    <![endif]-->
+<link rel="canonical" href="../../../../posts/2017/08/astrophysics-scientific-python-programming/">
 
-    <!-- Le fav and touch icons -->
-    <link rel="shortcut icon" href="../../../../favicon.ico">
-    <link rel="apple-touch-icon" href="../../../../theme/images/apple-touch-icon.png">
-    <link rel="apple-touch-icon" sizes="72x72" href="../../../../theme/images/apple-touch-icon-72x72.png">
-    <link rel="apple-touch-icon" sizes="114x114" href="../../../../theme/images/apple-touch-icon-114x114.png">
+        <meta name="author" content="Acrisel Team" />
+        <meta name="keywords" content="Science,Automation,Academia,Astrophysics,Research,Python,IDL" />
+        <meta name="description" content="The Productive Research Introduction Recently I helped a group of astrophysicists convert a set of IDL programs to Python. This set was to classify stars by analyzing ROTSE-I and ROTSE-III data. In this insert I would share the experience of moving IDL code to python. The insert is only attempt …" />
 
-    <link href="../../../../" type="application/atom+xml" rel="alternate" title="Acrisel's Community Blog ATOM Feed" />
+        <meta property="og:site_name" content="Acrisel's Community Blog" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Astrophysics Research Python Programming"/>
+        <meta property="og:url" content="../../../../posts/2017/08/astrophysics-scientific-python-programming/"/>
+        <meta property="og:description" content="The Productive Research Introduction Recently I helped a group of astrophysicists convert a set of IDL programs to Python. This set was to classify stars by analyzing ROTSE-I and ROTSE-III data. In this insert I would share the experience of moving IDL code to python. The insert is only attempt …"/>
+        <meta property="article:published_time" content="2017-08-20" />
+            <meta property="article:section" content="08" />
+            <meta property="article:tag" content="Science" />
+            <meta property="article:tag" content="Automation" />
+            <meta property="article:tag" content="Academia" />
+            <meta property="article:tag" content="Astrophysics" />
+            <meta property="article:tag" content="Research" />
+            <meta property="article:tag" content="Python" />
+            <meta property="article:tag" content="IDL" />
+            <meta property="article:author" content="Acrisel Team" />
 
-  </head>
 
-  <body>
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="../../../../theme/css/bootstrap.cerulean.min.css" type="text/css"/>
+    <link href="../../../../theme/css/font-awesome.min.css" rel="stylesheet">
 
-    <div class="navbar navbar-fixed-top">
-      <div class="navbar-inner">
-        <div class="container-fluid">
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
-          <a class="brand" href="../../../../index.html">Acrisel's Community Blog </a>
-          <div class="nav-collapse">
-            <ul class="nav">
-                          <li class="divider-vertical"></li>
-                  <li >
-                    <a href="../../../../category/information.html">
-						<i class="icon-folder-open icon-large"></i>information
-					</a>
-                  </li>
-                  <li class="active">
-                    <a href="../../../../category/08.html">
-						<i class="icon-folder-open icon-large"></i>08
-					</a>
-                  </li>
-                  <li >
-                    <a href="../../../../category/07.html">
-						<i class="icon-folder-open icon-large"></i>07
-					</a>
-                  </li>
+    <link href="../../../../theme/css/pygments/xcode.css" rel="stylesheet">
+    <link href="../../../../theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../../theme/css/style.css" type="text/css"/>
 
-                          <ul class="nav pull-right">
-                                <li><a href="../../../../archives.html"><i class="icon-th-list"></i>Archives</a></li>
-                          </ul>
 
-            </ul>
-            <!--<p class="navbar-text pull-right">Logged in as <a href="#">username</a></p>-->
-          </div><!--/.nav-collapse -->
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="../../../../" class="navbar-brand">
+Acrisel's Community Blog            </a>
         </div>
-      </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                        <li >
+                            <a href="../../../../category/about-us.html">About us</a>
+                        </li>
+                        <li class="active">
+                            <a href="../../../../category/08.html">08</a>
+                        </li>
+                        <li >
+                            <a href="../../../../category/07.html">07</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
     </div>
-
-    <div class="container-fluid">
-      <div class="row">
-        <div class="span9" id="content">
-<section id="content">
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
         <article>
-                <header>
-                        <h1>
-                                <a href=""
-                                        rel="bookmark"
-                                        title="Permalink to Astrophysics Research Python Programming">
-                                        Astrophysics Research Python Programming
-                                </a>
-                        </h1>
-                </header>
-                <div class="entry-content">
-                <div class="well">
+            <header class="page-header">
+                <h1>
+                    <a href="../../../../posts/2017/08/astrophysics-scientific-python-programming/"
+                       rel="bookmark"
+                       title="Permalink to Astrophysics Research Python Programming">
+                        Astrophysics Research Python Programming
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
 <footer class="post-info">
-<span class="label">Date</span>
-<abbr class="published" title="2017-08-20T09:01:44-05:00">
-        <i class="icon-calendar"></i>Sun 20 August 2017
-</abbr>
-<span class="label">By</span>
-<a href="../../../../author/acrisel-team.html"><i class="icon-user"></i>Acrisel Team</a>
-<span class="label">Category</span>
-<a href="../../../../category/08.html"><i class="icon-folder-open"></i>08</a>.
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2017-08-20T09:01:44-05:00"> Sun 20 August 2017</time>
+    </span>
 
 
-<span class="label">Tags</span>
-	<a href="../../../../tag/science.html"><i class="icon-tag"></i>Science</a>
-	<a href="../../../../tag/automation.html"><i class="icon-tag"></i>Automation</a>
-	<a href="../../../../tag/academia.html"><i class="icon-tag"></i>Academia</a>
-	<a href="../../../../tag/astrophysics.html"><i class="icon-tag"></i>Astrophysics</a>
-	<a href="../../../../tag/research.html"><i class="icon-tag"></i>Research</a>
-	<a href="../../../../tag/python.html"><i class="icon-tag"></i>Python</a>
-	<a href="../../../../tag/idl.html"><i class="icon-tag"></i>IDL</a>
-</footer><!-- /.post-info -->                </div>
-                <div class="section" id="astrophysics-research-and-python-programming">
-<h2>Astrophysics Research and Python Programming</h2>
-<div class="section" id="the-productive-research">
-<h3>The Productive Research</h3>
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="../../../../tag/science.html">Science</a>
+        /
+	<a href="../../../../tag/automation.html">Automation</a>
+        /
+	<a href="../../../../tag/academia.html">Academia</a>
+        /
+	<a href="../../../../tag/astrophysics.html">Astrophysics</a>
+        /
+	<a href="../../../../tag/research.html">Research</a>
+        /
+	<a href="../../../../tag/python.html">Python</a>
+        /
+	<a href="../../../../tag/idl.html">IDL</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <div class="section" id="the-productive-research">
+<h2>The Productive Research</h2>
 <div class="section" id="introduction">
-<h4>Introduction</h4>
+<h3>Introduction</h3>
 <p>Recently I helped a group of astrophysicists convert a set of IDL programs to Python. This set was to classify stars by analyzing ROTSE-I and ROTSE-III data. In this insert I would share the experience of moving IDL code to python. The insert is only attempt to cover interesting aspects that we encountered. At the same time, it serves as an encouragement to perform such migration. Python is a powerful tool. As a software architect I recognize the readability of Python programs, the vast libraries that one can tap on, and the large community that continues enrich its capabilities (scientific, WEB, network, you name it, its there).</p>
 <p>In fact, Python is being used for Data Analytics and Machine Learning; just google it around you will see many courses in the realm. So basically, with <a class="reference external" href="https://docs.scipy.org/doc/numpy/index.html">scipy</a>, <a class="reference external" href="http://www.numpy.org/">numpy</a>, <a class="reference external" href="http://pandas.pydata.org/">pandas</a>, <a class="reference external" href="https://matplotlib.org/">matplotlib</a>, and more, one can accomplish everything done with IDL and more.</p>
 </div>
 <div class="section" id="from-idl-to-python">
-<h4>From IDL to Python</h4>
+<h3>From IDL to Python</h3>
 <p>IDL is a &quot;scientific programming language used across disciplines to extract meaningful visualizations from complex numerical data. With IDL you can interpret your data, expedite discoveries, and deliver powerful applications to market.&quot; It uses plenty vector and matrix computation. So we will have a lot of that with numpy computing techniques.</p>
 <div class="section" id="loading-fits-and-match">
-<h5>Loading FITS and MATCH</h5>
+<h4>Loading FITS and MATCH</h4>
 <p>The first we have to be able to read the ROTSE-I and ROTSE-III data files.  There were three types of files.</p>
 <blockquote>
 <ol class="arabic simple">
@@ -223,7 +222,7 @@
 </td></tr></table></blockquote>
 </div>
 <div class="section" id="where-statement">
-<h5>Where statement</h5>
+<h4>Where statement</h4>
 <p>IDL programs take advantage of IDL's <em>where_</em> statement. It will look something like follows:</p>
 <blockquote>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -270,7 +269,7 @@
 </td></tr></table></blockquote>
 </div>
 <div class="section" id="hierarchical-record-array-initialization">
-<h5>Hierarchical record array initialization</h5>
+<h4>Hierarchical record array initialization</h4>
 <p>IDL's <em>create_struct_</em> is being used to create records with fields accessible by name.
 It's parallel in numpy realm is <a class="reference external" href="https://docs.scipy.org/doc/numpy/reference/generated/numpy.recarray.html">recarray</a>.</p>
 <p>The following code set shows how to create recarray structure with default values. Starting with the definition of the records' fields, field_map.  it is built as a list of tuple, each describe a name a field, a type, and a default value.</p>
@@ -320,7 +319,7 @@ It's parallel in numpy realm is <a class="reference external" href="https://docs
 <p>This method could be extended to handle any array shape, not just vectors.</p>
 </div>
 <div class="section" id="plotting">
-<h5>Plotting</h5>
+<h4>Plotting</h4>
 <p>IDL's plot capability can be achieved using <em>matplotlib</em> and <em>pandas's</em> dataframe.plot. These tools are rich with features and easy to use.</p>
 <p>The original IDL code we were porting was built creating postscript documents. Using matplotlib we switched to PDF.</p>
 <p>Here is an example how to print few drawing per page. We start with importing and setting matpolotlib for PDF plotting.</p>
@@ -380,7 +379,7 @@ Assuming that data is a list of tuples (title, values), we</p>
 </td></tr></table></blockquote>
 </div>
 <div class="section" id="moment">
-<h5>Moment</h5>
+<h4>Moment</h4>
 <p><em>moment</em> is an IDL function that provides in a single call 4 statistical calculations. <em>moment</em> returns a four-element vector containing the mean, variance, skewness, and kurtosis of the input vector.</p>
 <p>Similar functionality can be accomplish using numpy and scipy.</p>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
@@ -405,7 +404,7 @@ Assuming that data is a list of tuples (title, values), we</p>
 </div>
 </div>
 <div class="section" id="store-and-recover">
-<h4>Store and Recover</h4>
+<h3>Store and Recover</h3>
 <p>It can be quite annoying to debug the last step in a multi-steps analytic were each step is a computation taking a long time. Well, once you pass the first step, debugging each consequent step can be annoying.</p>
 <p>What you want to do is to keep state of the multi-step process such that data would be stored after each completed step. That will allow you to jump into the step being debugged immediately.</p>
 <p>A simple mechanism to do that is to store the dataset at the end of each step. Before the step starts, the program can check if a result is stored for that step. If so, it recovers and skips the step.</p>
@@ -495,14 +494,14 @@ Assuming that data is a list of tuples (title, values), we</p>
 </td></tr></table></blockquote>
 </div>
 <div class="section" id="interesting-astrophysics-packages">
-<h4>Interesting astrophysics packages</h4>
+<h3>Interesting astrophysics packages</h3>
 <p>Through the work, we ran into two Python packages for astronomy.</p>
 <p><a class="reference external" href="http://www.astropy.org/">Astropy</a>: &quot;A Community Python Library for Astronomy.&quot;</p>
 <p><a class="reference external" href="http://www.hs.uni-hamburg.de/DE/Ins/Per/Czesla/PyA/PyA/index.html">PyAstronomy</a>: &quot;A collection of astronomy related packages.&quot;</p>
 <p>These packages contain plenty of easy to use functionality. However, be cautious when using in high volume processing. Not all computations may meet your need for performance. For example, we had to rewrite IDL's <em>SIXTY_</em> instead of using an already made solution in these libraries. Only a scaled down version meet our performance needs.</p>
 </div>
 <div class="section" id="references">
-<h4>References</h4>
+<h3>References</h3>
 <p><a class="reference external" href="http://www.johnny-lin.com/cdat_tips/tips_array/idl2num.html">IDL to Numeric/numarray Mapping</a></p>
 <p><a class="reference external" href="http://mathesaurus.sourceforge.net/idl-numpy.html">NumPy for IDL users</a></p>
 <p><a class="reference external" href="http://blog.rtwilson.com/ten-little-idl-programs-in-python/">Ten Little IDL programs in Python</a></p>
@@ -511,9 +510,18 @@ Assuming that data is a list of tuples (title, values), we</p>
 <p>Give us your feedback: <a class="reference external" href="mailto:support&#64;acrisel.com">support&#64;acrisel.com</a></p>
 </div>
 </div>
-</div>
 
-                </div><!-- /.entry-content -->
+            </div>
+            <!-- /.entry-content -->
+<section class="well" id="related-posts">
+    <h4>Other Posts:</h4>
+    <ul>
+        <li><a href="../../../../posts/2017/07/cobol-conversion-take-1/">Cobol Conversion Take 1</a></li>
+        <li><a href="../../../../posts/2017/08/python-ordered-class/">Python Ordered Class</a></li>
+        <li><a href="../../../../posts/2017/08/python-print-directory-tree/">Python Print Directory Tree</a></li>
+        <li><a href="../../../../posts/2017/08/ssh-made-easy-using-python/">SSH Made Easy Using Python Subprocess</a></li>
+    </ul>
+</section>
                 	<style>
 #pcs-comment-form input,
 #pcs-comment-form textarea {
@@ -606,64 +614,64 @@ Assuming that data is a list of tuples (title, values), we</p>
 
 
         </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Links -->
+<li class="list-group-item">
+  <h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+  <ul class="list-group" id="links">
+    <li class="list-group-item">
+      <a href="http://www.acrisel.com/" target="_blank">Acrisel</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://www.github.com/acrisel" target="_blank">Acrisel Open Source</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://getpelican.com/" target="_blank">Pelican</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://python.org/" target="_blank">Python.org</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://jinja.pocoo.org/" target="_blank">Jinja2</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Links -->
+  </ul>
 </section>
-        </div><!--/span-->
-
-                <div class="span3 well sidebar-nav" id="sidebar">
-<ul class="nav nav-list">
-<li class="nav-header"><h4><i class="icon-external-link"></i>blogroll</h4></li>
-    <li><a href="http://www.acrisel.com/"><i class="icon-external-link"></i>Acrisel</a></li>
-    <li><a href="http://www.github.com/acrisel"><i class="icon-external-link"></i>Acrisel Open Source</a></li>
-    <li><a href="http://getpelican.com/"><i class="icon-external-link"></i>Pelican</a></li>
-    <li><a href="http://python.org/"><i class="icon-external-link"></i>Python.org</a></li>
-    <li><a href="http://jinja.pocoo.org/"><i class="icon-external-link"></i>Jinja2</a></li>
-
-<li class="nav-header"><h4><i class="icon-folder-close icon-large"></i>Categories</h4></li>
-<li>
-<a href="../../../../category/information.html">
-    <i class="icon-folder-open icon-large"></i>information
-</a>
-</li>
-<li>
-<a href="../../../../category/08.html">
-    <i class="icon-folder-open icon-large"></i>08
-</a>
-</li>
-<li>
-<a href="../../../../category/07.html">
-    <i class="icon-folder-open icon-large"></i>07
-</a>
-</li>
-
-<li class="nav-header"><h4><i class="icon-tags icon-large"></i>Tags</h4></li>
-
-
-</ul>        </div><!--/.well -->
-
-      </div><!--/row-->
-
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
       <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2017 Acrisel Team
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="../../../../theme/js/jquery.min.js"></script>
 
-      <footer>
-        <address id="about">
-                Proudly powered by <a href="http://pelican.notmyidea.org/">Pelican <i class="icon-external-link"></i></a>,
-                                which takes great advantage of <a href="http://python.org">Python <i class="icon-external-link"></i></a>.
-        </address><!-- /#about -->
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../../../../theme/js/bootstrap.min.js"></script>
 
-        <p>The theme is from <a href="http://twitter.github.com/bootstrap/">Bootstrap from Twitter <i class="icon-external-link"></i></a>,
-                   and <a href="http://fortawesome.github.com/Font-Awesome/">Font-Awesome <i class="icon-external-link"></i></a>, thanks!</p>
-
-        <p>Copyright ©  <a href="http://www.acrisel.com/">Acrisel <i class="icon-external-link"></i></a></p>
-      </footer>
-
-    </div><!--/.fluid-container-->
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="../../../../theme/js/respond.min.js"></script>
 
 
 
-    <!-- Le javascript -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="../../../../theme/js/jquery-1.7.2.min.js"></script>
-    <!-- <script src="../../../../theme/js/jquery-3.2.1.min.js"></script> -->
-    <script src="../../../../theme/js/bootstrap.min.js"></script>
-  </body>
+</body>
 </html>
