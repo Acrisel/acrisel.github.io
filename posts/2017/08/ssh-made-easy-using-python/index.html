@@ -105,6 +105,10 @@ Acrisel's Community Blog            </a>
     <span class="published">
         <i class="fa fa-calendar"></i><time datetime="2017-08-22T23:12:44-05:00"> Tue 22 August 2017</time>
     </span>
+          <span class="label label-default">Modified</span>
+            <span class="modified">
+                <i class="fa fa-calendar"></i><time datetime="2017-08-28T10:24:00-05:00"> Mon 28 August 2017</time>
+            </span>
 
 
 
@@ -197,13 +201,16 @@ Acrisel's Community Blog            </a>
 22
 23
 24
-25</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sshcmd</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
+25
+26
+27</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">sshcmd</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">command</span><span class="p">,</span> <span class="n">user</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">stdin</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">check</span><span class="o">=</span><span class="bp">False</span><span class="p">):</span>
     <span class="sd">&#39;&#39;&#39; Runs ssh command via subprocess.  Assuming .ssh/config is configured.</span>
 
 <span class="sd">    Args:</span>
 <span class="sd">        host: target host to send the command to</span>
 <span class="sd">        command: command to run on the host</span>
 <span class="sd">        user: (optional) user to use to login to host</span>
+<span class="sd">        stdin: (optional) override sys.stdin</span>
 <span class="sd">        check: (optional) pass to *subprocess.run*; if set, checks return code</span>
 <span class="sd">            and raises subprocess.CalledProcessError, if none-zero result</span>
 
@@ -214,6 +221,7 @@ Acrisel's Community Blog            </a>
     <span class="n">where</span> <span class="o">=</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="n">host</span> <span class="k">if</span> <span class="n">user</span> <span class="ow">is</span> <span class="bp">None</span> <span class="k">else</span> <span class="s2">&quot;</span><span class="si">%s</span><span class="s2">@</span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="n">user</span><span class="p">,</span> <span class="n">host</span><span class="p">)</span>
     <span class="n">result</span> <span class="o">=</span> <span class="n">subprocess</span><span class="o">.</span><span class="n">run</span><span class="p">([</span><span class="s2">&quot;ssh&quot;</span><span class="p">,</span> <span class="n">where</span><span class="p">,</span> <span class="n">command</span><span class="p">],</span>
                            <span class="n">shell</span><span class="o">=</span><span class="bp">False</span><span class="p">,</span>
+                           <span class="n">stdin</span><span class="o">=</span><span class="n">stdin</span><span class="p">,</span>
                            <span class="n">stdout</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
                            <span class="n">stderr</span><span class="o">=</span><span class="n">subprocess</span><span class="o">.</span><span class="n">PIPE</span><span class="p">,</span>
                            <span class="n">check</span><span class="o">=</span><span class="n">check</span><span class="p">)</span>
@@ -266,11 +274,11 @@ Acrisel's Community Blog            </a>
 <section class="well" id="related-posts">
     <h4>Other Posts:</h4>
     <ul>
-        <li><a href="../../../../posts/2017/08/python-ordered-class/">Python Ordered Class</a></li>
         <li><a href="../../../../posts/2017/08/astrophysics-scientific-python-programming/">Astrophysics Research Python Programming</a></li>
-        <li><a href="../../../../posts/2017/08/pelican-post-template-controls/">Pelican Post Template Controls</a></li>
         <li><a href="../../../../posts/2017/07/cobol-conversion-take-1/">Cobol Conversion Take 1</a></li>
+        <li><a href="../../../../posts/2017/08/pelican-post-template-controls/">Pelican Post Template Controls</a></li>
         <li><a href="../../../../posts/2017/08/python-print-directory-tree/">Python Print Directory Tree</a></li>
+        <li><a href="../../../../posts/2017/08/python-ordered-class/">Python Ordered Class</a></li>
     </ul>
 </section>
                 	<style>
