@@ -110,7 +110,7 @@ Acrisel's Community Blog            </a>
     </span>
           <span class="label label-default">Modified</span>
             <span class="modified">
-                <i class="fa fa-calendar"></i><time datetime="2017-08-28T10:24:00-05:00"> Mon 28 August 2017</time>
+                <i class="fa fa-calendar"></i><time datetime="2017-09-02T16:10:00-05:00"> Sat 02 September 2017</time>
             </span>
 
 
@@ -166,12 +166,13 @@ Acrisel's Community Blog            </a>
 </li>
 <li><p class="first">optional: use <em>command</em> in target .ssh/authorized_keys to allow proper setup, if needed, e.g:</p>
 <blockquote>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">command</span> <span class="s2">&quot;if [[ </span><span class="se">\&quot;</span><span class="s2">x${SSH_ORIGINAL_COMMAND}x</span><span class="se">\&quot;</span><span class="s2"> != </span><span class="se">\&quot;</span><span class="s2">xx</span><span class="se">\&quot;</span><span class="s2"> ]]; then source ~/.bash; eval </span><span class="se">\&quot;</span><span class="s2">${SSH_ORIGINAL_COMMAND}</span><span class="se">\&quot;</span><span class="s2">; else /bin/bash --login; fi;&quot;</span> <span class="o">&lt;</span><span class="n">ssh_key</span><span class="o">&gt;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">command</span><span class="o">=</span><span class="s2">&quot;if [[ </span><span class="se">\&quot;</span><span class="s2">x${SSH_ORIGINAL_COMMAND}x</span><span class="se">\&quot;</span><span class="s2"> != </span><span class="se">\&quot;</span><span class="s2">xx</span><span class="se">\&quot;</span><span class="s2"> ]]; then source ~/.profile; eval </span><span class="se">\&quot;</span><span class="s2">${SSH_ORIGINAL_COMMAND}</span><span class="se">\&quot;</span><span class="s2">; else /bin/bash --login; fi;&quot;</span> <span class="o">&lt;</span><span class="n">ssh_key</span><span class="o">&gt;</span>
 </pre></div>
 </td></tr></table></blockquote>
 </li>
 </ol>
 </blockquote>
+<p>Note that if you use bash, .profile may be .bash_profile. If you don't use bash, an appropriate shell profile should be sourced.</p>
 </div>
 <div class="section" id="wrapper">
 <h3>Wrapper</h3>
@@ -273,11 +274,11 @@ Acrisel's Community Blog            </a>
 <section class="well" id="related-posts">
     <h4>Other Posts:</h4>
     <ul>
-        <li><a href="../../../../posts/2017/07/cobol-conversion-take-1/">Cobol Conversion Take 1</a></li>
-        <li><a href="../../../../posts/2017/08/pelican-post-template-controls/">Pelican Post Template Controls</a></li>
-        <li><a href="../../../../posts/2017/08/astrophysics-scientific-python-programming/">Astrophysics Research Python Programming</a></li>
         <li><a href="../../../../posts/2017/09/python-lex-yacc-play/">Python Lex and Yacc with PLY</a></li>
         <li><a href="../../../../posts/2017/08/python-print-directory-tree/">Python Print Directory Tree</a></li>
+        <li><a href="../../../../posts/2017/08/python-ordered-class/">Python Ordered Class</a></li>
+        <li><a href="../../../../posts/2017/07/cobol-conversion-take-1/">Cobol Conversion Take 1</a></li>
+        <li><a href="../../../../posts/2017/08/pelican-post-template-controls/">Pelican Post Template Controls</a></li>
     </ul>
 </section>
                 	<style>
