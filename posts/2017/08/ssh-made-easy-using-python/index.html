@@ -12,7 +12,7 @@
 
 <link rel="canonical" href="../../../../posts/2017/08/ssh-made-easy-using-python/">
 
-        <meta name="author" content="Acrisel Team" />
+        <meta name="author" content="Arnon Sela" />
         <meta name="keywords" content="Python,SSH,subprocess,distributed,cluster" />
         <meta name="description" content="Subprocess Module Synopsis Python&#39;s subprocess module makes it easy to invoke external commands on localhost. It can also use SSH to invoke commands on remote hosts. How simple? The short answer is, very simple! The longer answer is, subprocess.run, as follows: 1 2 3 4 5result = subprocess.run …" />
 
@@ -28,7 +28,7 @@
             <meta property="article:tag" content="subprocess" />
             <meta property="article:tag" content="distributed" />
             <meta property="article:tag" content="cluster" />
-            <meta property="article:author" content="Acrisel Team" />
+            <meta property="article:author" content="Arnon Sela" />
 
 
     <!-- Bootstrap -->
@@ -62,6 +62,9 @@ Acrisel's Community Blog            </a>
             <ul class="nav navbar-nav">
                         <li >
                             <a href="../../../../category/about-us.html">About us</a>
+                        </li>
+                        <li >
+                            <a href="../../../../category/09.html">09</a>
                         </li>
                         <li class="active">
                             <a href="../../../../category/08.html">08</a>
@@ -161,13 +164,9 @@ Acrisel's Community Blog            </a>
 </li>
 <li><p class="first">optional: create .ssh/config for easier ssh call</p>
 </li>
-<li><p class="first">optional: use <em>command</em> in target .ssh/authorized_keys to allow proper setup, if needed.</p>
+<li><p class="first">optional: use <em>command</em> in target .ssh/authorized_keys to allow proper setup, if needed, e.g:</p>
 <blockquote>
-<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2
-3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">e</span><span class="o">.</span><span class="n">g</span><span class="o">.</span><span class="p">:</span>
-
-<span class="n">command</span> <span class="s2">&quot;if [[ </span><span class="se">\&quot;</span><span class="s2">x${SSH_ORIGINAL_COMMAND}x</span><span class="se">\&quot;</span><span class="s2"> != </span><span class="se">\&quot;</span><span class="s2">xx</span><span class="se">\&quot;</span><span class="s2"> ]]; then source ~/.bash; eval </span><span class="se">\&quot;</span><span class="s2">${SSH_ORIGINAL_COMMAND}</span><span class="se">\&quot;</span><span class="s2">; else /bin/bash --login; fi;&quot;</span> <span class="o">&lt;</span><span class="n">ssh_key</span><span class="o">&gt;</span>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">command</span> <span class="s2">&quot;if [[ </span><span class="se">\&quot;</span><span class="s2">x${SSH_ORIGINAL_COMMAND}x</span><span class="se">\&quot;</span><span class="s2"> != </span><span class="se">\&quot;</span><span class="s2">xx</span><span class="se">\&quot;</span><span class="s2"> ]]; then source ~/.bash; eval </span><span class="se">\&quot;</span><span class="s2">${SSH_ORIGINAL_COMMAND}</span><span class="se">\&quot;</span><span class="s2">; else /bin/bash --login; fi;&quot;</span> <span class="o">&lt;</span><span class="n">ssh_key</span><span class="o">&gt;</span>
 </pre></div>
 </td></tr></table></blockquote>
 </li>
@@ -274,11 +273,11 @@ Acrisel's Community Blog            </a>
 <section class="well" id="related-posts">
     <h4>Other Posts:</h4>
     <ul>
-        <li><a href="../../../../posts/2017/08/astrophysics-scientific-python-programming/">Astrophysics Research Python Programming</a></li>
         <li><a href="../../../../posts/2017/07/cobol-conversion-take-1/">Cobol Conversion Take 1</a></li>
         <li><a href="../../../../posts/2017/08/pelican-post-template-controls/">Pelican Post Template Controls</a></li>
+        <li><a href="../../../../posts/2017/08/astrophysics-scientific-python-programming/">Astrophysics Research Python Programming</a></li>
+        <li><a href="../../../../posts/2017/09/python-lex-yacc-play/">Python Lex and Yacc with PLY</a></li>
         <li><a href="../../../../posts/2017/08/python-print-directory-tree/">Python Print Directory Tree</a></li>
-        <li><a href="../../../../posts/2017/08/python-ordered-class/">Python Ordered Class</a></li>
     </ul>
 </section>
                 	<style>

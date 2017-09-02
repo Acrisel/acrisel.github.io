@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Python Lex and Yacc with PLY - Acrisel's Community Blog</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <link href="../../../../favicon.ico" rel="icon">
+
+<link rel="canonical" href="../../../../posts/2017/09/python-lex-yacc-play/">
+
+        <meta name="author" content="Arnon Sela" />
+        <meta name="keywords" content="Python,Grammer,lex,yacc,ply,domain specific language" />
+        <meta name="description" content="Grammer Reusability Synopsis In many cases, grammar is used in a singular scope of actions. That is, any sentence in the grammar yields distinct action. In some cases, we want to produce different outcomes in different compiling passes of the same text. This post focuses on how to use Python …" />
+
+        <meta property="og:site_name" content="Acrisel's Community Blog" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Python Lex and Yacc with PLY"/>
+        <meta property="og:url" content="../../../../posts/2017/09/python-lex-yacc-play/"/>
+        <meta property="og:description" content="Grammer Reusability Synopsis In many cases, grammar is used in a singular scope of actions. That is, any sentence in the grammar yields distinct action. In some cases, we want to produce different outcomes in different compiling passes of the same text. This post focuses on how to use Python …"/>
+        <meta property="article:published_time" content="2017-09-01" />
+            <meta property="article:section" content="09" />
+            <meta property="article:tag" content="Python" />
+            <meta property="article:tag" content="Grammer" />
+            <meta property="article:tag" content="lex" />
+            <meta property="article:tag" content="yacc" />
+            <meta property="article:tag" content="ply" />
+            <meta property="article:tag" content="domain specific language" />
+            <meta property="article:author" content="Arnon Sela" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="../../../../theme/css/bootstrap.cerulean.min.css" type="text/css"/>
+    <link href="../../../../theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="../../../../theme/css/pygments/xcode.css" rel="stylesheet">
+    <link href="../../../../theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../../theme/css/style.css" type="text/css"/>
+
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="../../../../" class="navbar-brand">
+Acrisel's Community Blog            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                        <li >
+                            <a href="../../../../category/about-us.html">About us</a>
+                        </li>
+                        <li class="active">
+                            <a href="../../../../category/09.html">09</a>
+                        </li>
+                        <li >
+                            <a href="../../../../category/08.html">08</a>
+                        </li>
+                        <li >
+                            <a href="../../../../category/07.html">07</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="../../../../posts/2017/09/python-lex-yacc-play/"
+                       rel="bookmark"
+                       title="Permalink to Python Lex and Yacc with PLY">
+                        Python Lex and Yacc with PLY
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2017-09-01T23:12:44-05:00"> Fri 01 September 2017</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="../../../../tag/python.html">Python</a>
+        /
+	<a href="../../../../tag/grammer.html">Grammer</a>
+        /
+	<a href="../../../../tag/lex.html">lex</a>
+        /
+	<a href="../../../../tag/yacc.html">yacc</a>
+        /
+	<a href="../../../../tag/ply.html">ply</a>
+        /
+	<a href="../../../../tag/domain-specific-language.html">domain specific language</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <div class="section" id="grammer-reusability">
+<h2>Grammer Reusability</h2>
+<div class="section" id="synopsis">
+<h3>Synopsis</h3>
+<p>In many cases, grammar is used in a singular scope of actions. That is, any sentence in the grammar yields distinct action.
+In some cases, we want to produce different outcomes in different compiling passes of the same text. This post focuses on how to use Python/PLY to accomplish just that using the same grammar definitions.</p>
+<p>A normal course of action is to duplicate the grammar definitions and change the action associated with its rules. This creates a situation where the grammar needs to be maintained in multiple locations.</p>
+<p>The idea of grammar reusability lies in the ability to bind different actionable objects to the same grammar definitions. For that, actions are defined externally to the grammar. Each parser pass will provide PLY with its unique action objects.</p>
+</div>
+<div class="section" id="definitions">
+<h3>Definitions</h3>
+<p>To remove confusion, let's define some ground definitions.</p>
+<blockquote>
+<div class="line-block">
+<div class="line">Grammer rule: YACC based rule definition; e.g., add : x '+' rest;</div>
+<div class="line">Grammer definition: set of grammer rules defining a language</div>
+</div>
+</blockquote>
+</div>
+<div class="section" id="motivation">
+<h3>Motivation</h3>
+<p>We were using <a class="reference external" href="http://www.dabeaz.com/ply">PLY</a> to write a parser for Cobol.  That was done to analyze code and to produce artifacts that would be used in programming interfaces to Cobol programs.</p>
+<p>Very quickly we ran into the need to apply different actions to grammar rules according to the parsing that we needed to do. As usually the case in modern programming practices - namely lazy programming,  developers copy the grammar and change the action associated with rules according to their need.</p>
+<p>Then developers run into situations where a grammar rule was found buggy and needed to change.  Now they had to change multiple grammar definition files. This naturally prompt the need to centralize grammar definition and to allow its reusability with different parsing actions.</p>
+</div>
+<div class="section" id="design">
+<h3>Design</h3>
+<p>For grammar definitions to be come reusable, the rules needed to be separated from the action they apply. This devises three guiding principles.</p>
+<ol class="arabic simple">
+<li>rules will need to be shaped to call a shared object that would perform their action.</li>
+<li>each instantiation of parser will include binding of an actionable object.</li>
+<li>an actionable object will be sensitive to the rule it is called upon.</li>
+</ol>
+<p>This discussion will use basic calculator called <a class="reference external" href="https://github.com/dabeaz/ply/tree/master/example/classcalc">classcalc</a> provided as an example in PLY. We will make changes to this example that will create it as reusable grammar. The complete code can be found in <a class="reference external" href="https://github.com/Acrisel/references/blob/master/ply_examples/calcact.py">calcaction</a>.</p>
+<div class="section" id="actionable-object">
+<h4>Actionable Object</h4>
+<p>An actionable object is a callable that defines the actions each grammar rule would perform. For this discussion, the object is scaled down. We will note however some feature that project will most probably want.</p>
+<div class="section" id="general-actionable-object">
+<h5>General Actionable Object</h5>
+<p><a class="reference internal" href="#parseractions">ParserActions</a> is a base class defining basic actions for actionable objects. An object is instantiated using an action map (shown in <a class="reference internal" href="#calcactions">CalcActions</a>).  It callable method accepts PLY parser object (<strong>p</strong>), and key into action_map (<strong>tag</strong>). <em>___call__()</em> uses <strong>tag</strong> to find the proper action. It then applies the action to parser object <strong>p</strong>.</p>
+<blockquote id="parseractions">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">ParserActions</span><span class="p">(</span><span class="nb">object</span><span class="p">):</span>
+
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">action_map</span><span class="o">=</span><span class="p">{},):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">action_map</span><span class="o">=</span><span class="n">action_map</span>
+
+    <span class="k">def</span> <span class="fm">__call__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">,</span> <span class="n">tag</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span> <span class="n">action</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">action_map</span><span class="p">[</span><span class="n">tag</span><span class="p">]</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span> <span class="n">action</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">action_map</span><span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span>
+            <span class="k">except</span><span class="p">:</span> <span class="k">return</span> <span class="n">p</span>
+        <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">action</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></blockquote>
+</div>
+<div class="section" id="special-actionable-object">
+<h5>Special Actionable Object</h5>
+<p>Specializing parser action is done simply by inheriting from <a class="reference internal" href="#parseractions">ParserActions</a> and providing a map of actions.</p>
+<p><a class="reference internal" href="#calcactions">CalcActions</a> does just that. It defined a mapping between rule tags and actions need to be performed on them.</p>
+<p>Action can be a simple lambda function or a more complicated mechanism implemented as a method. Since <a class="reference internal" href="#parseractions">ParserActions</a> uses the return from an action to set the rule return value <strong>p[0]</strong>, methods need to return value to their rule.</p>
+<blockquote id="calcactions">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31
+32
+33</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CalcActions</span><span class="p">(</span><span class="n">ParserActions</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,):</span>
+        <span class="n">action_map</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;statement_assign&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">set_name</span><span class="p">,</span>
+                    <span class="s1">&#39;statement_expr&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">print_result</span><span class="p">,</span>
+                    <span class="s1">&#39;expression_binop&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">calc_expr</span><span class="p">,</span>
+                    <span class="s1">&#39;expression_uminus&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="o">-</span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+                    <span class="s1">&#39;expression_group&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+                    <span class="s1">&#39;expression_number&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">p</span><span class="p">:</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span>
+                    <span class="s1">&#39;expression_name&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">exp_name</span><span class="p">,</span>
+                    <span class="p">}</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">(</span><span class="n">action_map</span><span class="o">=</span><span class="n">action_map</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="o">=</span><span class="nb">dict</span><span class="p">()</span>
+
+    <span class="k">def</span> <span class="nf">print_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+
+    <span class="k">def</span> <span class="nf">set_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">calc_expr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+        <span class="k">if</span>   <span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;+&#39;</span><span class="p">:</span>    <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">+</span> <span class="n">p</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;-&#39;</span><span class="p">:</span>  <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">p</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;*&#39;</span><span class="p">:</span>  <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">p</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;/&#39;</span><span class="p">:</span>  <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">/</span> <span class="n">p</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">==</span> <span class="s1">&#39;**&#39;</span><span class="p">:</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">**</span> <span class="n">p</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">exp_name</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+        <span class="k">try</span><span class="p">:</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span>
+        <span class="k">except</span> <span class="ne">LookupError</span><span class="p">:</span>
+            <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Undefined name &#39;</span><span class="si">%s</span><span class="s2">&#39;&quot;</span> <span class="o">%</span> <span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">])</span>
+            <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">return</span> <span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+</pre></div>
+</td></tr></table></blockquote>
+</div>
+</div>
+</div>
+<div class="section" id="grammer-hooks">
+<h3>Grammer Hooks</h3>
+<p>There are two steps to hook into the grammar.</p>
+<blockquote>
+<ol class="arabic simple">
+<li>Pass actionable parser object to a parser.</li>
+<li>Let rules call that object to initiate action.</li>
+</ol>
+</blockquote>
+<div class="section" id="initiate-parser-with-actions">
+<h4>Initiate Parser with Actions</h4>
+<p>Call to parser will look as follows:</p>
+<blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">rule_action</span><span class="o">=</span><span class="n">CalcActions</span><span class="p">()</span>
+<span class="n">calc</span> <span class="o">=</span> <span class="n">Calc</span><span class="p">(</span><span class="n">rule_action</span><span class="o">=</span><span class="n">rule_action</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></blockquote>
+<p>In parser initialization, rule_action is set so it can be used within parser object.</p>
+<blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="bp">self</span><span class="o">.</span><span class="n">rule_action</span><span class="o">=</span><span class="n">rule_action</span>
+</pre></div>
+</td></tr></table></blockquote>
+</div>
+<div class="section" id="hook-rules">
+<h4>Hook Rules</h4>
+<p>Rules are hooked with actions by calling ParserAction specialized object, in calc case: <a class="reference internal" href="#calcactions">CalcActions</a>. The original <em>p_statement_assign</em> was defined follows:</p>
+<blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">p_statement_assign</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="s1">&#39;statement : NAME EQUALS expression&#39;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">names</span><span class="p">[</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">]]</span> <span class="o">=</span> <span class="n">p</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</td></tr></table></blockquote>
+<p>With reusability mechanism, the method will be changed to call an actionable</p>
+<blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">p_statement_assign</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+    <span class="s1">&#39;statement : NAME EQUALS expression&#39;</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">rule_action</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="s1">&#39;statement_assign&#39;</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></blockquote>
+<p>Call to <strong>rule_action</strong> passes the parser object and the rule's key to <em>action_map</em>.</p>
+</div>
+</div>
+<div class="section" id="change-actions">
+<h3>Change Actions</h3>
+<p>To change actions, we can define a new actionable object with new action map. This is done without changing the grammar.</p>
+<p>For example (<a class="reference internal" href="#countopsactions">CountOpsActions</a>), if we want to add a count of the number of operations when we print calc result, the following would be done. Create a new actionable class similar to the one before but with a counter <em>self.count_ops_in_expr=0</em> initiated to 0.</p>
+<p><em>calc_expr()</em> will advance the counter. <em>print_result</em> will be changed to print the counter and to rest its value for the next operation.</p>
+<p>The complete actionable object will look as follows:</p>
+<blockquote id="countopsactions">
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">CountOpsActions</span><span class="p">(</span><span class="n">CalcActions</span><span class="p">):</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,):</span>
+        <span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="fm">__init__</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">count_ops_in_expr</span><span class="o">=</span><span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">print_result</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;result: </span><span class="si">%s</span><span class="s2"> (ops count: </span><span class="si">%s</span><span class="s2">)&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">p</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="bp">self</span><span class="o">.</span><span class="n">count_ops_in_expr</span><span class="p">))</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">count_ops_in_expr</span><span class="o">=</span><span class="mi">0</span>
+
+    <span class="k">def</span> <span class="nf">calc_expr</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">p</span><span class="p">):</span>
+        <span class="n">result</span><span class="o">=</span><span class="nb">super</span><span class="p">()</span><span class="o">.</span><span class="n">calc_expr</span><span class="p">(</span><span class="n">p</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">count_ops_in_expr</span><span class="o">+=</span><span class="mi">1</span>
+        <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</td></tr></table></blockquote>
+<p>To make this work, we only need to initiate parser with the new actionable object.</p>
+<blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">rule_action</span><span class="o">=</span><span class="n">CountOpsActions</span><span class="p">()</span>
+<span class="n">calc</span> <span class="o">=</span> <span class="n">Calc</span><span class="p">(</span><span class="n">rule_action</span><span class="o">=</span><span class="n">rule_action</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></blockquote>
+<p>In a more complicated scenarios, a complete new action can be provided.</p>
+</div>
+<div class="section" id="additional-notes">
+<h3>Additional Notes</h3>
+<p>In the CalcAct example, only parser object is passed to the action. In a more complex grammar, it may be beneficial to structure action to also receive the tag. In close enough actions, it would be then possible to reuse same code with different actions using the tag as a differentiator.</p>
+<p>In the above example, <a class="reference internal" href="#parseractions">ParserActions</a> will initiate action with add <strong>tag</strong>.</p>
+<blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">p</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">=</span><span class="n">action</span><span class="p">(</span><span class="n">p</span><span class="p">,</span> <span class="n">tag</span><span class="p">)</span>
+</pre></div>
+</td></tr></table></blockquote>
+<p>Mapping actions will also add <strong>tag</strong> to the call.  For example:</p>
+<blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="s1">&#39;expression_uminus&#39;</span><span class="p">:</span> <span class="k">lambda</span> <span class="n">p</span><span class="p">,</span> <span class="n">tag</span><span class="p">:</span> <span class="o">-</span><span class="n">p</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+</pre></div>
+</td></tr></table></blockquote>
+<p>Callable methods will also need to change to accept <strong>tag</strong>.</p>
+<p>Some time a default action could also be introduced. In this case, an action with an empty key can be added.</p>
+<blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="s1">&#39;&#39;</span><span class="p">:</span> <span class="bp">self</span><span class="o">.</span><span class="n">some_default_action</span><span class="p">,</span>
+</pre></div>
+</td></tr></table></blockquote>
+<p><a class="reference internal" href="#parseractions">ParserActions</a> as described above already built to accommodate such default action.</p>
+</div>
+<div class="section" id="limitation">
+<h3>Limitation</h3>
+<p>If a new PLY object is created with new action map, it affects previously instantiated objects.</p>
+<p>Therefore, to work with multiple parser action sets in the same program, you have to re-initiate the parser each time action set is changed.</p>
+</div>
+<div class="section" id="conclusion">
+<h3>Conclusion</h3>
+<p>It is possible to override parser rules by inheriting from class rules and overriding rules of interest. Doing so still, results with replication of rules.</p>
+<p>The method shown here allows complete isolation of grammar rules from their actions. Hence allowing reusability of grammar code with different actions.</p>
+</div>
+<div class="section" id="references">
+<h3>References</h3>
+<blockquote>
+<div class="line-block">
+<div class="line"><a class="reference external" href="http://www.dabeaz.com/ply">PLY</a> by David Beazley</div>
+<div class="line"><a class="reference external" href="https://github.com/dabeaz/ply/tree/master/example/classcalc">classcalc</a> by David McNab</div>
+</div>
+</blockquote>
+</div>
+</div>
+
+            </div>
+<section class="well" id="post-share-links">
+    <h4>Share Post:</h4>
+    <p id="post-share-links">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//acrisel.github.io/posts/2017/09/python-lex-yacc-play/&title=Python%20Lex%20and%20Yacc%20with%20PLY&summary=Grammer%20Reusability%0A%0ASynopsis%0AIn%20many%20cases%2C%20grammar%20is%20used%20in%20a%20singular%20scope%20of%20actions.%20That%20is%2C%20any%20sentence%20in%20the%20grammar%20yields%20distinct%20action.%0AIn%20some%20cases%2C%20we%20want%20to%20produce%20different%20outcomes%20in%20different%20compiling%20passes%20of%20the%20same%20text.%20This%20post%20focuses%20on%20how%20to%20use%20Python%20%E2%80%A6&source=https%3A//acrisel.github.io/posts/2017/09/python-lex-yacc-play/" target="_blank" title="Share on Linkedin">Linkedin</a>
+        ❄
+        <a href="https://sharetodiaspora.github.io/?title=Python%20Lex%20and%20Yacc%20with%20PLY&url=https%3A//acrisel.github.io/posts/2017/09/python-lex-yacc-play/" target="_blank" title="Share on Diaspora">Diaspora*</a>
+        ❄
+        <a href="http://twitter.com/home?status=b'Python%20Lex%20and%20Yacc%20with%20PLY%20https%3A//acrisel.github.io/posts/2017/09/python-lex-yacc-play/'" target="_blank" title="Share on Twitter">Twitter</a>
+        ❄
+        <a href="http://www.facebook.com/sharer/sharer.php?u=https%3A//acrisel.github.io/posts/2017/09/python-lex-yacc-play/" target="_blank" title="Share on Facebook">Facebook</a>
+        ❄
+        <a href="https://plus.google.com/share?url=https%3A//acrisel.github.io/posts/2017/09/python-lex-yacc-play/" target="_blank" title="Share on Google Plus">Google+</a>
+        ❄
+        <a href="mailto:?subject=Python%20Lex%20and%20Yacc%20with%20PLY&amp;body=https%3A//acrisel.github.io/posts/2017/09/python-lex-yacc-play/" target="_blank" title="Share via Email">Email</a>
+    </p>
+    <!--
+    <ul>
+    <li><a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//acrisel.github.io/posts/2017/09/python-lex-yacc-play/&title=Python%20Lex%20and%20Yacc%20with%20PLY&summary=Grammer%20Reusability%0A%0ASynopsis%0AIn%20many%20cases%2C%20grammar%20is%20used%20in%20a%20singular%20scope%20of%20actions.%20That%20is%2C%20any%20sentence%20in%20the%20grammar%20yields%20distinct%20action.%0AIn%20some%20cases%2C%20we%20want%20to%20produce%20different%20outcomes%20in%20different%20compiling%20passes%20of%20the%20same%20text.%20This%20post%20focuses%20on%20how%20to%20use%20Python%20%E2%80%A6&source=https%3A//acrisel.github.io/posts/2017/09/python-lex-yacc-play/" target="_blank" title="Share on Diaspora">linkedin*</a></li>
+    <li><a href="https://sharetodiaspora.github.io/?title=Python%20Lex%20and%20Yacc%20with%20PLY&url=https%3A//acrisel.github.io/posts/2017/09/python-lex-yacc-play/" target="_blank" title="Share on Diaspora">Diaspora*</a></li>
+    <li><a href="http://twitter.com/home?status=b'Python%20Lex%20and%20Yacc%20with%20PLY%20https%3A//acrisel.github.io/posts/2017/09/python-lex-yacc-play/'" target="_blank" title="Share on Twitter">Twitter</a></li>
+    <li><a href="http://www.facebook.com/sharer/sharer.php?u=https%3A//acrisel.github.io/posts/2017/09/python-lex-yacc-play/" target="_blank" title="Share on Facebook">Facebook</a></li>
+    <li><a href="https://plus.google.com/share?url=https%3A//acrisel.github.io/posts/2017/09/python-lex-yacc-play/" target="_blank" title="Share on Google Plus">Google+</a></li>
+    <li><a href="mailto:?subject=Python%20Lex%20and%20Yacc%20with%20PLY&amp;body=https%3A//acrisel.github.io/posts/2017/09/python-lex-yacc-play/" target="_blank" title="Share via Email">Email</a></li>
+    </ul
+    -->
+</section>
+            <!-- /.entry-content -->
+<section class="well" id="related-posts">
+    <h4>Other Posts:</h4>
+    <ul>
+        <li><a href="../../../../posts/2017/07/cobol-conversion-take-1/">Cobol Conversion Take 1</a></li>
+        <li><a href="../../../../posts/2017/08/pelican-post-template-controls/">Pelican Post Template Controls</a></li>
+        <li><a href="../../../../posts/2017/08/astrophysics-scientific-python-programming/">Astrophysics Research Python Programming</a></li>
+        <li><a href="../../../../posts/2017/08/ssh-made-easy-using-python/">SSH Made Easy Using Python Subprocess</a></li>
+        <li><a href="../../../../posts/2017/08/python-print-directory-tree/">Python Print Directory Tree</a></li>
+    </ul>
+</section>
+                	<style>
+#pcs-comment-form input,
+#pcs-comment-form textarea {
+	width: 100%;
+}
+#pcs-comment-form-display-replyto {
+	border: solid 1px black;
+	padding: 2px;
+}
+#pcs-comment-form-display-replyto p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+#pcs-comments ul {
+	list-style: none;
+}
+#pcs-comments .comment-left {
+	display: table-cell;
+	padding-right: 10px;
+}
+#pcs-comments .comment-body {
+	display: table-cell;
+	vertical-align: top;
+	width: 100%;
+}
+</style>
+
+	<section id="pcs-comments">
+	<header>
+		<h2>Comments</h2>
+		<hr/>
+	</header>
+		<p>There are no comments yet.</p>
+	<section>
+	<form id="pcs-comment-form" action="#">
+		<legend>Add a Comment</legend>
+		<input type="hidden" id="pcs-comment-form-input-replyto">
+		<fieldset>
+			<label for="pcs-comment-form-input-name">Name</label>
+			<input  id="pcs-comment-form-input-name" type="text" placeholder="Enter your name or nickname" />
+		</fieldset>
+		<fieldset>
+			<label for="pcs-comment-form-input-website">Website</label>
+			<input  id="pcs-comment-form-input-website" type="text" placeholder="Enter your website (optional)" />
+		</fieldset>
+		<fieldset>
+			<label   for="pcs-comment-form-input-textarea">Your Comment</label>
+			<textarea id="pcs-comment-form-input-textarea" rows="5" style="resize:vertical;" placeholder="Your comment"></textarea>
+			<p>You can use the <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> syntax to format your comment.</p>
+			<div style="display: none; " id="pcs-comment-form-display-replyto"></div>
+		</fieldset>
+
+		<button type="submit"
+				id="pcs-comment-form-button-submit"
+				>Post via email</button>
+
+		<!--
+			<a href="../../../../feeds/comment.python-lex-yacc-play.atom.xml">
+				Comment Atom Feed
+			</a>
+        -->
+	</form>
+</section>
+
+</section>
+
+		<script type="text/javascript" src="../../../../theme/js/comments.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			CommentSystem.email_user   = "support";
+			CommentSystem.email_domain = "acrisel.com";
+			CommentSystem.display_replyto_html = function(comment_content, article_slug, author) {
+				return ''
+					+ '<button style="float:right;" onclick="CommentSystem.cancelReply(); return false;" title="Cancel the reply">'
+					+ 	'×'
+					+ '</button>'
+					+ '<p>This comment will be posted as a reply to \'<a title="'+comment_content+'" href="#comment-'+article_slug+'">'+author+'</a>\'</p>';
+			};
+
+			$('#pcs-comment-form').on("submit",
+				function( event )
+				{
+					event.preventDefault();
+					$(location).attr('href', CommentSystem.getMailtoLink("python-lex-yacc-play"));
+				}
+			);
+		});
+	</script>
+
+
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Links -->
+<li class="list-group-item">
+  <h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+  <ul class="list-group" id="links">
+    <li class="list-group-item">
+      <a href="http://www.acrisel.com/" target="_blank">Acrisel</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://www.github.com/acrisel" target="_blank">Acrisel Open Source</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://getpelican.com/" target="_blank">Pelican</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://python.org/" target="_blank">Python.org</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://jinja.pocoo.org/" target="_blank">Jinja2</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Links -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2017 Acrisel Team
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="../../../../theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../../../../theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="../../../../theme/js/respond.min.js"></script>
+
+
+
+</body>
+</html>
