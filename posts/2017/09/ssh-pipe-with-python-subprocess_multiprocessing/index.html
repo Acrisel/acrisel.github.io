@@ -176,8 +176,8 @@ Acrisel's Community Blog            </a>
 <h3>Assumptions</h3>
 <p>Assuming SSH setting and Workload object (class <em>RemoteWorker</em>) are same as in the previous <a class="reference external" href="https://acrisel.github.io/posts/2017/09/ssh-pipe-with-python-subprocess/">post</a>.</p>
 </div>
-<div class="section" id="process-and-pipe">
-<h3>Process and Pipe</h3>
+<div class="section" id="ssh-with-multiprocessing-pipe">
+<h3>SSH with Multiprocessing Pipe</h3>
 <p>The one drawback of os.fork and os.pipe is that they are not supported on all platforms.  For example, os.fork is supported on Unix only. Also, os.fork makes it somewhat more complicated system based objects from parent to child. Hence, we use here multiprocessing Process and Pipe.</p>
 <p>The concept here is similar to the one previous <a class="reference external" href="https://acrisel.github.io/posts/2017/09/ssh-pipe-with-python-subprocess/">post</a>; we need to create a pipe with reader and writer on its ends. This time we will use <em>multiprocessing.Pipe()</em> and <em>multiprocessing.Process().  One major difference is the bundling of *agent</em> functions into a class <em>SshAgent</em>.</p>
 <p><em>multiprocessing.Pipe()</em> uses <em>send()</em> and <em>recv()</em> methods to write and read information to the pipe. Since we want to pass pipe reading side as stdin to <em>subprocess</em>, we need need to translate pipe reading end to a regular file. If we do that to one end, we need to do the same to the other end. We accomplish this by using fdopen.</p>
@@ -393,14 +393,12 @@ Acrisel's Community Blog            </a>
         <span class="nb">exit</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
 </pre></div>
 </td></tr></table><p>Notes:</p>
-<blockquote>
 <ol class="arabic simple">
 <li><em>stdout</em> and <em>stderr</em> of <em>sshremoteagent</em> are linked to SSH, therefore, errors are written to stderr.</li>
 <li>Return message to SSH Pipe is done via stdout of the remote agent process. The response is transfer once the remote agent ends.</li>
 <li>If agent encounters an error, it exits with exitcode 1 or 2 according to the type of error.</li>
 <li>Agent also prints out the word <em>TREM</em>, notifying of its termination, as well as an error message to <em>stderr</em> in case of an error.</li>
 </ol>
-</blockquote>
 </div>
 <div class="section" id="example-usage">
 <h3>Example usage</h3>
@@ -506,9 +504,9 @@ Acrisel's Community Blog            </a>
     <ul>
         <li><a href="../../../../posts/2017/09/ssh-pipe-with-python-subprocess/">SSH Pipe with Python's Subprocess</a></li>
         <li><a href="../../../../posts/2017/08/ssh-made-easy-using-python/">SSH Made Easy Using Python Subprocess</a></li>
+        <li><a href="../../../../posts/2017/09/python-lex-yacc-play/">Python Lex and Yacc with PLY</a></li>
         <li><a href="../../../../posts/2017/08/python-ordered-class/">Python Ordered Class</a></li>
         <li><a href="../../../../posts/2017/08/python-print-directory-tree/">Python Print Directory Tree</a></li>
-        <li><a href="../../../../posts/2017/09/python-lex-yacc-play/">Python Lex and Yacc with PLY</a></li>
     </ul>
 </section>
                 <a href="https://plus.google.com/111013214708506107651??rel=author" > </a>
