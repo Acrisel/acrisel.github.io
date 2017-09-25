@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+    <title>Remote Host Accessibility - Acrisel's Community Blog</title>
+    <!-- Using the latest rendering mode for IE -->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- https://developers.google.com/custom-search/docs/structured_data?hl=es&csw=1#microformats -->
+<!--
+<PageMap>
+<DataObject type="document">
+    <Attribute name="title">Remote Host Accessibility</Attribute>
+    <Attribute name="author">Arnon Sela</Attribute>
+    <Attribute name="description">How to check port on remote host is accessible Synopsis This post shows how to validate remote host is accessible. Motivation There are many solutions out there on how to check that port on a remote host is accessible. But we needed a solution that would not hang up. Checking …</Attribute>
+    <Attribute name="page_count">1</Attribute>
+    <Attribute name="rating">5</Attribute>
+    <Attribute name="last_update">2017-09-24T20:47:00-05:00</Attribute>
+</DataObject>
+<DataObject type="metatags">
+    <Attribute name="category" value="09"/>
+        <Attribute name="category" value="Python"/>
+        <Attribute name="category" value="Network"/>
+        <Attribute name="category" value="Distributed"/>
+</DataObject>
+-->
+    <link href="../../../../favicon.ico" rel="icon">
+
+<link rel="canonical" href="../../../../posts/2017/09/python-check-remote-host-accessibility/">
+
+        <meta name="author" content="Arnon Sela" />
+        <meta name="keywords" content="Python,Network,Distributed" />
+        <meta name="description" content="How to check port on remote host is accessible Synopsis This post shows how to validate remote host is accessible. Motivation There are many solutions out there on how to check that port on a remote host is accessible. But we needed a solution that would not hang up. Checking …" />
+
+        <meta property="og:site_name" content="Acrisel's Community Blog" />
+        <meta property="og:type" content="article"/>
+        <meta property="og:title" content="Remote Host Accessibility"/>
+        <meta property="og:url" content="../../../../posts/2017/09/python-check-remote-host-accessibility/"/>
+        <meta property="og:description" content="How to check port on remote host is accessible Synopsis This post shows how to validate remote host is accessible. Motivation There are many solutions out there on how to check that port on a remote host is accessible. But we needed a solution that would not hang up. Checking …"/>
+        <meta property="article:published_time" content="2017-09-24" />
+            <meta property="article:section" content="09" />
+            <meta property="article:tag" content="Python" />
+            <meta property="article:tag" content="Network" />
+            <meta property="article:tag" content="Distributed" />
+            <meta property="article:author" content="Arnon Sela" />
+
+
+    <!-- Bootstrap -->
+        <link rel="stylesheet" href="../../../../theme/css/bootstrap.cerulean.min.css" type="text/css"/>
+    <link href="../../../../theme/css/font-awesome.min.css" rel="stylesheet">
+
+    <link href="../../../../theme/css/pygments/xcode.css" rel="stylesheet">
+    <link href="../../../../theme/tipuesearch/tipuesearch.css" rel="stylesheet">
+        <link href="../../../../theme/css/html4css1.css" rel="stylesheet">
+    <link rel="stylesheet" href="../../../../theme/css/style.css" type="text/css"/>
+
+
+
+
+
+</head>
+<body>
+
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+	<div class="container">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a href="../../../../" class="navbar-brand">
+Acrisel's Community Blog            </a>
+        </div>
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav">
+                        <li >
+                            <a href="../../../../category/about-us.html">About us</a>
+                        </li>
+                        <li class="active">
+                            <a href="../../../../category/09.html">09</a>
+                        </li>
+                        <li >
+                            <a href="../../../../category/08.html">08</a>
+                        </li>
+                        <li >
+                            <a href="../../../../category/07.html">07</a>
+                        </li>
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+              <li><span>
+                <form class="navbar-search" action="/search.html">
+                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
+                </form></span>
+              </li>
+            </ul>
+        </div>
+        <!-- /.navbar-collapse -->
+    </div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+    <div class="row">
+        <div class="col-sm-9">
+    <section id="content">
+        <article>
+            <header class="page-header">
+                <h1>
+                    <a href="../../../../posts/2017/09/python-check-remote-host-accessibility/"
+                       rel="bookmark"
+                       title="Permalink to Remote Host Accessibility">
+                        Remote Host Accessibility
+                    </a>
+                </h1>
+            </header>
+            <div class="entry-content">
+                <div class="panel">
+                    <div class="panel-body">
+<footer class="post-info">
+    <span class="label label-default">Date</span>
+    <span class="published">
+        <i class="fa fa-calendar"></i><time datetime="2017-09-24T20:47:00-05:00"> Sun 24 September 2017</time>
+    </span>
+
+
+
+
+
+<span class="label label-default">Tags</span>
+	<a href="../../../../tag/python.html">Python</a>
+        /
+	<a href="../../../../tag/network.html">Network</a>
+        /
+	<a href="../../../../tag/distributed.html">Distributed</a>
+    
+</footer><!-- /.post-info -->                    </div>
+                </div>
+                <div class="section" id="how-to-check-port-on-remote-host-is-accessible">
+<h2>How to check port on remote host is accessible</h2>
+<div class="section" id="synopsis">
+<h3>Synopsis</h3>
+<p>This post shows how to validate remote host is accessible.</p>
+</div>
+<div class="section" id="motivation">
+<h3>Motivation</h3>
+<p>There are many solutions out there on how to check that port on a remote host is accessible. But we needed a solution that would not hang up.</p>
+</div>
+<div class="section" id="checking-remote-port">
+<h3>Checking Remote Port</h3>
+<p>Here is the code that does the job:</p>
+<blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">socket</span>
+
+<span class="k">def</span> <span class="nf">port_is_open</span><span class="p">(</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">,</span> <span class="n">timeout</span><span class="o">=</span><span class="mf">0.5</span><span class="p">):</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="bp">False</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">s</span> <span class="o">=</span> <span class="n">socket</span><span class="o">.</span><span class="n">create_connection</span><span class="p">((</span><span class="n">host</span><span class="p">,</span> <span class="n">port</span><span class="p">),</span> <span class="n">timeout</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">socket</span><span class="o">.</span><span class="n">error</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="k">pass</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">s</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="n">result</span> <span class="o">=</span> <span class="bp">True</span>
+    <span class="k">return</span> <span class="n">result</span>
+</pre></div>
+</td></tr></table></blockquote>
+<p>The check how it performs, we will use the <em>timeit</em> function shown here:</p>
+<blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5
+6</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">time</span>
+
+<span class="k">def</span> <span class="nf">timeit</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
+    <span class="n">start_time</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="n">func</span><span class="p">(</span><span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">)</span>
+    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;returned </span><span class="si">%s</span><span class="s2"> in </span><span class="si">%s</span><span class="s2"> seconds&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">time</span><span class="o">.</span><span class="n">time</span><span class="p">()</span> <span class="o">-</span> <span class="n">start_time</span><span class="p">))</span>
+</pre></div>
+</td></tr></table></blockquote>
+<p>The result of checking that port on a remote host is accessible, and another that is not:</p>
+<blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="o">&gt;&gt;&gt;</span> <span class="n">timeit</span><span class="p">(</span><span class="n">port_is_open</span><span class="p">,</span> <span class="s2">&quot;192.168.1.100&quot;</span><span class="p">,</span> <span class="mi">22</span><span class="p">)</span>
+<span class="n">returned</span> <span class="bp">True</span> <span class="ow">in</span> <span class="mf">0.0007190704345703125</span> <span class="n">seconds</span>
+<span class="o">&gt;&gt;&gt;</span> <span class="n">timeit</span><span class="p">(</span><span class="n">port_is_open</span><span class="p">,</span> <span class="s2">&quot;192.168.1.70&quot;</span><span class="p">,</span> <span class="mi">22</span><span class="p">)</span>
+<span class="n">returned</span> <span class="bp">False</span> <span class="ow">in</span> <span class="mf">0.5032269954681396</span> <span class="n">seconds</span>
+</pre></div>
+</td></tr></table></blockquote>
+</div>
+<div class="section" id="conclusion">
+<h3>Conclusion</h3>
+<p>It cannot be easier, yea?!</p>
+<p>Note: checking a port on remote host may be impacted by many things, predominantly how busy the network is and how busy are the involved hosts.  Therefore, the timeout may need to be adjusted according to the operational environment.</p>
+</div>
+<div class="section" id="references">
+<h3>References</h3>
+<blockquote>
+<div class="line-block">
+<div class="line"><a class="reference external" href="https://docs.python.org/3/library/socket.html">Python's socket library</a></div>
+</div>
+</blockquote>
+</div>
+</div>
+
+            </div>
+<section class="well" id="post-share-links">
+    <h4>Share Post:</h4>
+    <p id="post-share-links">
+        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//acrisel.github.io/posts/2017/09/python-check-remote-host-accessibility/&title=Remote%20Host%20Accessibility&summary=How%20to%20check%20port%20on%20remote%20host%20is%20accessible%0A%0ASynopsis%0AThis%20post%20shows%20how%20to%20validate%20remote%20host%20is%20accessible.%0A%0A%0AMotivation%0AThere%20are%20many%20solutions%20out%20there%20on%20how%20to%20check%20that%20port%20on%20a%20remote%20host%20is%20accessible.%20But%20we%20needed%20a%20solution%20that%20would%20not%20hang%20up.%0A%0A%0AChecking%20%E2%80%A6&source=https%3A//acrisel.github.io/posts/2017/09/python-check-remote-host-accessibility/" target="_blank" title="Share on Linkedin">Linkedin</a>
+        ❄
+        <a href="https://sharetodiaspora.github.io/?title=Remote%20Host%20Accessibility&url=https%3A//acrisel.github.io/posts/2017/09/python-check-remote-host-accessibility/" target="_blank" title="Share on Diaspora">Diaspora*</a>
+        ❄
+        <a href="http://twitter.com/home?status=b'Remote%20Host%20Accessibility%20https%3A//acrisel.github.io/posts/2017/09/python-check-remote-host-accessibility/'" target="_blank" title="Share on Twitter">Twitter</a>
+        ❄
+        <a href="http://www.facebook.com/sharer/sharer.php?u=https%3A//acrisel.github.io/posts/2017/09/python-check-remote-host-accessibility/" target="_blank" title="Share on Facebook">Facebook</a>
+        ❄
+        <a href="https://plus.google.com/share?url=https%3A//acrisel.github.io/posts/2017/09/python-check-remote-host-accessibility/" target="_blank" title="Share on Google Plus">Google+</a>
+        ❄
+        <a href="mailto:?subject=Remote%20Host%20Accessibility&amp;body=https%3A//acrisel.github.io/posts/2017/09/python-check-remote-host-accessibility/" target="_blank" title="Share via Email">Email</a>
+    </p>
+    <!--
+    <ul>
+    <li><a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//acrisel.github.io/posts/2017/09/python-check-remote-host-accessibility/&title=Remote%20Host%20Accessibility&summary=How%20to%20check%20port%20on%20remote%20host%20is%20accessible%0A%0ASynopsis%0AThis%20post%20shows%20how%20to%20validate%20remote%20host%20is%20accessible.%0A%0A%0AMotivation%0AThere%20are%20many%20solutions%20out%20there%20on%20how%20to%20check%20that%20port%20on%20a%20remote%20host%20is%20accessible.%20But%20we%20needed%20a%20solution%20that%20would%20not%20hang%20up.%0A%0A%0AChecking%20%E2%80%A6&source=https%3A//acrisel.github.io/posts/2017/09/python-check-remote-host-accessibility/" target="_blank" title="Share on Diaspora">linkedin*</a></li>
+    <li><a href="https://sharetodiaspora.github.io/?title=Remote%20Host%20Accessibility&url=https%3A//acrisel.github.io/posts/2017/09/python-check-remote-host-accessibility/" target="_blank" title="Share on Diaspora">Diaspora*</a></li>
+    <li><a href="http://twitter.com/home?status=b'Remote%20Host%20Accessibility%20https%3A//acrisel.github.io/posts/2017/09/python-check-remote-host-accessibility/'" target="_blank" title="Share on Twitter">Twitter</a></li>
+    <li><a href="http://www.facebook.com/sharer/sharer.php?u=https%3A//acrisel.github.io/posts/2017/09/python-check-remote-host-accessibility/" target="_blank" title="Share on Facebook">Facebook</a></li>
+    <li><a href="https://plus.google.com/share?url=https%3A//acrisel.github.io/posts/2017/09/python-check-remote-host-accessibility/" target="_blank" title="Share on Google Plus">Google+</a></li>
+    <li><a href="mailto:?subject=Remote%20Host%20Accessibility&amp;body=https%3A//acrisel.github.io/posts/2017/09/python-check-remote-host-accessibility/" target="_blank" title="Share via Email">Email</a></li>
+    </ul
+    -->
+</section>
+            <!-- /.entry-content -->
+<section class="well" id="related-posts">
+    <h4>Other Posts:</h4>
+    <ul>
+        <li><a href="../../../../posts/2017/09/ssh-pipe-with-python-subprocess/">SSH Pipe with Python's Subprocess</a></li>
+        <li><a href="../../../../posts/2017/09/ssh-pipe-with-python-subprocess_multiprocessing/">SSH Pipe with Python's Subprocess and Multiprocessing</a></li>
+        <li><a href="../../../../posts/2017/08/ssh-made-easy-using-python/">SSH Made Easy Using Python Subprocess</a></li>
+        <li><a href="../../../../posts/2017/08/astrophysics-scientific-python-programming/">Astrophysics Research Python Programming</a></li>
+        <li><a href="../../../../posts/2017/08/pelican-post-template-controls/">Pelican Post Template Controls</a></li>
+    </ul>
+</section>
+                <a href="https://plus.google.com/111013214708506107651??rel=author" > </a>
+                	<style>
+#pcs-comment-form input,
+#pcs-comment-form textarea {
+	width: 100%;
+}
+#pcs-comment-form-display-replyto {
+	border: solid 1px black;
+	padding: 2px;
+}
+#pcs-comment-form-display-replyto p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+#pcs-comments ul {
+	list-style: none;
+}
+#pcs-comments .comment-left {
+	display: table-cell;
+	padding-right: 10px;
+}
+#pcs-comments .comment-body {
+	display: table-cell;
+	vertical-align: top;
+	width: 100%;
+}
+</style>
+
+	<section id="pcs-comments">
+	<header>
+		<h2>Comments</h2>
+		<hr/>
+	</header>
+		<p>There are no comments yet.</p>
+	<section>
+	<form id="pcs-comment-form" action="#">
+		<legend>Add a Comment</legend>
+		<input type="hidden" id="pcs-comment-form-input-replyto">
+		<fieldset>
+			<label for="pcs-comment-form-input-name">Name</label>
+			<input  id="pcs-comment-form-input-name" type="text" placeholder="Enter your name or nickname" />
+		</fieldset>
+		<fieldset>
+			<label for="pcs-comment-form-input-website">Website</label>
+			<input  id="pcs-comment-form-input-website" type="text" placeholder="Enter your website (optional)" />
+		</fieldset>
+		<fieldset>
+			<label   for="pcs-comment-form-input-textarea">Your Comment</label>
+			<textarea id="pcs-comment-form-input-textarea" rows="5" style="resize:vertical;" placeholder="Your comment"></textarea>
+			<p>You can use the <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> syntax to format your comment.</p>
+			<div style="display: none; " id="pcs-comment-form-display-replyto"></div>
+		</fieldset>
+
+		<button type="submit"
+				id="pcs-comment-form-button-submit"
+				>Post via email</button>
+
+		<!--
+			<a href="../../../../feeds/comment.python-check-remote-host-accessibility.atom.xml">
+				Comment Atom Feed
+			</a>
+        -->
+	</form>
+</section>
+
+</section>
+
+		<script type="text/javascript" src="../../../../theme/js/comments.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			CommentSystem.email_user   = "support";
+			CommentSystem.email_domain = "acrisel.com";
+			CommentSystem.display_replyto_html = function(comment_content, article_slug, author) {
+				return ''
+					+ '<button style="float:right;" onclick="CommentSystem.cancelReply(); return false;" title="Cancel the reply">'
+					+ 	'×'
+					+ '</button>'
+					+ '<p>This comment will be posted as a reply to \'<a title="'+comment_content+'" href="#comment-'+article_slug+'">'+author+'</a>\'</p>';
+			};
+
+			$('#pcs-comment-form').on("submit",
+				function( event )
+				{
+					event.preventDefault();
+					$(location).attr('href', CommentSystem.getMailtoLink("python-check-remote-host-accessibility"));
+				}
+			);
+		});
+	</script>
+
+
+
+        </article>
+    </section>
+
+        </div>
+        <div class="col-sm-3" id="sidebar">
+            <aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+  <ul class="list-group list-group-flush">
+
+<!-- Sidebar/Links -->
+<li class="list-group-item">
+  <h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+  <ul class="list-group" id="links">
+    <li class="list-group-item">
+      <a href="http://www.acrisel.com/" target="_blank">Acrisel</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://www.github.com/acrisel" target="_blank">Acrisel Open Source</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://getpelican.com/" target="_blank">Pelican</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://python.org/" target="_blank">Python.org</a>
+    </li>
+    <li class="list-group-item">
+      <a href="http://jinja.pocoo.org/" target="_blank">Jinja2</a>
+    </li>
+  </ul>
+</li>
+<!-- End Sidebar/Links -->
+  </ul>
+</section>
+<!-- End Sidebar -->            </aside>
+        </div>
+    </div>
+</div>
+<footer>
+   <div class="container">
+      <hr>
+      <div class="row">
+         <div class="col-xs-10">&copy; 2017 Acrisel Team
+            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
+         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+      </div>
+   </div>
+</footer>
+<script src="../../../../theme/js/jquery.min.js"></script>
+
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../../../../theme/js/bootstrap.min.js"></script>
+
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="../../../../theme/js/respond.min.js"></script>
+
+
+
+</body>
+</html>
