@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+
+<html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
+<head>
+<title>Paradigm for Distributed Logging - Acrisel's Community Blog</title>
+<!-- Using the latest rendering mode for IE -->
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<!-- https://developers.google.com/custom-search/docs/structured_data?hl=es&csw=1#microformats -->
+<!--
+<PageMap>
+<DataObject type="document">
+    <Attribute name="title">Paradigm for Distributed Logging</Attribute>
+    <Attribute name="author">Arnon Sela</Attribute>
+    <Attribute name="description">Getting logging in distributed environment Synopsis Motivation Python has a very nice logging package. That is until you try to work it over distributed environment. In particular, the socket based logging mechanism and its examples are not robust enough to be used in a more complex environment. If you try …</Attribute>
+    <Attribute name="page_count">1</Attribute>
+    <Attribute name="rating">5</Attribute>
+    <Attribute name="last_update">2017-10-24T20:47:00-05:00</Attribute>
+</DataObject>
+<DataObject type="metatags">
+    <Attribute name="category" value="09"/>
+        <Attribute name="category" value="Python"/>
+        <Attribute name="category" value="Network"/>
+        <Attribute name="category" value="Logging"/>
+        <Attribute name="category" value="Log"/>
+        <Attribute name="category" value="Distributed"/>
+</DataObject>
+-->
+<link href="../../../../favicon.ico" rel="icon"/>
+<link href="../../../../posts/2017/10/paradigm-for-distributed-logging/" rel="canonical"/>
+<meta content="Arnon Sela" name="author">
+<meta content="Python,Network,Logging,Log,Distributed" name="keywords">
+<meta content="Getting logging in distributed environment Synopsis Motivation Python has a very nice logging package. That is until you try to work it over distributed environment. In particular, the socket based logging mechanism and its examples are not robust enough to be used in a more complex environment. If you try …" name="description">
+<meta content="Acrisel's Community Blog" property="og:site_name"/>
+<meta content="article" property="og:type"/>
+<meta content="Paradigm for Distributed Logging" property="og:title"/>
+<meta content="../../../../posts/2017/10/paradigm-for-distributed-logging/" property="og:url"/>
+<meta content="Getting logging in distributed environment Synopsis Motivation Python has a very nice logging package. That is until you try to work it over distributed environment. In particular, the socket based logging mechanism and its examples are not robust enough to be used in a more complex environment. If you try …" property="og:description"/>
+<meta content="2017-10-24" property="article:published_time"/>
+<meta content="09" property="article:section"/>
+<meta content="Python" property="article:tag"/>
+<meta content="Network" property="article:tag"/>
+<meta content="Logging" property="article:tag"/>
+<meta content="Log" property="article:tag"/>
+<meta content="Distributed" property="article:tag"/>
+<meta content="Arnon Sela" property="article:author"/>
+<!-- Bootstrap -->
+<link href="../../../../theme/css/bootstrap.cerulean.min.css" rel="stylesheet" type="text/css">
+<link href="../../../../theme/css/font-awesome.min.css" rel="stylesheet"/>
+<link href="../../../../theme/css/pygments/xcode.css" rel="stylesheet"/>
+<link href="../../../../theme/tipuesearch/tipuesearch.css" rel="stylesheet"/>
+<link href="../../../../theme/css/html4css1.css" rel="stylesheet"/>
+<link href="../../../../theme/css/style.css" rel="stylesheet" type="text/css">
+</link></link></meta></meta></meta></head>
+<body>
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+<div class="container">
+<div class="navbar-header">
+<button class="navbar-toggle" data-target=".navbar-ex1-collapse" data-toggle="collapse" type="button">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="../../../../">
+Acrisel's Community Blog            </a>
+</div>
+<div class="collapse navbar-collapse navbar-ex1-collapse">
+<ul class="nav navbar-nav">
+<li><a href="../../../../pages/welcome-all.html">
+</a></li>
+<li>
+<a href="../../../../category/about-us.html">About us</a>
+</li>
+<li class="active">
+<a href="../../../../category/09.html">09</a>
+</li>
+<li>
+<a href="../../../../category/08.html">08</a>
+</li>
+<li>
+<a href="../../../../category/07.html">07</a>
+</li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li><span>
+<form action="/search.html" class="navbar-search">
+<input class="search-query" id="tipue_search_input" name="q" placeholder="Search" required="" type="text"/>
+</form></span>
+</li>
+</ul>
+</div>
+<!-- /.navbar-collapse -->
+</div>
+</div> <!-- /.navbar -->
+<!-- Banner -->
+<!-- End Banner -->
+<div class="container">
+<div class="row">
+<div class="col-sm-9">
+<section id="content">
+<article>
+<header class="page-header">
+<h1>
+<a href="../../../../posts/2017/10/paradigm-for-distributed-logging/" rel="bookmark" title="Permalink to Paradigm for Distributed Logging">
+                        Paradigm for Distributed Logging
+                    </a>
+</h1>
+</header>
+<div class="entry-content">
+<div class="panel">
+<div class="panel-body">
+<footer class="post-info">
+<span class="label label-default">Date</span>
+<span class="published">
+<i class="fa fa-calendar"></i><time datetime="2017-10-24T20:47:00-05:00"> Tue 24 October 2017</time>
+</span>
+<span class="label label-default">Tags</span>
+<a href="../../../../tag/python.html">Python</a>
+        /
+	<a href="../../../../tag/network.html">Network</a>
+        /
+	<a href="../../../../tag/logging.html">Logging</a>
+        /
+	<a href="../../../../tag/log.html">Log</a>
+        /
+	<a href="../../../../tag/distributed.html">Distributed</a>
+</footer><!-- /.post-info --> </div>
+</div>
+<div class="section" id="getting-logging-in-distributed-environment">
+<h2>Getting logging in distributed environment</h2>
+<div class="section" id="synopsis">
+<h3>Synopsis</h3>
+</div>
+<div class="section" id="motivation">
+<h3>Motivation</h3>
+<p>Python has a very nice logging package. That is until you try to work it over distributed environment. In particular, the socket based logging mechanism and its examples are not robust enough to be used in a more complex environment. If you try, you will find that not all messages are ending in logs. Or that process does not end.</p>
+<div class="section" id="driving-architecture">
+<h4>Driving architecture</h4>
+<p>The architecture is of that a server process submit processing in multiple machines. Remote process send back logging data.</p>
+<img alt="driving architecture flow;" src="../../../../images/python_distributed_logging/driving_architecture.png"/>
+</div>
+<div class="section" id="example-use">
+<h4>Example use</h4>
+<p>Here is a simplistic example for which we needed the logging environment to work. In this example, clients are local. However, we use SSH channels based on <a class="reference external" href="https://acrisel.github.io/posts/2017/09/ssh-pipe-with-python-subprocess_multiprocessing/">SSH agents</a> to pass logging information between hosts.  This example is adopted from <a class="reference external" href="https://docs.python.org/3.6/howto/logging-cookbook.html#logging-cookbook">Sending and receiving logging events across a network</a></p>
+<blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre> 1
+ 2
+ 3
+ 4
+ 5
+ 6
+ 7
+ 8
+ 9
+10
+11
+12
+13
+14
+15
+16
+17
+18
+19
+20
+21
+22
+23
+24
+25
+26
+27
+28
+29
+30
+31</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">from</span> <span class="nn">nwlogger</span> <span class="kn">import</span> <span class="n">NwLogger</span>
+<span class="kn">import</span> <span class="nn">multiprocessing</span> <span class="kn">as</span> <span class="nn">mp</span>
+<span class="kn">import</span> <span class="nn">logging</span>
+
+<span class="k">def</span> <span class="nf">log</span><span class="p">(</span><span class="n">logger_info</span><span class="p">):</span>
+    <span class="n">logger1</span> <span class="o">=</span> <span class="n">NwLogger</span><span class="o">.</span><span class="n">get_logger</span><span class="p">(</span><span class="n">logger_info</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'example.e1'</span><span class="p">)</span>
+    <span class="n">logger2</span> <span class="o">=</span> <span class="n">NwLogger</span><span class="o">.</span><span class="n">get_logger</span><span class="p">(</span><span class="n">logger_info</span><span class="p">,</span> <span class="n">name</span><span class="o">=</span><span class="s1">'example.e2'</span><span class="p">)</span>
+
+    <span class="n">logger2</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'How quickly daft jumping zebras vex.'</span><span class="p">)</span>
+    <span class="n">logger1</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="s1">'Jail zesty vixen who grabbed pay from quack.'</span><span class="p">)</span>
+    <span class="n">logger1</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="s1">'Quick zephyrs blow, vexing daft Jim.'</span><span class="p">)</span>
+    <span class="n">logger2</span><span class="o">.</span><span class="n">error</span><span class="p">(</span><span class="s1">'The five boxing wizards jump quickly.'</span><span class="p">)</span>
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">nwlogger</span> <span class="o">=</span> <span class="n">NwLogger</span><span class="p">(</span><span class="s1">'example'</span><span class="p">,</span> <span class="n">logging_level</span><span class="o">=</span><span class="n">logging</span><span class="o">.</span><span class="n">DEBUG</span><span class="p">,</span> <span class="n">consolidate</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+    <span class="n">nwlogger</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+
+    <span class="n">logger_info</span> <span class="o">=</span> <span class="n">nwlogger</span><span class="o">.</span><span class="n">logger_info</span><span class="p">()</span>
+    <span class="n">logger</span> <span class="o">=</span> <span class="n">NwLogger</span><span class="o">.</span><span class="n">get_logger</span><span class="p">(</span><span class="n">logger_info</span><span class="o">=</span><span class="n">logger_info</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">'Jackdaws love my big sphinx of quartz.'</span><span class="p">)</span>
+
+    <span class="n">client</span> <span class="o">=</span> <span class="n">mp</span><span class="o">.</span><span class="n">Process</span><span class="p">(</span><span class="n">target</span><span class="o">=</span><span class="n">log</span><span class="p">,</span> <span class="n">args</span><span class="o">=</span><span class="p">(</span><span class="n">logger_info</span><span class="p">,))</span>
+    <span class="n">client</span><span class="o">.</span><span class="n">start</span><span class="p">()</span>
+    <span class="n">client</span><span class="o">.</span><span class="n">join</span><span class="p">()</span>
+
+    <span class="n">nwlogger</span><span class="o">.</span><span class="n">stop</span><span class="p">()</span>
+
+<span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
+    <span class="n">mp</span><span class="o">.</span><span class="n">freeze_support</span><span class="p">()</span>
+    <span class="n">mp</span><span class="o">.</span><span class="n">set_start_method</span><span class="p">(</span><span class="s1">'spawn'</span><span class="p">)</span>
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+</td></tr></table></blockquote>
+<p>The expected results from this example:</p>
+<blockquote>
+<table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
+2
+3
+4
+5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="mi">2017</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">25</span> <span class="mi">09</span><span class="p">:</span><span class="mi">45</span><span class="p">:</span><span class="mf">00.485</span><span class="p">:</span> <span class="mi">2397</span>   <span class="p">:</span> <span class="n">INFO</span>   <span class="p">:</span> <span class="n">Jackdaws</span> <span class="n">love</span> <span class="n">my</span> <span class="n">big</span> <span class="n">sphinx</span> <span class="n">of</span> <span class="n">quartz</span><span class="o">.</span>
+<span class="mi">2017</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">25</span> <span class="mi">09</span><span class="p">:</span><span class="mi">45</span><span class="p">:</span><span class="mf">00.551</span><span class="p">:</span> <span class="mi">2400</span>   <span class="p">:</span> <span class="n">WARNING</span><span class="p">:</span> <span class="n">Jail</span> <span class="n">zesty</span> <span class="n">vixen</span> <span class="n">who</span> <span class="n">grabbed</span> <span class="n">pay</span> <span class="kn">from</span> <span class="nn">quack.</span>
+<span class="mi">2017</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">25</span> <span class="mi">09</span><span class="p">:</span><span class="mi">45</span><span class="p">:</span><span class="mf">00.552</span><span class="p">:</span> <span class="mi">2400</span>   <span class="p">:</span> <span class="n">DEBUG</span>  <span class="p">:</span> <span class="n">Quick</span> <span class="n">zephyrs</span> <span class="n">blow</span><span class="p">,</span> <span class="n">vexing</span> <span class="n">daft</span> <span class="n">Jim</span><span class="o">.</span><span class="p">:</span> <span class="n">nwlogger_example</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">16</span><span class="p">)</span>
+<span class="mi">2017</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">25</span> <span class="mi">09</span><span class="p">:</span><span class="mi">45</span><span class="p">:</span><span class="mf">00.547</span><span class="p">:</span> <span class="mi">2400</span>   <span class="p">:</span> <span class="n">INFO</span>   <span class="p">:</span> <span class="n">How</span> <span class="n">quickly</span> <span class="n">daft</span> <span class="n">jumping</span> <span class="n">zebras</span> <span class="n">vex</span><span class="o">.</span>
+<span class="mi">2017</span><span class="o">-</span><span class="mi">09</span><span class="o">-</span><span class="mi">25</span> <span class="mi">09</span><span class="p">:</span><span class="mi">45</span><span class="p">:</span><span class="mf">00.552</span><span class="p">:</span> <span class="mi">2400</span>   <span class="p">:</span> <span class="n">ERROR</span>  <span class="p">:</span> <span class="n">The</span> <span class="n">five</span> <span class="n">boxing</span> <span class="n">wizards</span> <span class="n">jump</span> <span class="n">quickly</span><span class="o">.</span>
+</pre></div>
+</td></tr></table></blockquote>
+<p>Note that messages are not printed in order. Reason is that the solution uses ThreadingTCPServer in which threads are open to read individual requests. Therefore order is not guarenteed.</p>
+</div>
+</div>
+<div class="section" id="design">
+<h3>Design</h3>
+</div>
+<div class="section" id="references">
+<h3>References</h3>
+<blockquote>
+<div class="line-block">
+<div class="line"><a class="reference external" href="https://acrisel.github.io/posts/2017/09/ssh-pipe-with-python-subprocess_multiprocessing/">SSH agents</a></div>
+<div class="line"><a class="reference external" href="https://docs.python.org/3.6/howto/logging-cookbook.html#logging-cookbook">Sending and receiving logging events across a network</a></div>
+</div>
+</blockquote>
+</div>
+</div>
+</div>
+<section class="well" id="post-share-links">
+<h4>Share Post:</h4>
+<p id="post-share-links">
+<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A//acrisel.github.io/posts/2017/10/paradigm-for-distributed-logging/&amp;title=Paradigm%20for%20Distributed%20Logging&amp;summary=Getting%20logging%20in%20distributed%20environment%0A%0ASynopsis%0A%0A%0AMotivation%0APython%20has%20a%20very%20nice%20logging%20package.%20That%20is%20until%20you%20try%20to%20work%20it%20over%20distributed%20environment.%20In%20particular%2C%20the%20socket%20based%20logging%20mechanism%20and%20its%20examples%20are%20not%20robust%20enough%20to%20be%20used%20in%20a%20more%20complex%20environment.%20If%20you%20try%20%E2%80%A6&amp;source=https%3A//acrisel.github.io/posts/2017/10/paradigm-for-distributed-logging/" target="_blank" title="Share on Linkedin">Linkedin</a>
+        ❄
+        <a href="https://sharetodiaspora.github.io/?title=Paradigm%20for%20Distributed%20Logging&amp;url=https%3A//acrisel.github.io/posts/2017/10/paradigm-for-distributed-logging/" target="_blank" title="Share on Diaspora">Diaspora*</a>
+        ❄
+        <a href="http://twitter.com/home?status=b'Paradigm%20for%20Distributed%20Logging%20https%3A//acrisel.github.io/posts/2017/10/paradigm-for-distributed-logging/'" target="_blank" title="Share on Twitter">Twitter</a>
+        ❄
+        <a href="http://www.facebook.com/sharer/sharer.php?u=https%3A//acrisel.github.io/posts/2017/10/paradigm-for-distributed-logging/" target="_blank" title="Share on Facebook">Facebook</a>
+        ❄
+        <a href="https://plus.google.com/share?url=https%3A//acrisel.github.io/posts/2017/10/paradigm-for-distributed-logging/" target="_blank" title="Share on Google Plus">Google+</a>
+        ❄
+        <a href="mailto:?subject=Paradigm%20for%20Distributed%20Logging&amp;body=https%3A//acrisel.github.io/posts/2017/10/paradigm-for-distributed-logging/" target="_blank" title="Share via Email">Email</a>
+</p>
+<!--
+    <ul>
+    <li><a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//acrisel.github.io/posts/2017/10/paradigm-for-distributed-logging/&title=Paradigm%20for%20Distributed%20Logging&summary=Getting%20logging%20in%20distributed%20environment%0A%0ASynopsis%0A%0A%0AMotivation%0APython%20has%20a%20very%20nice%20logging%20package.%20That%20is%20until%20you%20try%20to%20work%20it%20over%20distributed%20environment.%20In%20particular%2C%20the%20socket%20based%20logging%20mechanism%20and%20its%20examples%20are%20not%20robust%20enough%20to%20be%20used%20in%20a%20more%20complex%20environment.%20If%20you%20try%20%E2%80%A6&source=https%3A//acrisel.github.io/posts/2017/10/paradigm-for-distributed-logging/" target="_blank" title="Share on Diaspora">linkedin*</a></li>
+    <li><a href="https://sharetodiaspora.github.io/?title=Paradigm%20for%20Distributed%20Logging&url=https%3A//acrisel.github.io/posts/2017/10/paradigm-for-distributed-logging/" target="_blank" title="Share on Diaspora">Diaspora*</a></li>
+    <li><a href="http://twitter.com/home?status=b'Paradigm%20for%20Distributed%20Logging%20https%3A//acrisel.github.io/posts/2017/10/paradigm-for-distributed-logging/'" target="_blank" title="Share on Twitter">Twitter</a></li>
+    <li><a href="http://www.facebook.com/sharer/sharer.php?u=https%3A//acrisel.github.io/posts/2017/10/paradigm-for-distributed-logging/" target="_blank" title="Share on Facebook">Facebook</a></li>
+    <li><a href="https://plus.google.com/share?url=https%3A//acrisel.github.io/posts/2017/10/paradigm-for-distributed-logging/" target="_blank" title="Share on Google Plus">Google+</a></li>
+    <li><a href="mailto:?subject=Paradigm%20for%20Distributed%20Logging&amp;body=https%3A//acrisel.github.io/posts/2017/10/paradigm-for-distributed-logging/" target="_blank" title="Share via Email">Email</a></li>
+    </ul
+    -->
+</section>
+<!-- /.entry-content -->
+<section class="well" id="related-posts">
+<h4>Other Posts:</h4>
+<ul>
+<li><a href="../../../../posts/2017/09/python-check-remote-host-accessibility/">Remote Host Accessibility</a></li>
+<li><a href="../../../../posts/2017/09/ssh-pipe-with-python-subprocess_multiprocessing/">SSH Pipe with Python's Subprocess and Multiprocessing</a></li>
+<li><a href="../../../../posts/2017/08/ssh-made-easy-using-python/">SSH Made Easy Using Python Subprocess</a></li>
+<li><a href="../../../../posts/2017/09/ssh-pipe-with-python-subprocess/">SSH Pipe with Python's Subprocess</a></li>
+<li><a href="../../../../posts/2017/08/pelican-post-template-controls/">Pelican Post Template Controls</a></li>
+</ul>
+</section>
+<a href="https://plus.google.com/111013214708506107651??rel=author"> </a>
+<style>
+#pcs-comment-form input,
+#pcs-comment-form textarea {
+	width: 100%;
+}
+#pcs-comment-form-display-replyto {
+	border: solid 1px black;
+	padding: 2px;
+}
+#pcs-comment-form-display-replyto p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+#pcs-comments ul {
+	list-style: none;
+}
+#pcs-comments .comment-left {
+	display: table-cell;
+	padding-right: 10px;
+}
+#pcs-comments .comment-body {
+	display: table-cell;
+	vertical-align: top;
+	width: 100%;
+}
+</style>
+<section id="pcs-comments">
+<header>
+<h2>Comments</h2>
+<hr/>
+</header>
+<p>There are no comments yet.</p>
+<section>
+<form action="#" id="pcs-comment-form">
+<legend>Add a Comment</legend>
+<input id="pcs-comment-form-input-replyto" type="hidden"/>
+<fieldset>
+<label for="pcs-comment-form-input-name">Name</label>
+<input id="pcs-comment-form-input-name" placeholder="Enter your name or nickname" type="text">
+</input></fieldset>
+<fieldset>
+<label for="pcs-comment-form-input-website">Website</label>
+<input id="pcs-comment-form-input-website" placeholder="Enter your website (optional)" type="text">
+</input></fieldset>
+<fieldset>
+<label for="pcs-comment-form-input-textarea">Your Comment</label>
+<textarea id="pcs-comment-form-input-textarea" placeholder="Your comment" rows="5" style="resize:vertical;"></textarea>
+<p>You can use the <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> syntax to format your comment.</p>
+<div id="pcs-comment-form-display-replyto" style="display: none; "></div>
+</fieldset>
+<button id="pcs-comment-form-button-submit" type="submit">Post via email</button>
+<!--
+			<a href="../../../../feeds/comment.paradigm-for-distributed-logging.atom.xml">
+				Comment Atom Feed
+			</a>
+        -->
+</form>
+</section>
+</section>
+<script src="../../../../theme/js/comments.js" type="text/javascript"></script>
+<script type="text/javascript">
+		$(document).ready(function() {
+			CommentSystem.email_user   = "support";
+			CommentSystem.email_domain = "acrisel.com";
+			CommentSystem.display_replyto_html = function(comment_content, article_slug, author) {
+				return ''
+					+ '<button style="float:right;" onclick="CommentSystem.cancelReply(); return false;" title="Cancel the reply">'
+					+ 	'×'
+					+ '</button>'
+					+ '<p>This comment will be posted as a reply to \'<a title="'+comment_content+'" href="#comment-'+article_slug+'">'+author+'</a>\'</p>';
+			};
+
+			$('#pcs-comment-form').on("submit",
+				function( event )
+				{
+					event.preventDefault();
+					$(location).attr('href', CommentSystem.getMailtoLink("paradigm-for-distributed-logging"));
+				}
+			);
+		});
+	</script>
+</article>
+</section>
+</div>
+<div class="col-sm-3" id="sidebar">
+<aside>
+<!-- Sidebar -->
+<section class="well well-sm">
+<ul class="list-group list-group-flush">
+<!-- Sidebar/Links -->
+<li class="list-group-item">
+<h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+<ul class="list-group" id="links">
+<li class="list-group-item">
+<a href="http://www.acrisel.com/" target="_blank">Acrisel</a>
+</li>
+<li class="list-group-item">
+<a href="http://www.github.com/acrisel" target="_blank">Acrisel Open Source</a>
+</li>
+<li class="list-group-item">
+<a href="http://getpelican.com/" target="_blank">Pelican</a>
+</li>
+<li class="list-group-item">
+<a href="http://python.org/" target="_blank">Python.org</a>
+</li>
+<li class="list-group-item">
+<a href="http://jinja.pocoo.org/" target="_blank">Jinja2</a>
+</li>
+</ul>
+</li>
+<!-- End Sidebar/Links -->
+</ul>
+</section>
+<!-- End Sidebar --> </aside>
+</div>
+</div>
+</div>
+<footer>
+<div class="container">
+<hr/>
+<div class="row">
+<div class="col-xs-10">© 2017 Acrisel Team
+            · Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+            <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a> </div>
+<div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+</div>
+</div>
+</footer>
+<script src="../../../../theme/js/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="../../../../theme/js/bootstrap.min.js"></script>
+<!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
+<script src="../../../../theme/js/respond.min.js"></script>
+</body>
+</html>

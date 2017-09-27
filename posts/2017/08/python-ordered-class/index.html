@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Python Ordered Class - Acrisel's Community Blog</title>
-    <!-- Using the latest rendering mode for IE -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Python Ordered Class - Acrisel's Community Blog</title>
+<!-- Using the latest rendering mode for IE -->
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <!-- https://developers.google.com/custom-search/docs/structured_data?hl=es&csw=1#microformats -->
 <!--
 <PageMap>
@@ -27,115 +28,98 @@
         <Attribute name="category" value="Tip"/>
 </DataObject>
 -->
-    <link href="../../../../favicon.ico" rel="icon">
-
-<link rel="canonical" href="../../../../posts/2017/08/python-ordered-class/">
-
-        <meta name="author" content="Acrisel Team" />
-        <meta name="keywords" content="Python,Metadata,Class,Ordered,Trick,Tip" />
-        <meta name="description" content="Maintain Ordered of Fields in Class Introduction We saw many questions on the WEB regarding having Python class maintain order of its fields. Reason being that __dict__ is dict, therefore, class doesn&#39;t register the order of the fields presented to it. We decided to share our version of such a …" />
-
-        <meta property="og:site_name" content="Acrisel's Community Blog" />
-        <meta property="og:type" content="article"/>
-        <meta property="og:title" content="Python Ordered Class"/>
-        <meta property="og:url" content="../../../../posts/2017/08/python-ordered-class/"/>
-        <meta property="og:description" content="Maintain Ordered of Fields in Class Introduction We saw many questions on the WEB regarding having Python class maintain order of its fields. Reason being that __dict__ is dict, therefore, class doesn&#39;t register the order of the fields presented to it. We decided to share our version of such a …"/>
-        <meta property="article:published_time" content="2017-08-12" />
-            <meta property="article:section" content="08" />
-            <meta property="article:tag" content="Python" />
-            <meta property="article:tag" content="Metadata" />
-            <meta property="article:tag" content="Class" />
-            <meta property="article:tag" content="Ordered" />
-            <meta property="article:tag" content="Trick" />
-            <meta property="article:tag" content="Tip" />
-            <meta property="article:author" content="Acrisel Team" />
-
-
-    <!-- Bootstrap -->
-        <link rel="stylesheet" href="../../../../theme/css/bootstrap.cerulean.min.css" type="text/css"/>
-    <link href="../../../../theme/css/font-awesome.min.css" rel="stylesheet">
-
-    <link href="../../../../theme/css/pygments/xcode.css" rel="stylesheet">
-    <link href="../../../../theme/tipuesearch/tipuesearch.css" rel="stylesheet">
-        <link href="../../../../theme/css/html4css1.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../../../theme/css/style.css" type="text/css"/>
-
-
-
-
-
-</head>
+<link href="../../../../favicon.ico" rel="icon"/>
+<link href="../../../../posts/2017/08/python-ordered-class/" rel="canonical"/>
+<meta content="Acrisel Team" name="author">
+<meta content="Python,Metadata,Class,Ordered,Trick,Tip" name="keywords">
+<meta content="Maintain Ordered of Fields in Class Introduction We saw many questions on the WEB regarding having Python class maintain order of its fields. Reason being that __dict__ is dict, therefore, class doesn't register the order of the fields presented to it. We decided to share our version of such a …" name="description">
+<meta content="Acrisel's Community Blog" property="og:site_name"/>
+<meta content="article" property="og:type"/>
+<meta content="Python Ordered Class" property="og:title"/>
+<meta content="../../../../posts/2017/08/python-ordered-class/" property="og:url"/>
+<meta content="Maintain Ordered of Fields in Class Introduction We saw many questions on the WEB regarding having Python class maintain order of its fields. Reason being that __dict__ is dict, therefore, class doesn't register the order of the fields presented to it. We decided to share our version of such a …" property="og:description"/>
+<meta content="2017-08-12" property="article:published_time"/>
+<meta content="08" property="article:section"/>
+<meta content="Python" property="article:tag"/>
+<meta content="Metadata" property="article:tag"/>
+<meta content="Class" property="article:tag"/>
+<meta content="Ordered" property="article:tag"/>
+<meta content="Trick" property="article:tag"/>
+<meta content="Tip" property="article:tag"/>
+<meta content="Acrisel Team" property="article:author"/>
+<!-- Bootstrap -->
+<link href="../../../../theme/css/bootstrap.cerulean.min.css" rel="stylesheet" type="text/css">
+<link href="../../../../theme/css/font-awesome.min.css" rel="stylesheet"/>
+<link href="../../../../theme/css/pygments/xcode.css" rel="stylesheet"/>
+<link href="../../../../theme/tipuesearch/tipuesearch.css" rel="stylesheet"/>
+<link href="../../../../theme/css/html4css1.css" rel="stylesheet"/>
+<link href="../../../../theme/css/style.css" rel="stylesheet" type="text/css">
+</link></link></meta></meta></meta></head>
 <body>
-
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-	<div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a href="../../../../" class="navbar-brand">
+<div class="container">
+<div class="navbar-header">
+<button class="navbar-toggle" data-target=".navbar-ex1-collapse" data-toggle="collapse" type="button">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="../../../../">
 Acrisel's Community Blog            </a>
-        </div>
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav">
-                        <li >
-                            <a href="../../../../category/about-us.html">About us</a>
-                        </li>
-                        <li >
-                            <a href="../../../../category/09.html">09</a>
-                        </li>
-                        <li class="active">
-                            <a href="../../../../category/08.html">08</a>
-                        </li>
-                        <li >
-                            <a href="../../../../category/07.html">07</a>
-                        </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li><span>
-                <form class="navbar-search" action="/search.html">
-                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
-                </form></span>
-              </li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
+</div>
+<div class="collapse navbar-collapse navbar-ex1-collapse">
+<ul class="nav navbar-nav">
+<li><a href="../../../../pages/welcome-all.html">
+</a></li>
+<li>
+<a href="../../../../category/about-us.html">About us</a>
+</li>
+<li>
+<a href="../../../../category/09.html">09</a>
+</li>
+<li class="active">
+<a href="../../../../category/08.html">08</a>
+</li>
+<li>
+<a href="../../../../category/07.html">07</a>
+</li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li><span>
+<form action="/search.html" class="navbar-search">
+<input class="search-query" id="tipue_search_input" name="q" placeholder="Search" required="" type="text"/>
+</form></span>
+</li>
+</ul>
+</div>
+<!-- /.navbar-collapse -->
+</div>
 </div> <!-- /.navbar -->
 <!-- Banner -->
 <!-- End Banner -->
 <div class="container">
-    <div class="row">
-        <div class="col-sm-9">
-    <section id="content">
-        <article>
-            <header class="page-header">
-                <h1>
-                    <a href="../../../../posts/2017/08/python-ordered-class/"
-                       rel="bookmark"
-                       title="Permalink to Python Ordered Class">
+<div class="row">
+<div class="col-sm-9">
+<section id="content">
+<article>
+<header class="page-header">
+<h1>
+<a href="../../../../posts/2017/08/python-ordered-class/" rel="bookmark" title="Permalink to Python Ordered Class">
                         Python Ordered Class
                     </a>
-                </h1>
-            </header>
-            <div class="entry-content">
-                <div class="panel">
-                    <div class="panel-body">
+</h1>
+</header>
+<div class="entry-content">
+<div class="panel">
+<div class="panel-body">
 <footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2017-08-12T23:01:44-05:00"> Sat 12 August 2017</time>
-    </span>
-
-
-
-
-
+<span class="label label-default">Date</span>
+<span class="published">
+<i class="fa fa-calendar"></i><time datetime="2017-08-12T23:01:44-05:00"> Sat 12 August 2017</time>
+</span>
 <span class="label label-default">Tags</span>
-	<a href="../../../../tag/python.html">Python</a>
+<a href="../../../../tag/python.html">Python</a>
         /
 	<a href="../../../../tag/metadata.html">Metadata</a>
         /
@@ -146,10 +130,9 @@ Acrisel's Community Blog            </a>
 	<a href="../../../../tag/trick.html">Trick</a>
         /
 	<a href="../../../../tag/tip.html">Tip</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                </div>
-                <div class="section" id="maintain-ordered-of-fields-in-class">
+</footer><!-- /.post-info --> </div>
+</div>
+<div class="section" id="maintain-ordered-of-fields-in-class">
 <h2>Maintain Ordered of Fields in Class</h2>
 <div class="section" id="introduction">
 <h3>Introduction</h3>
@@ -220,8 +203,8 @@ Acrisel's Community Blog            </a>
 <span class="k">print</span><span class="p">(</span><span class="n">b</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
 </pre></div>
 </td></tr></table><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
-<span class="p">{</span><span class="s1">&#39;a&#39;</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">&#39;b&#39;</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="p">{</span><span class="s1">'b'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'a'</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
+<span class="p">{</span><span class="s1">'a'</span><span class="p">:</span> <span class="mi">1</span><span class="p">,</span> <span class="s1">'b'</span><span class="p">:</span> <span class="mi">2</span><span class="p">}</span>
 </pre></div>
 </td></tr></table></blockquote>
 </div>
@@ -229,19 +212,18 @@ Acrisel's Community Blog            </a>
 <h3>References</h3>
 <p>Python <a class="reference external" href="http://legacy.python.org/dev/peps/pep-0520/">PEP 520</a></p>
 <div class="line-block">
-<div class="line">Give us your feedback: <a class="reference external" href="mailto:support&#64;acrisel.com">support&#64;acrisel.com</a></div>
+<div class="line">Give us your feedback: <a class="reference external" href="mailto:support@acrisel.com">support@acrisel.com</a></div>
 <div class="line">Visit us at our <a class="reference external" href="http://www.acrisel.com">home</a></div>
 </div>
 </div>
 </div>
-
-            </div>
+</div>
 <section class="well" id="post-share-links">
-    <h4>Share Post:</h4>
-    <p id="post-share-links">
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//acrisel.github.io/posts/2017/08/python-ordered-class/&title=Python%20Ordered%20Class&summary=Maintain%20Ordered%20of%20Fields%20in%20Class%0A%0AIntroduction%0AWe%20saw%20many%20questions%20on%20the%20WEB%20regarding%20having%20Python%20class%20maintain%20order%20of%20its%20fields.%20%20Reason%20being%20that%20__dict__%20is%20dict%2C%20therefore%2C%20class%20doesn%27t%20register%20the%20order%20of%20the%20fields%20presented%20to%20it.%0AWe%20decided%20to%20share%20our%20version%20of%20such%20a%20%E2%80%A6&source=https%3A//acrisel.github.io/posts/2017/08/python-ordered-class/" target="_blank" title="Share on Linkedin">Linkedin</a>
+<h4>Share Post:</h4>
+<p id="post-share-links">
+<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A//acrisel.github.io/posts/2017/08/python-ordered-class/&amp;title=Python%20Ordered%20Class&amp;summary=Maintain%20Ordered%20of%20Fields%20in%20Class%0A%0AIntroduction%0AWe%20saw%20many%20questions%20on%20the%20WEB%20regarding%20having%20Python%20class%20maintain%20order%20of%20its%20fields.%20%20Reason%20being%20that%20__dict__%20is%20dict%2C%20therefore%2C%20class%20doesn%27t%20register%20the%20order%20of%20the%20fields%20presented%20to%20it.%0AWe%20decided%20to%20share%20our%20version%20of%20such%20a%20%E2%80%A6&amp;source=https%3A//acrisel.github.io/posts/2017/08/python-ordered-class/" target="_blank" title="Share on Linkedin">Linkedin</a>
         ❄
-        <a href="https://sharetodiaspora.github.io/?title=Python%20Ordered%20Class&url=https%3A//acrisel.github.io/posts/2017/08/python-ordered-class/" target="_blank" title="Share on Diaspora">Diaspora*</a>
+        <a href="https://sharetodiaspora.github.io/?title=Python%20Ordered%20Class&amp;url=https%3A//acrisel.github.io/posts/2017/08/python-ordered-class/" target="_blank" title="Share on Diaspora">Diaspora*</a>
         ❄
         <a href="http://twitter.com/home?status=b'Python%20Ordered%20Class%20https%3A//acrisel.github.io/posts/2017/08/python-ordered-class/'" target="_blank" title="Share on Twitter">Twitter</a>
         ❄
@@ -250,8 +232,8 @@ Acrisel's Community Blog            </a>
         <a href="https://plus.google.com/share?url=https%3A//acrisel.github.io/posts/2017/08/python-ordered-class/" target="_blank" title="Share on Google Plus">Google+</a>
         ❄
         <a href="mailto:?subject=Python%20Ordered%20Class&amp;body=https%3A//acrisel.github.io/posts/2017/08/python-ordered-class/" target="_blank" title="Share via Email">Email</a>
-    </p>
-    <!--
+</p>
+<!--
     <ul>
     <li><a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//acrisel.github.io/posts/2017/08/python-ordered-class/&title=Python%20Ordered%20Class&summary=Maintain%20Ordered%20of%20Fields%20in%20Class%0A%0AIntroduction%0AWe%20saw%20many%20questions%20on%20the%20WEB%20regarding%20having%20Python%20class%20maintain%20order%20of%20its%20fields.%20%20Reason%20being%20that%20__dict__%20is%20dict%2C%20therefore%2C%20class%20doesn%27t%20register%20the%20order%20of%20the%20fields%20presented%20to%20it.%0AWe%20decided%20to%20share%20our%20version%20of%20such%20a%20%E2%80%A6&source=https%3A//acrisel.github.io/posts/2017/08/python-ordered-class/" target="_blank" title="Share on Diaspora">linkedin*</a></li>
     <li><a href="https://sharetodiaspora.github.io/?title=Python%20Ordered%20Class&url=https%3A//acrisel.github.io/posts/2017/08/python-ordered-class/" target="_blank" title="Share on Diaspora">Diaspora*</a></li>
@@ -262,19 +244,19 @@ Acrisel's Community Blog            </a>
     </ul
     -->
 </section>
-            <!-- /.entry-content -->
+<!-- /.entry-content -->
 <section class="well" id="related-posts">
-    <h4>Other Posts:</h4>
-    <ul>
-        <li><a href="../../../../posts/2017/08/astrophysics-scientific-python-programming/">Astrophysics Research Python Programming</a></li>
-        <li><a href="../../../../posts/2017/09/python-check-remote-host-accessibility/">Remote Host Accessibility</a></li>
-        <li><a href="../../../../posts/2017/09/ssh-pipe-with-python-subprocess/">SSH Pipe with Python's Subprocess</a></li>
-        <li><a href="../../../../posts/2017/08/pelican-post-template-controls/">Pelican Post Template Controls</a></li>
-        <li><a href="../../../../posts/2017/07/cobol-conversion-take-1/">Cobol Conversion Take 1</a></li>
-    </ul>
+<h4>Other Posts:</h4>
+<ul>
+<li><a href="../../../../posts/2017/08/python-print-directory-tree/">Python Print Directory Tree</a></li>
+<li><a href="../../../../posts/2017/09/ssh-pipe-with-python-subprocess/">SSH Pipe with Python's Subprocess</a></li>
+<li><a href="../../../../posts/2017/08/pelican-post-template-controls/">Pelican Post Template Controls</a></li>
+<li><a href="../../../../posts/2017/09/python-check-remote-host-accessibility/">Remote Host Accessibility</a></li>
+<li><a href="../../../../posts/2017/08/astrophysics-scientific-python-programming/">Astrophysics Research Python Programming</a></li>
+</ul>
 </section>
-                <a href="https://plus.google.com/111013214708506107651??rel=author" > </a>
-                	<style>
+<a href="https://plus.google.com/111013214708506107651??rel=author"> </a>
+<style>
 #pcs-comment-form input,
 #pcs-comment-form textarea {
 	width: 100%;
@@ -300,48 +282,41 @@ Acrisel's Community Blog            </a>
 	width: 100%;
 }
 </style>
-
-	<section id="pcs-comments">
-	<header>
-		<h2>Comments</h2>
-		<hr/>
-	</header>
-		<p>There are no comments yet.</p>
-	<section>
-	<form id="pcs-comment-form" action="#">
-		<legend>Add a Comment</legend>
-		<input type="hidden" id="pcs-comment-form-input-replyto">
-		<fieldset>
-			<label for="pcs-comment-form-input-name">Name</label>
-			<input  id="pcs-comment-form-input-name" type="text" placeholder="Enter your name or nickname" />
-		</fieldset>
-		<fieldset>
-			<label for="pcs-comment-form-input-website">Website</label>
-			<input  id="pcs-comment-form-input-website" type="text" placeholder="Enter your website (optional)" />
-		</fieldset>
-		<fieldset>
-			<label   for="pcs-comment-form-input-textarea">Your Comment</label>
-			<textarea id="pcs-comment-form-input-textarea" rows="5" style="resize:vertical;" placeholder="Your comment"></textarea>
-			<p>You can use the <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> syntax to format your comment.</p>
-			<div style="display: none; " id="pcs-comment-form-display-replyto"></div>
-		</fieldset>
-
-		<button type="submit"
-				id="pcs-comment-form-button-submit"
-				>Post via email</button>
-
-		<!--
+<section id="pcs-comments">
+<header>
+<h2>Comments</h2>
+<hr/>
+</header>
+<p>There are no comments yet.</p>
+<section>
+<form action="#" id="pcs-comment-form">
+<legend>Add a Comment</legend>
+<input id="pcs-comment-form-input-replyto" type="hidden"/>
+<fieldset>
+<label for="pcs-comment-form-input-name">Name</label>
+<input id="pcs-comment-form-input-name" placeholder="Enter your name or nickname" type="text">
+</input></fieldset>
+<fieldset>
+<label for="pcs-comment-form-input-website">Website</label>
+<input id="pcs-comment-form-input-website" placeholder="Enter your website (optional)" type="text">
+</input></fieldset>
+<fieldset>
+<label for="pcs-comment-form-input-textarea">Your Comment</label>
+<textarea id="pcs-comment-form-input-textarea" placeholder="Your comment" rows="5" style="resize:vertical;"></textarea>
+<p>You can use the <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> syntax to format your comment.</p>
+<div id="pcs-comment-form-display-replyto" style="display: none; "></div>
+</fieldset>
+<button id="pcs-comment-form-button-submit" type="submit">Post via email</button>
+<!--
 			<a href="../../../../feeds/comment.python-ordered-class.atom.xml">
 				Comment Atom Feed
 			</a>
         -->
-	</form>
+</form>
 </section>
-
 </section>
-
-		<script type="text/javascript" src="../../../../theme/js/comments.js"></script>
-	<script type="text/javascript">
+<script src="../../../../theme/js/comments.js" type="text/javascript"></script>
+<script type="text/javascript">
 		$(document).ready(function() {
 			CommentSystem.email_user   = "support";
 			CommentSystem.email_domain = "acrisel.com";
@@ -362,68 +337,58 @@ Acrisel's Community Blog            </a>
 			);
 		});
 	</script>
-
-
-
-        </article>
-    </section>
-
-        </div>
-        <div class="col-sm-3" id="sidebar">
-            <aside>
+</article>
+</section>
+</div>
+<div class="col-sm-3" id="sidebar">
+<aside>
 <!-- Sidebar -->
 <section class="well well-sm">
-  <ul class="list-group list-group-flush">
-
+<ul class="list-group list-group-flush">
 <!-- Sidebar/Links -->
 <li class="list-group-item">
-  <h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
-  <ul class="list-group" id="links">
-    <li class="list-group-item">
-      <a href="http://www.acrisel.com/" target="_blank">Acrisel</a>
-    </li>
-    <li class="list-group-item">
-      <a href="http://www.github.com/acrisel" target="_blank">Acrisel Open Source</a>
-    </li>
-    <li class="list-group-item">
-      <a href="http://getpelican.com/" target="_blank">Pelican</a>
-    </li>
-    <li class="list-group-item">
-      <a href="http://python.org/" target="_blank">Python.org</a>
-    </li>
-    <li class="list-group-item">
-      <a href="http://jinja.pocoo.org/" target="_blank">Jinja2</a>
-    </li>
-  </ul>
+<h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+<ul class="list-group" id="links">
+<li class="list-group-item">
+<a href="http://www.acrisel.com/" target="_blank">Acrisel</a>
+</li>
+<li class="list-group-item">
+<a href="http://www.github.com/acrisel" target="_blank">Acrisel Open Source</a>
+</li>
+<li class="list-group-item">
+<a href="http://getpelican.com/" target="_blank">Pelican</a>
+</li>
+<li class="list-group-item">
+<a href="http://python.org/" target="_blank">Python.org</a>
+</li>
+<li class="list-group-item">
+<a href="http://jinja.pocoo.org/" target="_blank">Jinja2</a>
+</li>
+</ul>
 </li>
 <!-- End Sidebar/Links -->
-  </ul>
+</ul>
 </section>
-<!-- End Sidebar -->            </aside>
-        </div>
-    </div>
+<!-- End Sidebar --> </aside>
+</div>
+</div>
 </div>
 <footer>
-   <div class="container">
-      <hr>
-      <div class="row">
-         <div class="col-xs-10">&copy; 2017 Acrisel Team
-            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+<div class="container">
+<hr/>
+<div class="row">
+<div class="col-xs-10">© 2017 Acrisel Team
+            · Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
-            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
-         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
-      </div>
-   </div>
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a> </div>
+<div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+</div>
+</div>
 </footer>
 <script src="../../../../theme/js/jquery.min.js"></script>
-
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="../../../../theme/js/bootstrap.min.js"></script>
-
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
 <script src="../../../../theme/js/respond.min.js"></script>
-
-
-
 </body>
 </html>

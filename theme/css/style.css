@@ -22,6 +22,62 @@ body {
     border: none;
 }
 
+
+/*.code {
+  display: block;
+  background: lightgrey;
+  padding: 10px;
+  overflow: auto;
+  white-space: pre-wrap;
+}*/
+
+.code {
+margin-bottom: 0;
+padding: 16px;
+    padding-top: 16px;
+    padding-right: 16px;
+    padding-bottom: 16px;
+    padding-left: 16px;
+overflow: auto;
+    overflow-x: auto;
+    overflow-y: auto;
+font-size: 85%;
+line-height: 1.45;
+background-color: #f6f8fa;
+border-radius: 3px;
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+word-wrap: normal;
+    overflow-wrap: normal;
+margin-top: 0;
+font-family: "SFMono-Regular", "Consolas", "Liberation Mono", "Menlo", "Courier", "monospace";
+box-sizing: border-box;
+}
+
+
+/*
+.code
+{
+	color: #000000;
+	background-color: #dddddd;
+	font-family: "courier new", "times new roman", monospace;
+	font-size: x-small;
+	line-height: 1.3em;
+	// Put a nice border around it. 
+	border: 1px solid #000000;
+	margin: 1px auto 1px auto;
+	padding: 1px;
+	width: 99%;
+	// Don't wrap its contents, and show scrollbars. 
+	white-space: nowrap;
+	overflow: auto;
+	// Stop after about 24 lines, and just show a scrollbar. 
+	max-height: 24em;
+}
+*/
+
 .tag-0 {
     font-size: 16pt;
 }

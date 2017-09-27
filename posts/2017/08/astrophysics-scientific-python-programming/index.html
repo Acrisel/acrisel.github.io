@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Astrophysics Research Python Programming - Acrisel's Community Blog</title>
-    <!-- Using the latest rendering mode for IE -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Astrophysics Research Python Programming - Acrisel's Community Blog</title>
+<!-- Using the latest rendering mode for IE -->
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <!-- https://developers.google.com/custom-search/docs/structured_data?hl=es&csw=1#microformats -->
 <!--
 <PageMap>
@@ -28,116 +29,99 @@
         <Attribute name="category" value="IDL"/>
 </DataObject>
 -->
-    <link href="../../../../favicon.ico" rel="icon">
-
-<link rel="canonical" href="../../../../posts/2017/08/astrophysics-scientific-python-programming/">
-
-        <meta name="author" content="Acrisel Team" />
-        <meta name="keywords" content="Science,Automation,Academia,Astrophysics,Research,Python,IDL" />
-        <meta name="description" content="The Productive Research Introduction Recently I helped a group of astrophysicists convert a set of IDL programs to Python. This set was to classify stars by analyzing ROTSE-I and ROTSE-III data. In this insert I would share the experience of moving IDL code to python. The insert is only attempt …" />
-
-        <meta property="og:site_name" content="Acrisel's Community Blog" />
-        <meta property="og:type" content="article"/>
-        <meta property="og:title" content="Astrophysics Research Python Programming"/>
-        <meta property="og:url" content="../../../../posts/2017/08/astrophysics-scientific-python-programming/"/>
-        <meta property="og:description" content="The Productive Research Introduction Recently I helped a group of astrophysicists convert a set of IDL programs to Python. This set was to classify stars by analyzing ROTSE-I and ROTSE-III data. In this insert I would share the experience of moving IDL code to python. The insert is only attempt …"/>
-        <meta property="article:published_time" content="2017-08-20" />
-            <meta property="article:section" content="08" />
-            <meta property="article:tag" content="Science" />
-            <meta property="article:tag" content="Automation" />
-            <meta property="article:tag" content="Academia" />
-            <meta property="article:tag" content="Astrophysics" />
-            <meta property="article:tag" content="Research" />
-            <meta property="article:tag" content="Python" />
-            <meta property="article:tag" content="IDL" />
-            <meta property="article:author" content="Acrisel Team" />
-
-
-    <!-- Bootstrap -->
-        <link rel="stylesheet" href="../../../../theme/css/bootstrap.cerulean.min.css" type="text/css"/>
-    <link href="../../../../theme/css/font-awesome.min.css" rel="stylesheet">
-
-    <link href="../../../../theme/css/pygments/xcode.css" rel="stylesheet">
-    <link href="../../../../theme/tipuesearch/tipuesearch.css" rel="stylesheet">
-        <link href="../../../../theme/css/html4css1.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../../../theme/css/style.css" type="text/css"/>
-
-
-
-
-
-</head>
+<link href="../../../../favicon.ico" rel="icon"/>
+<link href="../../../../posts/2017/08/astrophysics-scientific-python-programming/" rel="canonical"/>
+<meta content="Acrisel Team" name="author">
+<meta content="Science,Automation,Academia,Astrophysics,Research,Python,IDL" name="keywords">
+<meta content="The Productive Research Introduction Recently I helped a group of astrophysicists convert a set of IDL programs to Python. This set was to classify stars by analyzing ROTSE-I and ROTSE-III data. In this insert I would share the experience of moving IDL code to python. The insert is only attempt …" name="description">
+<meta content="Acrisel's Community Blog" property="og:site_name"/>
+<meta content="article" property="og:type"/>
+<meta content="Astrophysics Research Python Programming" property="og:title"/>
+<meta content="../../../../posts/2017/08/astrophysics-scientific-python-programming/" property="og:url"/>
+<meta content="The Productive Research Introduction Recently I helped a group of astrophysicists convert a set of IDL programs to Python. This set was to classify stars by analyzing ROTSE-I and ROTSE-III data. In this insert I would share the experience of moving IDL code to python. The insert is only attempt …" property="og:description"/>
+<meta content="2017-08-20" property="article:published_time"/>
+<meta content="08" property="article:section"/>
+<meta content="Science" property="article:tag"/>
+<meta content="Automation" property="article:tag"/>
+<meta content="Academia" property="article:tag"/>
+<meta content="Astrophysics" property="article:tag"/>
+<meta content="Research" property="article:tag"/>
+<meta content="Python" property="article:tag"/>
+<meta content="IDL" property="article:tag"/>
+<meta content="Acrisel Team" property="article:author"/>
+<!-- Bootstrap -->
+<link href="../../../../theme/css/bootstrap.cerulean.min.css" rel="stylesheet" type="text/css">
+<link href="../../../../theme/css/font-awesome.min.css" rel="stylesheet"/>
+<link href="../../../../theme/css/pygments/xcode.css" rel="stylesheet"/>
+<link href="../../../../theme/tipuesearch/tipuesearch.css" rel="stylesheet"/>
+<link href="../../../../theme/css/html4css1.css" rel="stylesheet"/>
+<link href="../../../../theme/css/style.css" rel="stylesheet" type="text/css">
+</link></link></meta></meta></meta></head>
 <body>
-
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-	<div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a href="../../../../" class="navbar-brand">
+<div class="container">
+<div class="navbar-header">
+<button class="navbar-toggle" data-target=".navbar-ex1-collapse" data-toggle="collapse" type="button">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="../../../../">
 Acrisel's Community Blog            </a>
-        </div>
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav">
-                        <li >
-                            <a href="../../../../category/about-us.html">About us</a>
-                        </li>
-                        <li >
-                            <a href="../../../../category/09.html">09</a>
-                        </li>
-                        <li class="active">
-                            <a href="../../../../category/08.html">08</a>
-                        </li>
-                        <li >
-                            <a href="../../../../category/07.html">07</a>
-                        </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li><span>
-                <form class="navbar-search" action="/search.html">
-                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
-                </form></span>
-              </li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
+</div>
+<div class="collapse navbar-collapse navbar-ex1-collapse">
+<ul class="nav navbar-nav">
+<li><a href="../../../../pages/welcome-all.html">
+</a></li>
+<li>
+<a href="../../../../category/about-us.html">About us</a>
+</li>
+<li>
+<a href="../../../../category/09.html">09</a>
+</li>
+<li class="active">
+<a href="../../../../category/08.html">08</a>
+</li>
+<li>
+<a href="../../../../category/07.html">07</a>
+</li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li><span>
+<form action="/search.html" class="navbar-search">
+<input class="search-query" id="tipue_search_input" name="q" placeholder="Search" required="" type="text"/>
+</form></span>
+</li>
+</ul>
+</div>
+<!-- /.navbar-collapse -->
+</div>
 </div> <!-- /.navbar -->
 <!-- Banner -->
 <!-- End Banner -->
 <div class="container">
-    <div class="row">
-        <div class="col-sm-9">
-    <section id="content">
-        <article>
-            <header class="page-header">
-                <h1>
-                    <a href="../../../../posts/2017/08/astrophysics-scientific-python-programming/"
-                       rel="bookmark"
-                       title="Permalink to Astrophysics Research Python Programming">
+<div class="row">
+<div class="col-sm-9">
+<section id="content">
+<article>
+<header class="page-header">
+<h1>
+<a href="../../../../posts/2017/08/astrophysics-scientific-python-programming/" rel="bookmark" title="Permalink to Astrophysics Research Python Programming">
                         Astrophysics Research Python Programming
                     </a>
-                </h1>
-            </header>
-            <div class="entry-content">
-                <div class="panel">
-                    <div class="panel-body">
+</h1>
+</header>
+<div class="entry-content">
+<div class="panel">
+<div class="panel-body">
 <footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2017-08-20T09:01:44-05:00"> Sun 20 August 2017</time>
-    </span>
-
-
-
-
-
+<span class="label label-default">Date</span>
+<span class="published">
+<i class="fa fa-calendar"></i><time datetime="2017-08-20T09:01:44-05:00"> Sun 20 August 2017</time>
+</span>
 <span class="label label-default">Tags</span>
-	<a href="../../../../tag/science.html">Science</a>
+<a href="../../../../tag/science.html">Science</a>
         /
 	<a href="../../../../tag/automation.html">Automation</a>
         /
@@ -150,10 +134,9 @@ Acrisel's Community Blog            </a>
 	<a href="../../../../tag/python.html">Python</a>
         /
 	<a href="../../../../tag/idl.html">IDL</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                </div>
-                <div class="section" id="the-productive-research">
+</footer><!-- /.post-info --> </div>
+</div>
+<div class="section" id="the-productive-research">
 <h2>The Productive Research</h2>
 <div class="section" id="introduction">
 <h3>Introduction</h3>
@@ -162,7 +145,7 @@ Acrisel's Community Blog            </a>
 </div>
 <div class="section" id="from-idl-to-python">
 <h3>From IDL to Python</h3>
-<p>IDL is a &quot;scientific programming language used across disciplines to extract meaningful visualizations from complex numerical data. With IDL you can interpret your data, expedite discoveries, and deliver powerful applications to market.&quot; It uses plenty vector and matrix computation. So we will have a lot of that with numpy computing techniques.</p>
+<p>IDL is a "scientific programming language used across disciplines to extract meaningful visualizations from complex numerical data. With IDL you can interpret your data, expedite discoveries, and deliver powerful applications to market." It uses plenty vector and matrix computation. So we will have a lot of that with numpy computing techniques.</p>
 <div class="section" id="loading-fits-and-match">
 <h4>Loading FITS and MATCH</h4>
 <p>The first we have to be able to read the ROTSE-I and ROTSE-III data files.  There were three types of files.</p>
@@ -201,14 +184,14 @@ Acrisel's Community Blog            </a>
         <span class="n">hdus_ext</span><span class="o">=</span><span class="n">hdus</span><span class="p">[</span><span class="n">fits_index</span><span class="p">]</span>
         <span class="n">data</span><span class="o">=</span><span class="n">hdus_ext</span><span class="o">.</span><span class="n">data</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;cannot read fits data from file: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">file</span><span class="p">,))</span> <span class="kn">from</span> <span class="nn">e</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">"cannot read fits data from file: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="nb">file</span><span class="p">,))</span> <span class="kn">from</span> <span class="nn">e</span>
     <span class="k">return</span> <span class="n">data</span>
 
 
 <span class="k">def</span> <span class="nf">read_match_file</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
-    <span class="k">try</span><span class="p">:</span> <span class="n">data</span><span class="o">=</span><span class="n">readsav</span><span class="p">(</span><span class="nb">file</span><span class="p">)[</span><span class="s1">&#39;match&#39;</span><span class="p">]</span>
+    <span class="k">try</span><span class="p">:</span> <span class="n">data</span><span class="o">=</span><span class="n">readsav</span><span class="p">(</span><span class="nb">file</span><span class="p">)[</span><span class="s1">'match'</span><span class="p">]</span>
     <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;cannot read match data from file: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">file</span><span class="p">,))</span> <span class="kn">from</span> <span class="nn">e</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">"cannot read match data from file: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="nb">file</span><span class="p">,))</span> <span class="kn">from</span> <span class="nn">e</span>
     <span class="k">return</span> <span class="n">data</span>
 </pre></div>
 </td></tr></table></blockquote>
@@ -225,12 +208,12 @@ Acrisel's Community Blog            </a>
  7
  8
  9
-10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_data_file</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span> <span class="n">fits_index</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">tmpdir</span><span class="o">=</span><span class="s1">&#39;/tmp&#39;</span><span class="p">):</span>
+10</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">read_data_file</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span> <span class="n">fits_index</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">tmpdir</span><span class="o">=</span><span class="s1">'/tmp'</span><span class="p">):</span>
     <span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">isfile</span><span class="p">(</span><span class="nb">file</span><span class="p">):</span>
-        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">&quot;file not found: </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">file</span><span class="p">,))</span>
+        <span class="k">raise</span> <span class="ne">Exception</span><span class="p">(</span><span class="s2">"file not found: </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span> <span class="p">(</span><span class="nb">file</span><span class="p">,))</span>
 
-    <span class="n">file_ext</span><span class="o">=</span><span class="nb">file</span><span class="o">.</span><span class="n">rpartition</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
-    <span class="k">if</span> <span class="n">file_ext</span><span class="o">==</span><span class="s1">&#39;fit&#39;</span><span class="p">:</span>
+    <span class="n">file_ext</span><span class="o">=</span><span class="nb">file</span><span class="o">.</span><span class="n">rpartition</span><span class="p">(</span><span class="s1">'.'</span><span class="p">)[</span><span class="mi">2</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">file_ext</span><span class="o">==</span><span class="s1">'fit'</span><span class="p">:</span>
         <span class="n">data</span><span class="o">=</span><span class="n">read_fits_file</span><span class="p">(</span><span class="nb">file</span><span class="p">,</span> <span class="n">fits_index</span><span class="p">)</span>
     <span class="k">else</span><span class="p">:</span> <span class="c1"># assume MATCH</span>
         <span class="n">data</span><span class="o">=</span><span class="n">read_match_file</span><span class="p">(</span><span class="nb">file</span><span class="p">)</span>
@@ -240,7 +223,7 @@ Acrisel's Community Blog            </a>
 <p>Obviously, this is good only if the next processing steps takes into account differences between the two structures. For example, MATCH structure have a STAT field that is not part of FITS structute.</p>
 <blockquote>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
-2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span> <span class="n">stat</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="s1">&#39;STAT&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">try</span><span class="p">:</span> <span class="n">stat</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="s1">'STAT'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 <span class="k">except</span><span class="p">:</span> <span class="n">stat</span><span class="o">=</span><span class="bp">None</span> <span class="c1"># assume not a MATCH file</span>
 </pre></div>
 </td></tr></table></blockquote>
@@ -251,7 +234,7 @@ Acrisel's Community Blog            </a>
 <blockquote>
 <table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre>1
 2</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">select_indexes</span> <span class="o">=</span> <span class="n">where</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">flags</span><span class="p">[</span><span class="o">*</span><span class="p">,</span><span class="n">ptr</span><span class="p">]</span> <span class="n">gt</span> <span class="o">-</span><span class="mi">1</span> <span class="ow">and</span> <span class="err">$</span>
-    <span class="n">check_flags</span><span class="p">(</span><span class="n">ref_vflag</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">flags</span><span class="p">[</span><span class="o">*</span><span class="p">,</span><span class="n">ptr</span><span class="p">],</span> <span class="nb">type</span><span class="o">=</span><span class="s1">&#39;STYPE&#39;</span><span class="p">)</span> <span class="n">eq</span> <span class="mi">0</span><span class="p">)</span>
+    <span class="n">check_flags</span><span class="p">(</span><span class="n">ref_vflag</span><span class="p">,</span> <span class="n">data</span><span class="o">.</span><span class="n">flags</span><span class="p">[</span><span class="o">*</span><span class="p">,</span><span class="n">ptr</span><span class="p">],</span> <span class="nb">type</span><span class="o">=</span><span class="s1">'STYPE'</span><span class="p">)</span> <span class="n">eq</span> <span class="mi">0</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></blockquote>
 <p>The above statement is pretty loaded in functionality.  In essence, the expected result are indexes into the vector data.values[<em>,k] that adheres to two conditions: the need to be greater than -1; and the result for the function *check_value</em> to be zero.</p>
@@ -268,7 +251,7 @@ Acrisel's Community Blog            </a>
 
 <span class="c1"># assum data is a MATCH or FITS data structure</span>
 <span class="c1"># and that check_flag function is defined for ref_flag and</span>
-<span class="n">flags</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="s1">&#39;FLAGS&#39;</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">flags</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">field</span><span class="p">(</span><span class="s1">'FLAGS'</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span>
 <span class="n">check_flags_v</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">vectorize</span><span class="p">(</span><span class="k">lambda</span> <span class="n">flag</span><span class="p">:</span> <span class="n">check_flag</span><span class="p">(</span><span class="n">ref_flag</span><span class="p">,</span> <span class="n">flag</span><span class="p">)</span> <span class="o">==</span><span class="mi">0</span><span class="p">)</span>
 <span class="n">cond</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">logical_and</span><span class="o">.</span><span class="n">reduce</span><span class="p">(</span> <span class="p">(</span><span class="n">flags</span><span class="p">[</span><span class="n">ptr</span><span class="p">,:]</span> <span class="o">&gt;</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span>
                              <span class="n">check_flags_v</span><span class="p">(</span><span class="n">flags</span><span class="p">[</span><span class="n">ptr</span><span class="p">,:]),</span> <span class="p">),</span> <span class="p">)</span>
@@ -305,12 +288,12 @@ It's parallel in numpy realm is <a class="reference external" href="https://docs
 5
 6
 7</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">field_map</span><span class="o">=</span><span class="p">[</span>
-    <span class="p">(</span><span class="s1">&#39;state&#39;</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;distance&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;posangle&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;error&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;phot&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">),</span>
-    <span class="p">(</span><span class="s1">&#39;photerror&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">),]</span>
+    <span class="p">(</span><span class="s1">'state'</span><span class="p">,</span> <span class="nb">int</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">'distance'</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">'posangle'</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">'error'</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">'phot'</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">'photerror'</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">float32</span><span class="p">,</span> <span class="o">-</span><span class="mf">1.0</span><span class="p">),]</span>
 </pre></div>
 </td></tr></table></blockquote>
 <p>Next, base on the above mapping, <em>create_structured_vector</em> would create the records' data type and a vector[size] with elements of the desired data type.</p>
@@ -352,7 +335,7 @@ It's parallel in numpy realm is <a class="reference external" href="https://docs
 2
 3
 4</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib</span>
-<span class="n">matplotlib</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">&#39;PDF&#39;</span><span class="p">)</span>
+<span class="n">matplotlib</span><span class="o">.</span><span class="n">use</span><span class="p">(</span><span class="s1">'PDF'</span><span class="p">)</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
 <span class="kn">from</span> <span class="nn">matplotlib.backends.backend_pdf</span> <span class="kn">import</span> <span class="n">PdfPages</span>
 </pre></div>
@@ -379,7 +362,7 @@ Assuming that data is a list of tuples (title, values), we</p>
 17
 18
 19
-20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">pdf</span><span class="o">=</span><span class="n">PdfPages</span><span class="p">(</span><span class="s1">&#39;pdffile.pdf&#39;</span><span class="p">)</span>
+20</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">pdf</span><span class="o">=</span><span class="n">PdfPages</span><span class="p">(</span><span class="s1">'pdffile.pdf'</span><span class="p">)</span>
 
 <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="p">)):</span>
 
@@ -391,7 +374,7 @@ Assuming that data is a list of tuples (title, values), we</p>
     <span class="n">fig</span><span class="o">=</span><span class="n">axarr</span><span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">k</span><span class="o">/</span><span class="mi">2</span><span class="p">),</span> <span class="n">k</span><span class="o">-</span><span class="nb">int</span><span class="p">(</span><span class="n">k</span><span class="o">/</span><span class="mi">2</span><span class="p">)</span><span class="o">*</span><span class="mi">2</span><span class="p">]</span>
     <span class="n">title</span><span class="p">,</span> <span class="n">x_values</span><span class="p">,</span> <span class="n">y_values</span> <span class="o">=</span> <span class="n">data</span><span class="p">[</span><span class="n">i</span><span class="p">]</span>
     <span class="n">fig</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="n">title</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">11</span><span class="p">)</span>
-    <span class="n">fig</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">y_values</span><span class="p">,</span> <span class="s1">&#39;+&#39;</span><span class="p">)</span>
+    <span class="n">fig</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x_values</span><span class="p">,</span> <span class="n">y_values</span><span class="p">,</span> <span class="s1">'+'</span><span class="p">)</span>
 
     <span class="k">if</span> <span class="n">i</span><span class="o">%</span><span class="mi">6</span> <span class="o">==</span> <span class="mi">5</span><span class="p">:</span> <span class="c1"># last in a page</span>
         <span class="n">fig</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mf">0.4</span><span class="p">,</span> <span class="n">w_pad</span><span class="o">=</span><span class="mf">0.5</span><span class="p">,</span> <span class="n">h_pad</span><span class="o">=</span><span class="mf">1.0</span><span class="p">)</span>
@@ -440,7 +423,7 @@ Assuming that data is a list of tuples (title, values), we</p>
 4
 5</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="n">step_1_var_rec</span><span class="o">=</span><span class="bp">None</span><span class="p">;</span> <span class="n">step_var_1</span><span class="o">=</span><span class="bp">None</span>
 <span class="k">if</span> <span class="n">recoverable</span><span class="p">:</span>
-    <span class="n">step_1_var_rec</span><span class="o">=</span><span class="n">Recovery</span><span class="p">(</span><span class="s1">&#39;step_var_1&#39;</span><span class="p">,</span> <span class="n">match_file</span><span class="p">)</span>
+    <span class="n">step_1_var_rec</span><span class="o">=</span><span class="n">Recovery</span><span class="p">(</span><span class="s1">'step_var_1'</span><span class="p">,</span> <span class="n">match_file</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">recover</span><span class="p">:</span>
         <span class="n">step_var_1</span><span class="o">=</span><span class="n">step_1_var_rec</span><span class="o">.</span><span class="n">load</span><span class="p">()</span>
 </pre></div>
@@ -489,7 +472,7 @@ Assuming that data is a list of tuples (title, values), we</p>
         <span class="bp">self</span><span class="o">.</span><span class="n">obj_file</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">get_obj_file</span><span class="p">(</span><span class="n">location</span><span class="p">)</span>
 
     <span class="k">def</span> <span class="nf">get_obj_file</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">location</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-        <span class="n">result</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">assoc_path</span><span class="o">+</span><span class="s1">&#39;.</span><span class="si">%s</span><span class="s1">&#39;</span><span class="o">%</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span>
+        <span class="n">result</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">assoc_path</span><span class="o">+</span><span class="s1">'.</span><span class="si">%s</span><span class="s1">'</span><span class="o">%</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span>
         <span class="k">if</span> <span class="n">location</span><span class="p">:</span>
             <span class="n">name</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">result</span><span class="p">)</span>
             <span class="n">result</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">location</span><span class="p">,</span> <span class="n">name</span><span class="p">)</span>
@@ -505,14 +488,14 @@ Assuming that data is a list of tuples (title, values), we</p>
                     <span class="n">assoc_path_m_time</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">getmtime</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">assoc_path</span><span class="p">)</span>
                 <span class="k">if</span> <span class="n">assoc_path_m_time</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">obj_file_m_time</span> <span class="o">&gt;=</span> <span class="n">assoc_path_m_time</span><span class="p">:</span>
                     <span class="c1"># not a new file, read goodobj from file</span>
-                    <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Recovering </span><span class="si">%s</span><span class="s2"> from </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj_file</span><span class="p">))</span>
-                    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">obj_file</span><span class="p">,</span> <span class="s1">&#39;rb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+                    <span class="k">print</span><span class="p">(</span><span class="s2">"Recovering </span><span class="si">%s</span><span class="s2"> from </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj_file</span><span class="p">))</span>
+                    <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">obj_file</span><span class="p">,</span> <span class="s1">'rb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
                         <span class="n">obj</span><span class="o">=</span><span class="n">pickle</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">f</span><span class="p">)</span>
         <span class="k">return</span> <span class="n">obj</span>
 
     <span class="k">def</span> <span class="nf">store</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">obj</span><span class="p">):</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;Storing </span><span class="si">%s</span><span class="s2"> into </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj_file</span><span class="p">))</span>
-        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">obj_file</span><span class="p">,</span> <span class="s1">&#39;wb&#39;</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">"Storing </span><span class="si">%s</span><span class="s2"> into </span><span class="si">%s</span><span class="s2">"</span> <span class="o">%</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">name</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">obj_file</span><span class="p">))</span>
+        <span class="k">with</span> <span class="nb">open</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">obj_file</span><span class="p">,</span> <span class="s1">'wb'</span><span class="p">)</span> <span class="k">as</span> <span class="n">f</span><span class="p">:</span>
             <span class="n">pickle</span><span class="o">.</span><span class="n">dump</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span>
 </pre></div>
 </td></tr></table></blockquote>
@@ -520,8 +503,8 @@ Assuming that data is a list of tuples (title, values), we</p>
 <div class="section" id="interesting-astrophysics-packages">
 <h3>Interesting astrophysics packages</h3>
 <p>Through the work, we ran into two Python packages for astronomy.</p>
-<p><a class="reference external" href="http://www.astropy.org/">Astropy</a>: &quot;A Community Python Library for Astronomy.&quot;</p>
-<p><a class="reference external" href="http://www.hs.uni-hamburg.de/DE/Ins/Per/Czesla/PyA/PyA/index.html">PyAstronomy</a>: &quot;A collection of astronomy related packages.&quot;</p>
+<p><a class="reference external" href="http://www.astropy.org/">Astropy</a>: "A Community Python Library for Astronomy."</p>
+<p><a class="reference external" href="http://www.hs.uni-hamburg.de/DE/Ins/Per/Czesla/PyA/PyA/index.html">PyAstronomy</a>: "A collection of astronomy related packages."</p>
 <p>These packages contain plenty of easy to use functionality. However, be cautious when using in high volume processing. Not all computations may meet your need for performance. For example, we had to rewrite IDL's <em>SIXTY_</em> instead of using an already made solution in these libraries. Only a scaled down version meet our performance needs.</p>
 </div>
 <div class="section" id="references">
@@ -531,17 +514,16 @@ Assuming that data is a list of tuples (title, values), we</p>
 <p><a class="reference external" href="http://blog.rtwilson.com/ten-little-idl-programs-in-python/">Ten Little IDL programs in Python</a></p>
 <p><a class="reference external" href="https://idlastro.gsfc.nasa.gov/">The IDL Astronomy User's Library</a></p>
 <p><a class="reference external" href="http://www.harrisgeospatial.com/ProductsandTechnology/Software/IDL.aspx">HARRIS's IDL</a></p>
-<p>Give us your feedback: <a class="reference external" href="mailto:support&#64;acrisel.com">support&#64;acrisel.com</a></p>
+<p>Give us your feedback: <a class="reference external" href="mailto:support@acrisel.com">support@acrisel.com</a></p>
 </div>
 </div>
-
-            </div>
+</div>
 <section class="well" id="post-share-links">
-    <h4>Share Post:</h4>
-    <p id="post-share-links">
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//acrisel.github.io/posts/2017/08/astrophysics-scientific-python-programming/&title=Astrophysics%20Research%20Python%20Programming&summary=The%20Productive%20Research%0A%0AIntroduction%0ARecently%20I%20helped%20a%20group%20of%20astrophysicists%20convert%20a%20set%20of%20IDL%20programs%20to%20Python.%20This%20set%20was%20to%20classify%20stars%20by%20analyzing%20ROTSE-I%20and%20ROTSE-III%20data.%20In%20this%20insert%20I%20would%20share%20the%20experience%20of%20moving%20IDL%20code%20to%20python.%20The%20insert%20is%20only%20attempt%20%E2%80%A6&source=https%3A//acrisel.github.io/posts/2017/08/astrophysics-scientific-python-programming/" target="_blank" title="Share on Linkedin">Linkedin</a>
+<h4>Share Post:</h4>
+<p id="post-share-links">
+<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A//acrisel.github.io/posts/2017/08/astrophysics-scientific-python-programming/&amp;title=Astrophysics%20Research%20Python%20Programming&amp;summary=The%20Productive%20Research%0A%0AIntroduction%0ARecently%20I%20helped%20a%20group%20of%20astrophysicists%20convert%20a%20set%20of%20IDL%20programs%20to%20Python.%20This%20set%20was%20to%20classify%20stars%20by%20analyzing%20ROTSE-I%20and%20ROTSE-III%20data.%20In%20this%20insert%20I%20would%20share%20the%20experience%20of%20moving%20IDL%20code%20to%20python.%20The%20insert%20is%20only%20attempt%20%E2%80%A6&amp;source=https%3A//acrisel.github.io/posts/2017/08/astrophysics-scientific-python-programming/" target="_blank" title="Share on Linkedin">Linkedin</a>
         ❄
-        <a href="https://sharetodiaspora.github.io/?title=Astrophysics%20Research%20Python%20Programming&url=https%3A//acrisel.github.io/posts/2017/08/astrophysics-scientific-python-programming/" target="_blank" title="Share on Diaspora">Diaspora*</a>
+        <a href="https://sharetodiaspora.github.io/?title=Astrophysics%20Research%20Python%20Programming&amp;url=https%3A//acrisel.github.io/posts/2017/08/astrophysics-scientific-python-programming/" target="_blank" title="Share on Diaspora">Diaspora*</a>
         ❄
         <a href="http://twitter.com/home?status=b'Astrophysics%20Research%20Python%20Programming%20https%3A//acrisel.github.io/posts/2017/08/astrophysics-scientific-python-programming/'" target="_blank" title="Share on Twitter">Twitter</a>
         ❄
@@ -550,8 +532,8 @@ Assuming that data is a list of tuples (title, values), we</p>
         <a href="https://plus.google.com/share?url=https%3A//acrisel.github.io/posts/2017/08/astrophysics-scientific-python-programming/" target="_blank" title="Share on Google Plus">Google+</a>
         ❄
         <a href="mailto:?subject=Astrophysics%20Research%20Python%20Programming&amp;body=https%3A//acrisel.github.io/posts/2017/08/astrophysics-scientific-python-programming/" target="_blank" title="Share via Email">Email</a>
-    </p>
-    <!--
+</p>
+<!--
     <ul>
     <li><a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//acrisel.github.io/posts/2017/08/astrophysics-scientific-python-programming/&title=Astrophysics%20Research%20Python%20Programming&summary=The%20Productive%20Research%0A%0AIntroduction%0ARecently%20I%20helped%20a%20group%20of%20astrophysicists%20convert%20a%20set%20of%20IDL%20programs%20to%20Python.%20This%20set%20was%20to%20classify%20stars%20by%20analyzing%20ROTSE-I%20and%20ROTSE-III%20data.%20In%20this%20insert%20I%20would%20share%20the%20experience%20of%20moving%20IDL%20code%20to%20python.%20The%20insert%20is%20only%20attempt%20%E2%80%A6&source=https%3A//acrisel.github.io/posts/2017/08/astrophysics-scientific-python-programming/" target="_blank" title="Share on Diaspora">linkedin*</a></li>
     <li><a href="https://sharetodiaspora.github.io/?title=Astrophysics%20Research%20Python%20Programming&url=https%3A//acrisel.github.io/posts/2017/08/astrophysics-scientific-python-programming/" target="_blank" title="Share on Diaspora">Diaspora*</a></li>
@@ -562,19 +544,19 @@ Assuming that data is a list of tuples (title, values), we</p>
     </ul
     -->
 </section>
-            <!-- /.entry-content -->
+<!-- /.entry-content -->
 <section class="well" id="related-posts">
-    <h4>Other Posts:</h4>
-    <ul>
-        <li><a href="../../../../posts/2017/07/cobol-conversion-take-1/">Cobol Conversion Take 1</a></li>
-        <li><a href="../../../../posts/2017/09/python-check-remote-host-accessibility/">Remote Host Accessibility</a></li>
-        <li><a href="../../../../posts/2017/08/ssh-made-easy-using-python/">SSH Made Easy Using Python Subprocess</a></li>
-        <li><a href="../../../../posts/2017/09/python-lex-yacc-play/">Python Lex and Yacc with PLY</a></li>
-        <li><a href="../../../../posts/2017/09/ssh-pipe-with-python-subprocess/">SSH Pipe with Python's Subprocess</a></li>
-    </ul>
+<h4>Other Posts:</h4>
+<ul>
+<li><a href="../../../../posts/2017/07/cobol-conversion-take-1/">Cobol Conversion Take 1</a></li>
+<li><a href="../../../../posts/2017/08/python-print-directory-tree/">Python Print Directory Tree</a></li>
+<li><a href="../../../../posts/2017/09/ssh-pipe-with-python-subprocess/">SSH Pipe with Python's Subprocess</a></li>
+<li><a href="../../../../posts/2017/08/pelican-post-template-controls/">Pelican Post Template Controls</a></li>
+<li><a href="../../../../posts/2017/09/python-check-remote-host-accessibility/">Remote Host Accessibility</a></li>
+</ul>
 </section>
-                <a href="https://plus.google.com/111013214708506107651??rel=author" > </a>
-                	<style>
+<a href="https://plus.google.com/111013214708506107651??rel=author"> </a>
+<style>
 #pcs-comment-form input,
 #pcs-comment-form textarea {
 	width: 100%;
@@ -600,48 +582,41 @@ Assuming that data is a list of tuples (title, values), we</p>
 	width: 100%;
 }
 </style>
-
-	<section id="pcs-comments">
-	<header>
-		<h2>Comments</h2>
-		<hr/>
-	</header>
-		<p>There are no comments yet.</p>
-	<section>
-	<form id="pcs-comment-form" action="#">
-		<legend>Add a Comment</legend>
-		<input type="hidden" id="pcs-comment-form-input-replyto">
-		<fieldset>
-			<label for="pcs-comment-form-input-name">Name</label>
-			<input  id="pcs-comment-form-input-name" type="text" placeholder="Enter your name or nickname" />
-		</fieldset>
-		<fieldset>
-			<label for="pcs-comment-form-input-website">Website</label>
-			<input  id="pcs-comment-form-input-website" type="text" placeholder="Enter your website (optional)" />
-		</fieldset>
-		<fieldset>
-			<label   for="pcs-comment-form-input-textarea">Your Comment</label>
-			<textarea id="pcs-comment-form-input-textarea" rows="5" style="resize:vertical;" placeholder="Your comment"></textarea>
-			<p>You can use the <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> syntax to format your comment.</p>
-			<div style="display: none; " id="pcs-comment-form-display-replyto"></div>
-		</fieldset>
-
-		<button type="submit"
-				id="pcs-comment-form-button-submit"
-				>Post via email</button>
-
-		<!--
+<section id="pcs-comments">
+<header>
+<h2>Comments</h2>
+<hr/>
+</header>
+<p>There are no comments yet.</p>
+<section>
+<form action="#" id="pcs-comment-form">
+<legend>Add a Comment</legend>
+<input id="pcs-comment-form-input-replyto" type="hidden"/>
+<fieldset>
+<label for="pcs-comment-form-input-name">Name</label>
+<input id="pcs-comment-form-input-name" placeholder="Enter your name or nickname" type="text">
+</input></fieldset>
+<fieldset>
+<label for="pcs-comment-form-input-website">Website</label>
+<input id="pcs-comment-form-input-website" placeholder="Enter your website (optional)" type="text">
+</input></fieldset>
+<fieldset>
+<label for="pcs-comment-form-input-textarea">Your Comment</label>
+<textarea id="pcs-comment-form-input-textarea" placeholder="Your comment" rows="5" style="resize:vertical;"></textarea>
+<p>You can use the <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> syntax to format your comment.</p>
+<div id="pcs-comment-form-display-replyto" style="display: none; "></div>
+</fieldset>
+<button id="pcs-comment-form-button-submit" type="submit">Post via email</button>
+<!--
 			<a href="../../../../feeds/comment.astrophysics-scientific-python-programming.atom.xml">
 				Comment Atom Feed
 			</a>
         -->
-	</form>
+</form>
 </section>
-
 </section>
-
-		<script type="text/javascript" src="../../../../theme/js/comments.js"></script>
-	<script type="text/javascript">
+<script src="../../../../theme/js/comments.js" type="text/javascript"></script>
+<script type="text/javascript">
 		$(document).ready(function() {
 			CommentSystem.email_user   = "support";
 			CommentSystem.email_domain = "acrisel.com";
@@ -662,68 +637,58 @@ Assuming that data is a list of tuples (title, values), we</p>
 			);
 		});
 	</script>
-
-
-
-        </article>
-    </section>
-
-        </div>
-        <div class="col-sm-3" id="sidebar">
-            <aside>
+</article>
+</section>
+</div>
+<div class="col-sm-3" id="sidebar">
+<aside>
 <!-- Sidebar -->
 <section class="well well-sm">
-  <ul class="list-group list-group-flush">
-
+<ul class="list-group list-group-flush">
 <!-- Sidebar/Links -->
 <li class="list-group-item">
-  <h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
-  <ul class="list-group" id="links">
-    <li class="list-group-item">
-      <a href="http://www.acrisel.com/" target="_blank">Acrisel</a>
-    </li>
-    <li class="list-group-item">
-      <a href="http://www.github.com/acrisel" target="_blank">Acrisel Open Source</a>
-    </li>
-    <li class="list-group-item">
-      <a href="http://getpelican.com/" target="_blank">Pelican</a>
-    </li>
-    <li class="list-group-item">
-      <a href="http://python.org/" target="_blank">Python.org</a>
-    </li>
-    <li class="list-group-item">
-      <a href="http://jinja.pocoo.org/" target="_blank">Jinja2</a>
-    </li>
-  </ul>
+<h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+<ul class="list-group" id="links">
+<li class="list-group-item">
+<a href="http://www.acrisel.com/" target="_blank">Acrisel</a>
+</li>
+<li class="list-group-item">
+<a href="http://www.github.com/acrisel" target="_blank">Acrisel Open Source</a>
+</li>
+<li class="list-group-item">
+<a href="http://getpelican.com/" target="_blank">Pelican</a>
+</li>
+<li class="list-group-item">
+<a href="http://python.org/" target="_blank">Python.org</a>
+</li>
+<li class="list-group-item">
+<a href="http://jinja.pocoo.org/" target="_blank">Jinja2</a>
+</li>
+</ul>
 </li>
 <!-- End Sidebar/Links -->
-  </ul>
+</ul>
 </section>
-<!-- End Sidebar -->            </aside>
-        </div>
-    </div>
+<!-- End Sidebar --> </aside>
+</div>
+</div>
 </div>
 <footer>
-   <div class="container">
-      <hr>
-      <div class="row">
-         <div class="col-xs-10">&copy; 2017 Acrisel Team
-            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+<div class="container">
+<hr/>
+<div class="row">
+<div class="col-xs-10">© 2017 Acrisel Team
+            · Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
-            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
-         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
-      </div>
-   </div>
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a> </div>
+<div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+</div>
+</div>
 </footer>
 <script src="../../../../theme/js/jquery.min.js"></script>
-
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="../../../../theme/js/bootstrap.min.js"></script>
-
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
 <script src="../../../../theme/js/respond.min.js"></script>
-
-
-
 </body>
 </html>

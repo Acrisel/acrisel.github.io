@@ -1,11 +1,12 @@
 <!DOCTYPE html>
+
 <html lang="en" prefix="og: http://ogp.me/ns# fb: https://www.facebook.com/2008/fbml">
 <head>
-    <title>Python Print Directory Tree - Acrisel's Community Blog</title>
-    <!-- Using the latest rendering mode for IE -->
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Python Print Directory Tree - Acrisel's Community Blog</title>
+<!-- Using the latest rendering mode for IE -->
+<meta content="IE=edge" http-equiv="X-UA-Compatible"/>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <!-- https://developers.google.com/custom-search/docs/structured_data?hl=es&csw=1#microformats -->
 <!--
 <PageMap>
@@ -28,116 +29,99 @@
         <Attribute name="category" value="Python"/>
 </DataObject>
 -->
-    <link href="../../../../favicon.ico" rel="icon">
-
-<link rel="canonical" href="../../../../posts/2017/08/python-print-directory-tree/">
-
-        <meta name="author" content="Acrisel Team" />
-        <meta name="keywords" content="OS,Utilities,Directory,Tree,Linux,Unix,Python" />
-        <meta name="description" content="Mimicking Linux Tree Utility Introduction Many blogs are showing how to print directory tree using Python. Drawing from those examples, we built our version. The primary drivers were: Compatibility with Python3 Print symbolic links Limit depth of tree Example output: 1 2 3 4 5 6 7 8 9 10 …" />
-
-        <meta property="og:site_name" content="Acrisel's Community Blog" />
-        <meta property="og:type" content="article"/>
-        <meta property="og:title" content="Python Print Directory Tree"/>
-        <meta property="og:url" content="../../../../posts/2017/08/python-print-directory-tree/"/>
-        <meta property="og:description" content="Mimicking Linux Tree Utility Introduction Many blogs are showing how to print directory tree using Python. Drawing from those examples, we built our version. The primary drivers were: Compatibility with Python3 Print symbolic links Limit depth of tree Example output: 1 2 3 4 5 6 7 8 9 10 …"/>
-        <meta property="article:published_time" content="2017-08-09" />
-            <meta property="article:section" content="08" />
-            <meta property="article:tag" content="OS" />
-            <meta property="article:tag" content="Utilities" />
-            <meta property="article:tag" content="Directory" />
-            <meta property="article:tag" content="Tree" />
-            <meta property="article:tag" content="Linux" />
-            <meta property="article:tag" content="Unix" />
-            <meta property="article:tag" content="Python" />
-            <meta property="article:author" content="Acrisel Team" />
-
-
-    <!-- Bootstrap -->
-        <link rel="stylesheet" href="../../../../theme/css/bootstrap.cerulean.min.css" type="text/css"/>
-    <link href="../../../../theme/css/font-awesome.min.css" rel="stylesheet">
-
-    <link href="../../../../theme/css/pygments/xcode.css" rel="stylesheet">
-    <link href="../../../../theme/tipuesearch/tipuesearch.css" rel="stylesheet">
-        <link href="../../../../theme/css/html4css1.css" rel="stylesheet">
-    <link rel="stylesheet" href="../../../../theme/css/style.css" type="text/css"/>
-
-
-
-
-
-</head>
+<link href="../../../../favicon.ico" rel="icon"/>
+<link href="../../../../posts/2017/08/python-print-directory-tree/" rel="canonical"/>
+<meta content="Acrisel Team" name="author">
+<meta content="OS,Utilities,Directory,Tree,Linux,Unix,Python" name="keywords">
+<meta content="Mimicking Linux Tree Utility Introduction Many blogs are showing how to print directory tree using Python. Drawing from those examples, we built our version. The primary drivers were: Compatibility with Python3 Print symbolic links Limit depth of tree Example output: 1 2 3 4 5 6 7 8 9 10 …" name="description">
+<meta content="Acrisel's Community Blog" property="og:site_name"/>
+<meta content="article" property="og:type"/>
+<meta content="Python Print Directory Tree" property="og:title"/>
+<meta content="../../../../posts/2017/08/python-print-directory-tree/" property="og:url"/>
+<meta content="Mimicking Linux Tree Utility Introduction Many blogs are showing how to print directory tree using Python. Drawing from those examples, we built our version. The primary drivers were: Compatibility with Python3 Print symbolic links Limit depth of tree Example output: 1 2 3 4 5 6 7 8 9 10 …" property="og:description"/>
+<meta content="2017-08-09" property="article:published_time"/>
+<meta content="08" property="article:section"/>
+<meta content="OS" property="article:tag"/>
+<meta content="Utilities" property="article:tag"/>
+<meta content="Directory" property="article:tag"/>
+<meta content="Tree" property="article:tag"/>
+<meta content="Linux" property="article:tag"/>
+<meta content="Unix" property="article:tag"/>
+<meta content="Python" property="article:tag"/>
+<meta content="Acrisel Team" property="article:author"/>
+<!-- Bootstrap -->
+<link href="../../../../theme/css/bootstrap.cerulean.min.css" rel="stylesheet" type="text/css">
+<link href="../../../../theme/css/font-awesome.min.css" rel="stylesheet"/>
+<link href="../../../../theme/css/pygments/xcode.css" rel="stylesheet"/>
+<link href="../../../../theme/tipuesearch/tipuesearch.css" rel="stylesheet"/>
+<link href="../../../../theme/css/html4css1.css" rel="stylesheet"/>
+<link href="../../../../theme/css/style.css" rel="stylesheet" type="text/css">
+</link></link></meta></meta></meta></head>
 <body>
-
 <div class="navbar navbar-default navbar-fixed-top" role="navigation">
-	<div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a href="../../../../" class="navbar-brand">
+<div class="container">
+<div class="navbar-header">
+<button class="navbar-toggle" data-target=".navbar-ex1-collapse" data-toggle="collapse" type="button">
+<span class="sr-only">Toggle navigation</span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<a class="navbar-brand" href="../../../../">
 Acrisel's Community Blog            </a>
-        </div>
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav">
-                        <li >
-                            <a href="../../../../category/about-us.html">About us</a>
-                        </li>
-                        <li >
-                            <a href="../../../../category/09.html">09</a>
-                        </li>
-                        <li class="active">
-                            <a href="../../../../category/08.html">08</a>
-                        </li>
-                        <li >
-                            <a href="../../../../category/07.html">07</a>
-                        </li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-              <li><span>
-                <form class="navbar-search" action="/search.html">
-                  <input type="text" class="search-query" placeholder="Search" name="q" id="tipue_search_input" required>
-                </form></span>
-              </li>
-            </ul>
-        </div>
-        <!-- /.navbar-collapse -->
-    </div>
+</div>
+<div class="collapse navbar-collapse navbar-ex1-collapse">
+<ul class="nav navbar-nav">
+<li><a href="../../../../pages/welcome-all.html">
+</a></li>
+<li>
+<a href="../../../../category/about-us.html">About us</a>
+</li>
+<li>
+<a href="../../../../category/09.html">09</a>
+</li>
+<li class="active">
+<a href="../../../../category/08.html">08</a>
+</li>
+<li>
+<a href="../../../../category/07.html">07</a>
+</li>
+</ul>
+<ul class="nav navbar-nav navbar-right">
+<li><span>
+<form action="/search.html" class="navbar-search">
+<input class="search-query" id="tipue_search_input" name="q" placeholder="Search" required="" type="text"/>
+</form></span>
+</li>
+</ul>
+</div>
+<!-- /.navbar-collapse -->
+</div>
 </div> <!-- /.navbar -->
 <!-- Banner -->
 <!-- End Banner -->
 <div class="container">
-    <div class="row">
-        <div class="col-sm-9">
-    <section id="content">
-        <article>
-            <header class="page-header">
-                <h1>
-                    <a href="../../../../posts/2017/08/python-print-directory-tree/"
-                       rel="bookmark"
-                       title="Permalink to Python Print Directory Tree">
+<div class="row">
+<div class="col-sm-9">
+<section id="content">
+<article>
+<header class="page-header">
+<h1>
+<a href="../../../../posts/2017/08/python-print-directory-tree/" rel="bookmark" title="Permalink to Python Print Directory Tree">
                         Python Print Directory Tree
                     </a>
-                </h1>
-            </header>
-            <div class="entry-content">
-                <div class="panel">
-                    <div class="panel-body">
+</h1>
+</header>
+<div class="entry-content">
+<div class="panel">
+<div class="panel-body">
 <footer class="post-info">
-    <span class="label label-default">Date</span>
-    <span class="published">
-        <i class="fa fa-calendar"></i><time datetime="2017-08-09T23:01:44-05:00"> Wed 09 August 2017</time>
-    </span>
-
-
-
-
-
+<span class="label label-default">Date</span>
+<span class="published">
+<i class="fa fa-calendar"></i><time datetime="2017-08-09T23:01:44-05:00"> Wed 09 August 2017</time>
+</span>
 <span class="label label-default">Tags</span>
-	<a href="../../../../tag/os.html">OS</a>
+<a href="../../../../tag/os.html">OS</a>
         /
 	<a href="../../../../tag/utilities.html">Utilities</a>
         /
@@ -150,10 +134,9 @@ Acrisel's Community Blog            </a>
 	<a href="../../../../tag/unix.html">Unix</a>
         /
 	<a href="../../../../tag/python.html">Python</a>
-    
-</footer><!-- /.post-info -->                    </div>
-                </div>
-                <div class="section" id="mimicking-linux-tree-utility">
+</footer><!-- /.post-info --> </div>
+</div>
+<div class="section" id="mimicking-linux-tree-utility">
 <h2>Mimicking Linux Tree Utility</h2>
 <div class="section" id="introduction">
 <h3>Introduction</h3>
@@ -234,28 +217,28 @@ Drawing from those examples, we built our version.  The primary drivers were:</p
     <span class="n">result</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
     <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">islink</span><span class="p">(</span><span class="n">path</span><span class="p">):</span>
         <span class="n">realpath</span><span class="o">=</span><span class="n">os</span><span class="o">.</span><span class="n">readlink</span><span class="p">(</span><span class="n">path</span><span class="p">)</span>
-        <span class="n">result</span><span class="o">=</span> <span class="s1">&#39;</span><span class="si">%s</span><span class="s1"> -&gt; </span><span class="si">%s</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">path</span><span class="p">),</span> <span class="n">realpath</span><span class="p">)</span>
+        <span class="n">result</span><span class="o">=</span> <span class="s1">'</span><span class="si">%s</span><span class="s1"> -&gt; </span><span class="si">%s</span><span class="s1">'</span> <span class="o">%</span> <span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">basename</span><span class="p">(</span><span class="n">path</span><span class="p">),</span> <span class="n">realpath</span><span class="p">)</span>
     <span class="k">return</span> <span class="n">result</span>
 
 <span class="k">def</span> <span class="nf">ptree</span><span class="p">(</span><span class="n">startpath</span><span class="p">,</span> <span class="n">depth</span><span class="o">=-</span><span class="mi">1</span><span class="p">):</span>
     <span class="n">prefix</span><span class="o">=</span><span class="mi">0</span>
-    <span class="k">if</span> <span class="n">startpath</span> <span class="o">!=</span> <span class="s1">&#39;/&#39;</span><span class="p">:</span>
-        <span class="k">if</span> <span class="n">startpath</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">&#39;/&#39;</span><span class="p">):</span> <span class="n">startpath</span><span class="o">=</span><span class="n">startpath</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">startpath</span> <span class="o">!=</span> <span class="s1">'/'</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">startpath</span><span class="o">.</span><span class="n">endswith</span><span class="p">(</span><span class="s1">'/'</span><span class="p">):</span> <span class="n">startpath</span><span class="o">=</span><span class="n">startpath</span><span class="p">[:</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
         <span class="n">prefix</span><span class="o">=</span><span class="nb">len</span><span class="p">(</span><span class="n">startpath</span><span class="p">)</span>
     <span class="k">for</span> <span class="n">root</span><span class="p">,</span> <span class="n">dirs</span><span class="p">,</span> <span class="n">files</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">walk</span><span class="p">(</span><span class="n">startpath</span><span class="p">):</span>
         <span class="n">level</span> <span class="o">=</span> <span class="n">root</span><span class="p">[</span><span class="n">prefix</span><span class="p">:]</span><span class="o">.</span><span class="n">count</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">sep</span><span class="p">)</span>
         <span class="k">if</span> <span class="n">depth</span> <span class="o">&gt;-</span><span class="mi">1</span> <span class="ow">and</span> <span class="n">level</span> <span class="o">&gt;</span> <span class="n">depth</span><span class="p">:</span> <span class="k">continue</span>
-        <span class="n">indent</span><span class="o">=</span><span class="n">subindent</span> <span class="o">=</span><span class="s1">&#39;&#39;</span>
+        <span class="n">indent</span><span class="o">=</span><span class="n">subindent</span> <span class="o">=</span><span class="s1">''</span>
         <span class="k">if</span> <span class="n">level</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-            <span class="n">indent</span> <span class="o">=</span> <span class="s1">&#39;|   &#39;</span> <span class="o">*</span> <span class="p">(</span><span class="n">level</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;|-- &#39;</span>
-        <span class="n">subindent</span> <span class="o">=</span> <span class="s1">&#39;|   &#39;</span> <span class="o">*</span> <span class="p">(</span><span class="n">level</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;|-- &#39;</span>
-        <span class="k">print</span><span class="p">(</span><span class="s1">&#39;{}{}/&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">indent</span><span class="p">,</span> <span class="n">realname</span><span class="p">(</span><span class="n">root</span><span class="p">)))</span>
+            <span class="n">indent</span> <span class="o">=</span> <span class="s1">'|   '</span> <span class="o">*</span> <span class="p">(</span><span class="n">level</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'|-- '</span>
+        <span class="n">subindent</span> <span class="o">=</span> <span class="s1">'|   '</span> <span class="o">*</span> <span class="p">(</span><span class="n">level</span><span class="p">)</span> <span class="o">+</span> <span class="s1">'|-- '</span>
+        <span class="k">print</span><span class="p">(</span><span class="s1">'{}{}/'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">indent</span><span class="p">,</span> <span class="n">realname</span><span class="p">(</span><span class="n">root</span><span class="p">)))</span>
         <span class="c1"># print dir only if symbolic link; otherwise, will be printed as root</span>
         <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">dirs</span><span class="p">:</span>
             <span class="k">if</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">islink</span><span class="p">(</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">root</span><span class="p">,</span> <span class="n">d</span><span class="p">)):</span>
-                <span class="k">print</span><span class="p">(</span><span class="s1">&#39;{}{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">subindent</span><span class="p">,</span> <span class="n">realname</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="n">root</span><span class="p">)))</span>
+                <span class="k">print</span><span class="p">(</span><span class="s1">'{}{}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">subindent</span><span class="p">,</span> <span class="n">realname</span><span class="p">(</span><span class="n">d</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="n">root</span><span class="p">)))</span>
         <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">files</span><span class="p">:</span>
-            <span class="k">print</span><span class="p">(</span><span class="s1">&#39;{}{}&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">subindent</span><span class="p">,</span> <span class="n">realname</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="n">root</span><span class="p">)))</span>
+            <span class="k">print</span><span class="p">(</span><span class="s1">'{}{}'</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">subindent</span><span class="p">,</span> <span class="n">realname</span><span class="p">(</span><span class="n">f</span><span class="p">,</span> <span class="n">root</span><span class="o">=</span><span class="n">root</span><span class="p">)))</span>
 </pre></div>
 </td></tr></table></blockquote>
 <p>I will refrain from going over the code, otherwise self-explanatory,  except mentioning the following:</p>
@@ -280,14 +263,14 @@ Drawing from those examples, we built our version.  The primary drivers were:</p
  8
  9
 10
-11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">&#39;__main__&#39;</span><span class="p">:</span>
+11</pre></div></td><td class="code"><div class="highlight"><pre><span></span><span class="k">if</span> <span class="vm">__name__</span> <span class="o">==</span> <span class="s1">'__main__'</span><span class="p">:</span>
     <span class="kn">import</span> <span class="nn">argparse</span>
 
-    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">&#39;prints directory tree.&#39;</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;--level&#39;</span><span class="p">,</span> <span class="s1">&#39;-l&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">&#39;depth&#39;</span><span class="p">,</span> <span class="n">default</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;depth of tree to print&#39;</span><span class="p">)</span>
-    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">&#39;startpath&#39;</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
-                        <span class="n">help</span><span class="o">=</span><span class="s1">&#39;path to stating directory&#39;</span><span class="p">)</span>
+    <span class="n">parser</span> <span class="o">=</span> <span class="n">argparse</span><span class="o">.</span><span class="n">ArgumentParser</span><span class="p">(</span><span class="n">description</span><span class="o">=</span><span class="s1">'prints directory tree.'</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">'--level'</span><span class="p">,</span> <span class="s1">'-l'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">int</span><span class="p">,</span> <span class="n">dest</span><span class="o">=</span><span class="s1">'depth'</span><span class="p">,</span> <span class="n">default</span><span class="o">=-</span><span class="mi">1</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">'depth of tree to print'</span><span class="p">)</span>
+    <span class="n">parser</span><span class="o">.</span><span class="n">add_argument</span><span class="p">(</span><span class="s1">'startpath'</span><span class="p">,</span> <span class="nb">type</span><span class="o">=</span><span class="nb">str</span><span class="p">,</span>
+                        <span class="n">help</span><span class="o">=</span><span class="s1">'path to stating directory'</span><span class="p">)</span>
     <span class="n">args</span> <span class="o">=</span> <span class="n">parser</span><span class="o">.</span><span class="n">parse_args</span><span class="p">()</span>
     <span class="n">argsd</span><span class="o">=</span><span class="nb">vars</span><span class="p">(</span><span class="n">args</span><span class="p">)</span>
     <span class="n">ptree</span><span class="p">(</span><span class="o">**</span><span class="n">argsd</span><span class="p">)</span>
@@ -298,19 +281,18 @@ Drawing from those examples, we built our version.  The primary drivers were:</p
 <h3>References</h3>
 <p>ptree.py can be download from <a class="reference external" href="https://github.com/Acrisel/references/edit/master/osutils/ptree.py">github</a></p>
 <div class="line-block">
-<div class="line">Give us your feedback: <a class="reference external" href="mailto:support&#64;acrisel.com">support&#64;acrisel.com</a></div>
+<div class="line">Give us your feedback: <a class="reference external" href="mailto:support@acrisel.com">support@acrisel.com</a></div>
 <div class="line">Visit us at our <a class="reference external" href="http://www.acrisel.com">home</a></div>
 </div>
 </div>
 </div>
-
-            </div>
+</div>
 <section class="well" id="post-share-links">
-    <h4>Share Post:</h4>
-    <p id="post-share-links">
-        <a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//acrisel.github.io/posts/2017/08/python-print-directory-tree/&title=Python%20Print%20Directory%20Tree&summary=Mimicking%20Linux%20Tree%20Utility%0A%0AIntroduction%0AMany%20blogs%20are%20showing%20how%20to%20print%20directory%20tree%20using%20Python.%0ADrawing%20from%20those%20examples%2C%20we%20built%20our%20version.%20%20The%20primary%20drivers%20were%3A%0A%0A%0ACompatibility%20with%20Python3%0APrint%20symbolic%20links%0ALimit%20depth%20of%20tree%0A%0AExample%20output%3A%0A%201%0A%202%0A%203%0A%204%0A%205%0A%206%0A%207%0A%208%0A%209%0A10%20%E2%80%A6&source=https%3A//acrisel.github.io/posts/2017/08/python-print-directory-tree/" target="_blank" title="Share on Linkedin">Linkedin</a>
+<h4>Share Post:</h4>
+<p id="post-share-links">
+<a href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3A//acrisel.github.io/posts/2017/08/python-print-directory-tree/&amp;title=Python%20Print%20Directory%20Tree&amp;summary=Mimicking%20Linux%20Tree%20Utility%0A%0AIntroduction%0AMany%20blogs%20are%20showing%20how%20to%20print%20directory%20tree%20using%20Python.%0ADrawing%20from%20those%20examples%2C%20we%20built%20our%20version.%20%20The%20primary%20drivers%20were%3A%0A%0A%0ACompatibility%20with%20Python3%0APrint%20symbolic%20links%0ALimit%20depth%20of%20tree%0A%0AExample%20output%3A%0A%201%0A%202%0A%203%0A%204%0A%205%0A%206%0A%207%0A%208%0A%209%0A10%20%E2%80%A6&amp;source=https%3A//acrisel.github.io/posts/2017/08/python-print-directory-tree/" target="_blank" title="Share on Linkedin">Linkedin</a>
         ❄
-        <a href="https://sharetodiaspora.github.io/?title=Python%20Print%20Directory%20Tree&url=https%3A//acrisel.github.io/posts/2017/08/python-print-directory-tree/" target="_blank" title="Share on Diaspora">Diaspora*</a>
+        <a href="https://sharetodiaspora.github.io/?title=Python%20Print%20Directory%20Tree&amp;url=https%3A//acrisel.github.io/posts/2017/08/python-print-directory-tree/" target="_blank" title="Share on Diaspora">Diaspora*</a>
         ❄
         <a href="http://twitter.com/home?status=b'Python%20Print%20Directory%20Tree%20https%3A//acrisel.github.io/posts/2017/08/python-print-directory-tree/'" target="_blank" title="Share on Twitter">Twitter</a>
         ❄
@@ -319,8 +301,8 @@ Drawing from those examples, we built our version.  The primary drivers were:</p
         <a href="https://plus.google.com/share?url=https%3A//acrisel.github.io/posts/2017/08/python-print-directory-tree/" target="_blank" title="Share on Google Plus">Google+</a>
         ❄
         <a href="mailto:?subject=Python%20Print%20Directory%20Tree&amp;body=https%3A//acrisel.github.io/posts/2017/08/python-print-directory-tree/" target="_blank" title="Share via Email">Email</a>
-    </p>
-    <!--
+</p>
+<!--
     <ul>
     <li><a href="https://www.linkedin.com/shareArticle?mini=true&url=https%3A//acrisel.github.io/posts/2017/08/python-print-directory-tree/&title=Python%20Print%20Directory%20Tree&summary=Mimicking%20Linux%20Tree%20Utility%0A%0AIntroduction%0AMany%20blogs%20are%20showing%20how%20to%20print%20directory%20tree%20using%20Python.%0ADrawing%20from%20those%20examples%2C%20we%20built%20our%20version.%20%20The%20primary%20drivers%20were%3A%0A%0A%0ACompatibility%20with%20Python3%0APrint%20symbolic%20links%0ALimit%20depth%20of%20tree%0A%0AExample%20output%3A%0A%201%0A%202%0A%203%0A%204%0A%205%0A%206%0A%207%0A%208%0A%209%0A10%20%E2%80%A6&source=https%3A//acrisel.github.io/posts/2017/08/python-print-directory-tree/" target="_blank" title="Share on Diaspora">linkedin*</a></li>
     <li><a href="https://sharetodiaspora.github.io/?title=Python%20Print%20Directory%20Tree&url=https%3A//acrisel.github.io/posts/2017/08/python-print-directory-tree/" target="_blank" title="Share on Diaspora">Diaspora*</a></li>
@@ -331,19 +313,19 @@ Drawing from those examples, we built our version.  The primary drivers were:</p
     </ul
     -->
 </section>
-            <!-- /.entry-content -->
+<!-- /.entry-content -->
 <section class="well" id="related-posts">
-    <h4>Other Posts:</h4>
-    <ul>
-        <li><a href="../../../../posts/2017/08/astrophysics-scientific-python-programming/">Astrophysics Research Python Programming</a></li>
-        <li><a href="../../../../posts/2017/09/python-check-remote-host-accessibility/">Remote Host Accessibility</a></li>
-        <li><a href="../../../../posts/2017/08/ssh-made-easy-using-python/">SSH Made Easy Using Python Subprocess</a></li>
-        <li><a href="../../../../posts/2017/09/python-lex-yacc-play/">Python Lex and Yacc with PLY</a></li>
-        <li><a href="../../../../posts/2017/09/ssh-pipe-with-python-subprocess/">SSH Pipe with Python's Subprocess</a></li>
-    </ul>
+<h4>Other Posts:</h4>
+<ul>
+<li><a href="../../../../posts/2017/09/ssh-pipe-with-python-subprocess/">SSH Pipe with Python's Subprocess</a></li>
+<li><a href="../../../../posts/2017/08/pelican-post-template-controls/">Pelican Post Template Controls</a></li>
+<li><a href="../../../../posts/2017/09/python-check-remote-host-accessibility/">Remote Host Accessibility</a></li>
+<li><a href="../../../../posts/2017/08/astrophysics-scientific-python-programming/">Astrophysics Research Python Programming</a></li>
+<li><a href="../../../../posts/2017/07/cobol-conversion-take-1/">Cobol Conversion Take 1</a></li>
+</ul>
 </section>
-                <a href="https://plus.google.com/111013214708506107651??rel=author" > </a>
-                	<style>
+<a href="https://plus.google.com/111013214708506107651??rel=author"> </a>
+<style>
 #pcs-comment-form input,
 #pcs-comment-form textarea {
 	width: 100%;
@@ -369,48 +351,41 @@ Drawing from those examples, we built our version.  The primary drivers were:</p
 	width: 100%;
 }
 </style>
-
-	<section id="pcs-comments">
-	<header>
-		<h2>Comments</h2>
-		<hr/>
-	</header>
-		<p>There are no comments yet.</p>
-	<section>
-	<form id="pcs-comment-form" action="#">
-		<legend>Add a Comment</legend>
-		<input type="hidden" id="pcs-comment-form-input-replyto">
-		<fieldset>
-			<label for="pcs-comment-form-input-name">Name</label>
-			<input  id="pcs-comment-form-input-name" type="text" placeholder="Enter your name or nickname" />
-		</fieldset>
-		<fieldset>
-			<label for="pcs-comment-form-input-website">Website</label>
-			<input  id="pcs-comment-form-input-website" type="text" placeholder="Enter your website (optional)" />
-		</fieldset>
-		<fieldset>
-			<label   for="pcs-comment-form-input-textarea">Your Comment</label>
-			<textarea id="pcs-comment-form-input-textarea" rows="5" style="resize:vertical;" placeholder="Your comment"></textarea>
-			<p>You can use the <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> syntax to format your comment.</p>
-			<div style="display: none; " id="pcs-comment-form-display-replyto"></div>
-		</fieldset>
-
-		<button type="submit"
-				id="pcs-comment-form-button-submit"
-				>Post via email</button>
-
-		<!--
+<section id="pcs-comments">
+<header>
+<h2>Comments</h2>
+<hr/>
+</header>
+<p>There are no comments yet.</p>
+<section>
+<form action="#" id="pcs-comment-form">
+<legend>Add a Comment</legend>
+<input id="pcs-comment-form-input-replyto" type="hidden"/>
+<fieldset>
+<label for="pcs-comment-form-input-name">Name</label>
+<input id="pcs-comment-form-input-name" placeholder="Enter your name or nickname" type="text">
+</input></fieldset>
+<fieldset>
+<label for="pcs-comment-form-input-website">Website</label>
+<input id="pcs-comment-form-input-website" placeholder="Enter your website (optional)" type="text">
+</input></fieldset>
+<fieldset>
+<label for="pcs-comment-form-input-textarea">Your Comment</label>
+<textarea id="pcs-comment-form-input-textarea" placeholder="Your comment" rows="5" style="resize:vertical;"></textarea>
+<p>You can use the <a href="https://en.wikipedia.org/wiki/Markdown">Markdown</a> syntax to format your comment.</p>
+<div id="pcs-comment-form-display-replyto" style="display: none; "></div>
+</fieldset>
+<button id="pcs-comment-form-button-submit" type="submit">Post via email</button>
+<!--
 			<a href="../../../../feeds/comment.python-print-directory-tree.atom.xml">
 				Comment Atom Feed
 			</a>
         -->
-	</form>
+</form>
 </section>
-
 </section>
-
-		<script type="text/javascript" src="../../../../theme/js/comments.js"></script>
-	<script type="text/javascript">
+<script src="../../../../theme/js/comments.js" type="text/javascript"></script>
+<script type="text/javascript">
 		$(document).ready(function() {
 			CommentSystem.email_user   = "support";
 			CommentSystem.email_domain = "acrisel.com";
@@ -431,68 +406,58 @@ Drawing from those examples, we built our version.  The primary drivers were:</p
 			);
 		});
 	</script>
-
-
-
-        </article>
-    </section>
-
-        </div>
-        <div class="col-sm-3" id="sidebar">
-            <aside>
+</article>
+</section>
+</div>
+<div class="col-sm-3" id="sidebar">
+<aside>
 <!-- Sidebar -->
 <section class="well well-sm">
-  <ul class="list-group list-group-flush">
-
+<ul class="list-group list-group-flush">
 <!-- Sidebar/Links -->
 <li class="list-group-item">
-  <h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
-  <ul class="list-group" id="links">
-    <li class="list-group-item">
-      <a href="http://www.acrisel.com/" target="_blank">Acrisel</a>
-    </li>
-    <li class="list-group-item">
-      <a href="http://www.github.com/acrisel" target="_blank">Acrisel Open Source</a>
-    </li>
-    <li class="list-group-item">
-      <a href="http://getpelican.com/" target="_blank">Pelican</a>
-    </li>
-    <li class="list-group-item">
-      <a href="http://python.org/" target="_blank">Python.org</a>
-    </li>
-    <li class="list-group-item">
-      <a href="http://jinja.pocoo.org/" target="_blank">Jinja2</a>
-    </li>
-  </ul>
+<h4><i class="fa fa-external-link-square fa-lg"></i><span class="icon-label">Links</span></h4>
+<ul class="list-group" id="links">
+<li class="list-group-item">
+<a href="http://www.acrisel.com/" target="_blank">Acrisel</a>
+</li>
+<li class="list-group-item">
+<a href="http://www.github.com/acrisel" target="_blank">Acrisel Open Source</a>
+</li>
+<li class="list-group-item">
+<a href="http://getpelican.com/" target="_blank">Pelican</a>
+</li>
+<li class="list-group-item">
+<a href="http://python.org/" target="_blank">Python.org</a>
+</li>
+<li class="list-group-item">
+<a href="http://jinja.pocoo.org/" target="_blank">Jinja2</a>
+</li>
+</ul>
 </li>
 <!-- End Sidebar/Links -->
-  </ul>
+</ul>
 </section>
-<!-- End Sidebar -->            </aside>
-        </div>
-    </div>
+<!-- End Sidebar --> </aside>
+</div>
+</div>
 </div>
 <footer>
-   <div class="container">
-      <hr>
-      <div class="row">
-         <div class="col-xs-10">&copy; 2017 Acrisel Team
-            &middot; Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
+<div class="container">
+<hr/>
+<div class="row">
+<div class="col-xs-10">© 2017 Acrisel Team
+            · Powered by <a href="https://github.com/getpelican/pelican-themes/tree/master/pelican-bootstrap3" target="_blank">pelican-bootstrap3</a>,
             <a href="http://docs.getpelican.com/" target="_blank">Pelican</a>,
-            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a>         </div>
-         <div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
-      </div>
-   </div>
+            <a href="http://getbootstrap.com" target="_blank">Bootstrap</a> </div>
+<div class="col-xs-2"><p class="pull-right"><i class="fa fa-arrow-up"></i> <a href="#">Back to top</a></p></div>
+</div>
+</div>
 </footer>
 <script src="../../../../theme/js/jquery.min.js"></script>
-
 <!-- Include all compiled plugins (below), or include individual files as needed -->
 <script src="../../../../theme/js/bootstrap.min.js"></script>
-
 <!-- Enable responsive features in IE8 with Respond.js (https://github.com/scottjehl/Respond) -->
 <script src="../../../../theme/js/respond.min.js"></script>
-
-
-
 </body>
 </html>
