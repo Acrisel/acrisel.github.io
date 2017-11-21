@@ -192,14 +192,18 @@ Acrisel's Community Blog            </a>
 <p>Programmers will need to be able to work on multiple versions in their sandbox. Often, they will need to retrofit fixes done on one branch into another. <em>git merge</em> cannot be used due to the potential need to selectively apply such changes.</p>
 <p>A developer can create multiple footprints of the same remote repository into his environment and then <em>git checkout</em> different versions.</p>
 <p>On any particular change, programmers will want to work in isolation from the actual branch and then merge back their changes into the version. By this, if for some reason they want to discard work, they can do so by merely removing their branch.</p>
-<p>A developer who works on a version branch (<em>version-name</em>) would follow this procedure:
-1. <em>git pull</em> <em>version-name</em>
-2. Create a local branch reflecting that branch, <em>v-work</em>.
-3. Apply changes to <em>v-work</em> (add and commit).</p>
-<p>Meantime, other developers may apply changes. Therefore, when ready to push changes:
-4. <em>git checkout</em> <em>version-name</em> and <em>git pull</em> changes.
-5. <em>git checkout</em> <em>v-work</em> and <em>git merge</em> with <em>version-name</em> (use <em>mergetool</em> on conflicts.)
-6. <em>git checkout</em> <em>version-name</em> and <em>git merge --squash</em></p>
+<p>A developer who works on a version branch (<em>version-name</em>) would follow this procedure:</p>
+<ol class="arabic simple">
+<li><em>git pull</em> <em>version-name</em></li>
+<li>Create a local branch reflecting that branch, <em>v-work</em>.</li>
+<li>Apply changes to <em>v-work</em> (add and commit).</li>
+</ol>
+<p>Meantime, other developers may apply changes. Therefore, when ready to push changes:</p>
+<ol class="arabic simple" start="4">
+<li><em>git checkout</em> <em>version-name</em> and <em>git pull</em> changes.</li>
+<li><em>git checkout</em> <em>v-work</em> and <em>git merge</em> with <em>version-name</em> (use <em>mergetool</em> on conflicts.)</li>
+<li><em>git checkout</em> <em>version-name</em> and <em>git merge --squash</em></li>
+</ol>
 </div>
 <div class="section" id="conclusion">
 <h3>Conclusion</h3>
